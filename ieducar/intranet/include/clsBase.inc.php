@@ -663,6 +663,10 @@ class clsBase extends clsConfig
     return $retorno;
   }
 
+	/**
+	 * Inicializa a base da interface funcionando como um construtor
+	 * @method Formular
+	 */
   function Formular()
   {
     return FALSE;

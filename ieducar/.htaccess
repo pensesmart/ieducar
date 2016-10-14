@@ -97,4 +97,4 @@ DirectoryIndex index.php index.html index.htm
 # configuration/ieducar.ini será carregada pelo arquivo includes/bootstrap.php
 
 # comentado definição (uma vez que o ambiente padrão já é production), permitindo assim definir o ambiente via virtual host.
-#SetEnv CORE_EXT_CONFIGURATION_ENV production
+SetEnv CORE_EXT_CONFIGURATION_ENV development
