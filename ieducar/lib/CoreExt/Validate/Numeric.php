@@ -1,116 +1,122 @@
 <?php
 
 /**
- * i-Educar - Sistema de gestão escolar
+ * i-Educar - Sistema de gestï¿½o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de Itajaí
+ * Copyright (C) 2006  Prefeitura Municipal de Itajaï¿½
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo
- * sob os termos da Licença Pública Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a versão 2 da Licença, como (a seu critério)
- * qualquer versão posterior.
+ * Este programa ï¿½ software livre; vocï¿½ pode redistribuï¿½-lo e/ou modificï¿½-lo
+ * sob os termos da Licenï¿½a Pï¿½blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a versï¿½o 2 da Licenï¿½a, como (a seu critï¿½rio)
+ * qualquer versï¿½o posterior.
  *
- * Este programa é distribuí­do na expectativa de que seja útil, porém, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implí­cita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral
+ * Este programa ï¿½ distribuï¿½ï¿½do na expectativa de que seja ï¿½til, porï¿½m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia implï¿½ï¿½cita de COMERCIABILIDADE OU
+ * ADEQUAï¿½ï¿½O A UMA FINALIDADE ESPECï¿½FICA. Consulte a Licenï¿½a Pï¿½blica Geral
  * do GNU para mais detalhes.
  *
- * Você deve ter recebido uma cópia da Licença Pública Geral do GNU junto
- * com este programa; se não, escreva para a Free Software Foundation, Inc., no
- * endereço 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Vocï¿½ deve ter recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral do GNU junto
+ * com este programa; se nï¿½o, escreva para a Free Software Foundation, Inc., no
+ * endereï¿½o 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Validate
- * @since     Arquivo disponível desde a versão 1.1.0
+ * @since     Arquivo disponï¿½vel desde a versï¿½o 1.1.0
  * @version   $Id$
  */
 
-require_once 'CoreExt/Validate/Abstract.php';
-require_once 'CoreExt/Locale.php';
+namespace CoreExt\Validate;
+
+use CoreExt\Validate\CoreExt_Validate_Abstract;
+use CoreExt\Locale;
+use Exception;
 
 /**
  * CoreExt_Validate_Numeric class.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Validate
- * @since     Classe disponível desde a versão 1.1.0
+ * @since     Classe disponï¿½vel desde a versï¿½o 1.1.0
  * @version   @@package_version@@
  */
 class CoreExt_Validate_Numeric extends CoreExt_Validate_Abstract
 {
-  /**
-   * @see CoreExt_Validate_Abstract#_getDefaultOptions()
-   */
-  protected function _getDefaultOptions()
-  {
-    return array(
-      'min'       => NULL,
-      'max'       => NULL,
-      'trim'      => FALSE,
-      'invalid'   => 'O valor "@value" não é um tipo numérico',
-      'min_error' => '"@value" é menor que o valor mínimo permitido (@min)',
-      'max_error' => '"@value" é maior que o valor máximo permitido (@max)',
-    );
-  }
+	/**
+	* @see CoreExt_Validate_Abstract#_getDefaultOptions()
+	*/
+	protected function _getDefaultOptions()
+	{
+		return array(
+			'min'       => NULL,
+			'max'       => NULL,
+			'trim'      => FALSE,
+			'invalid'   => 'O valor "@value" nï¿½o ï¿½ um tipo numï¿½rico',
+			'min_error' => '"@value" ï¿½ menor que o valor mï¿½nimo permitido (@min)',
+			'max_error' => '"@value" ï¿½ maior que o valor mï¿½ximo permitido (@max)',
+		);
+	}
 
-  /**
-   * @see CoreExt_DataMapper#_getFindStatment($pkey) Sobre a conversão com floatval()
-   * @see CoreExt_Validate_Abstract#_validate($value)
-   */
-  protected function _validate($value)
-  {
-    if (FALSE === $this->getOption('required') && is_null($value)) {
-      return TRUE;
-    }
+	/**
+	* @see CoreExt_DataMapper#_getFindStatment($pkey) Sobre a conversï¿½o com floatval()
+	* @see CoreExt_Validate_Abstract#_validate($value)
+	*/
+	protected function _validate($value)
+	{
+		if (FALSE === $this->getOption('required') && is_null($value))
+		{
+			return TRUE;
+		}
 
-    if (!is_numeric($value)) {
-      throw new Exception($this->_getErrorMessage('invalid', array('@value' => $value)));
-    }
+		if (!is_numeric($value))
+		{
+			throw new Exception($this->_getErrorMessage('invalid', array('@value' => $value)));
+		}
 
-    // Converte usando floatval para evitar problemas com range do tipo int.
-    $value = floatval($value);
+		// Converte usando floatval para evitar problemas com range do tipo int.
+		$value = floatval($value);
 
-    if ($this->_hasOption('min') &&
-      $value < floatval($this->getOption('min'))) {
-      throw new Exception($this->_getErrorMessage('min_error', array(
-        '@value' => $value, '@min' => $this->getOption('min')
-      )));
-    }
+		if ($this->_hasOption('min') && $value < floatval($this->getOption('min')))
+		{
+			throw new Exception($this->_getErrorMessage('min_error', array(
+				'@value' => $value, '@min' => $this->getOption('min')
+			)));
+		}
 
-    if ($this->_hasOption('max') &&
-      $value > floatval($this->getOption('max'))) {
-      throw new Exception($this->_getErrorMessage('max_error', array(
-        '@value' => $value, '@max' => $this->getOption('max')
-      )));
-    }
+		if ($this->_hasOption('max') && $value > floatval($this->getOption('max')))
+		{
+			throw new Exception($this->_getErrorMessage('max_error', array(
+				'@value' => $value, '@max' => $this->getOption('max')
+			)));
+		}
 
-    return TRUE;
-  }
+		return TRUE;
+	}
 
-  /**
-   * Realiza um sanitização de acordo com o locale, para permitir que valores
-   * flutuantes ou números de precisão arbitrária utilizem a pontuação sem
-   * localização.
-   *
-   * @see CoreExt_Validate_Abstract#_sanitize($value)
-   */
-  protected function _sanitize($value)
-  {
-    $locale = CoreExt_Locale::getInstance();
-    $decimalPoint = $locale->getCultureInfo('decimal_point');
+	/**
+	* Realiza um sanitizaï¿½ï¿½o de acordo com o locale, para permitir que valores
+	* flutuantes ou nï¿½meros de precisï¿½o arbitrï¿½ria utilizem a pontuaï¿½ï¿½o sem
+	* localizaï¿½ï¿½o.
+	*
+	* @see CoreExt_Validate_Abstract#_sanitize($value)
+	*/
+	protected function _sanitize($value)
+	{
+		$locale = Locale::getInstance();
+		$decimalPoint = $locale->getCultureInfo('decimal_point');
 
-    // Verifica se possui o ponto decimal do locale e substitui para o
-    // padrão do locale en_US (ponto ".")
-    if (FALSE !== strstr($value, $decimalPoint)) {
-      $value = strtr($value, $decimalPoint, '.');
-      $value = floatval($value);
-    }
+		// Verifica se possui o ponto decimal do locale e substitui para o
+		// padrï¿½o do locale en_US (ponto ".")
+		if (FALSE !== strstr($value, $decimalPoint))
+		{
+			$value = strtr($value, $decimalPoint, '.');
+			$value = floatval($value);
+		}
 
-    return parent::_sanitize($value);
-  }
+		return parent::_sanitize($value);
+	}
 }

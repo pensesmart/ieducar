@@ -89,6 +89,37 @@ DirectoryIndex index.php index.html index.htm
   Deny from all
 </IfModule>
 
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+
+	# Block out any script trying to base64_encode data within the URL.
+	RewriteCond %{QUERY_STRING} base64_encode[^(]*\([^)]*\) [OR]
+	# Block out any script that includes a <script> tag in URL.
+	RewriteCond %{QUERY_STRING} (<|%3C)([^s]*s)+cript.*(>|%3E) [NC,OR]
+	# Block out any script trying to set a PHP GLOBALS variable via URL.
+	RewriteCond %{QUERY_STRING} GLOBALS(=|\[|\%[0-9A-Z]{0,2}) [OR]
+	# Block out any script trying to modify a _REQUEST variable via URL.
+	RewriteCond %{QUERY_STRING} _REQUEST(=|\[|\%[0-9A-Z]{0,2})
+	# Return 403 Forbidden header and show the content of the root homepage
+	RewriteRule .* index.php [F]
+
+	## Begin - Index
+	# If the requested path and file is not /index.php and the request
+	# has not already been internally rewritten to the index.php script
+	RewriteCond %{REQUEST_URI} !^/index\.php
+	# and the requested path and file doesn't directly match a physical file
+	RewriteCond %{REQUEST_FILENAME} !-f
+	# internally rewrite the request to the index.php script
+	RewriteRule .* index.php [L]
+	## End - Index
+
+	## Begin - Security
+	# Block all direct access for these folders
+	RewriteRule ^(cache|includes|src)/(.*) error [L]
+	# Block access to specific file types for these folders
+	RewriteRule ^(pages|themes|vendor)/(.*)\.(txt|md|html|yaml|php|twig|sh|bat)$ error [L]
+	## End - Security
+</IfModule>
 
 # Configuração desabilitada (uma vez que o ambiente padrão já é production), permitindo definir o ambiente via virtual host.
 

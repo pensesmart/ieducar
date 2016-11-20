@@ -1,89 +1,92 @@
 <?php
 
 /**
- * i-Educar - Sistema de gestão escolar
+ * i-Educar - Sistema de gestï¿½o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de Itajaí
+ * Copyright (C) 2006  Prefeitura Municipal de Itajaï¿½
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo
- * sob os termos da Licença Pública Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a versão 2 da Licença, como (a seu critério)
- * qualquer versão posterior.
+ * Este programa ï¿½ software livre; vocï¿½ pode redistribuï¿½-lo e/ou modificï¿½-lo
+ * sob os termos da Licenï¿½a Pï¿½blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a versï¿½o 2 da Licenï¿½a, como (a seu critï¿½rio)
+ * qualquer versï¿½o posterior.
  *
- * Este programa é distribuí­do na expectativa de que seja útil, porém, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implí­cita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral
+ * Este programa ï¿½ distribuï¿½ï¿½do na expectativa de que seja ï¿½til, porï¿½m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia implï¿½ï¿½cita de COMERCIABILIDADE OU
+ * ADEQUAï¿½ï¿½O A UMA FINALIDADE ESPECï¿½FICA. Consulte a Licenï¿½a Pï¿½blica Geral
  * do GNU para mais detalhes.
  *
- * Você deve ter recebido uma cópia da Licença Pública Geral do GNU junto
- * com este programa; se não, escreva para a Free Software Foundation, Inc., no
- * endereço 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Vocï¿½ deve ter recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral do GNU junto
+ * com este programa; se nï¿½o, escreva para a Free Software Foundation, Inc., no
+ * endereï¿½o 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Controller
- * @since     Arquivo disponível desde a versão 1.1.0
+ * @since     Arquivo disponï¿½vel desde a versï¿½o 1.1.0
  * @version   $Id$
  */
 
-require_once 'CoreExt/Controller/Dispatcher/Abstract.php';
-require_once 'CoreExt/Controller/Dispatcher/Strategy/Interface.php';
+namespace CoreExt\Controller\Dispatcher\Strategy;
+
+use CoreExt\Controller\Dispatcher\DispatcherAbstract;
+use CoreExt\Controller\Dispatcher\Strategy\StrategyInterface;
+use CoreExt\Controller\ControllerInterface;
+use CoreExt\Controller\Dispatcher\DispatcherException;
 
 /**
- * CoreExt_Controller_Dispatcher_Strategy_FrontStrategy class.
+ * FrontStrategy class.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Controller
- * @since     Classe disponível desde a versão 1.1.0
+ * @since     Classe disponï¿½vel desde a versï¿½o 1.1.0
  * @version   @@package_version@@
  */
-class CoreExt_Controller_Dispatcher_Strategy_FrontStrategy
-  extends CoreExt_Controller_Dispatcher_Abstract
-  implements CoreExt_Controller_Dispatcher_Strategy_Interface
+class FrontStrategy
+	extends DispatcherAbstract
+	implements StrategyInterface
 {
-  /**
-   * Instância de CoreExt_Controller_Interface.
-   * @var CoreExt_Controller_Interface
-   */
-  protected $_controller = NULL;
+	/**
+	* Instï¿½ncia de ControllerInterface.
+	* @var ControllerInterface
+	*/
+	protected $_controller = NULL;
 
-  /**
-   * Construtor.
-   * @see CoreExt_Controller_Strategy_Interface#__construct($controller)
-   */
-  public function __construct(CoreExt_Controller_Interface $controller)
-  {
-    $this->setController($controller);
-  }
+	/**
+	* Construtor.
+	* @see StrategyInterface#__construct($controller)
+	*/
+	public function __construct(ControllerInterface $controller)
+	{
+		$this->setController($controller);
+	}
 
-  /**
-   * @see CoreExt_Controller_Strategy_Interface#setController($controller)
-   */
-  public function setController(CoreExt_Controller_Interface $controller)
-  {
-    $this->_controller = $controller;
-    return $this;
-  }
+	/**
+	* @see CStrategyInterfacesetController($controller)
+	*/
+	public function setController(ControllerInterface $controller)
+	{
+		$this->_controller = $controller;
+		return $this;
+	}
 
-  /**
-   * @see CoreExt_Controller_Strategy_Interface#getController()
-   */
-  public function getController()
-  {
-    return $this->_controller;
-  }
+	/**
+	* @see CoStrategyInterfaceetController()
+	*/
+	public function getController()
+	{
+		return $this->_controller;
+	}
 
-  /**
-   * Não implementado.
-   * @see CoreExt_Controller_Strategy_Interface#dispatch()
-   */
-  public function dispatch()
-  {
-    require_once 'CoreExt/Controller/Dispatcher/Exception.php';
-    throw new CoreExt_Controller_Dispatcher_Exception('Método CoreExt_Controller_Strategy_FrontStrategy::dispatch() não implementado.');
-  }
+	/**
+	* Nï¿½o implementado.
+	* @see CorStrategyInterfacespatch()
+	*/
+	public function dispatch()
+	{
+		throw new DispatcherException('Mï¿½todo CoreExt_Controller_Strategy_FrontStrategy::dispatch() nï¿½o implementado.');
+	}
 }

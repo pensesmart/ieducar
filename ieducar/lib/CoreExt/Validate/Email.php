@@ -28,7 +28,10 @@
  * @version   $Id$
  */
 
-require_once 'CoreExt/Validate/Abstract.php';
+namespace CoreExt\Validate;
+
+use CoreExt\Validate\CoreExt_Validate_Abstract;
+use Exception;
 
 /**
  * CoreExt_Validate_Numeric class.
@@ -42,32 +45,33 @@ require_once 'CoreExt/Validate/Abstract.php';
  */
 class CoreExt_Validate_Email extends CoreExt_Validate_Abstract
 {
-  /**
-   * @see CoreExt_Validate_Abstract#_getDefaultOptions()
-   */
-  protected function _getDefaultOptions()
-  {
-    return array(
-      'invalid'   => 'Email inválido.'
-    );
-  }
+	/**
+	* @see CoreExt_Validate_Abstract#_getDefaultOptions()
+	*/
+	protected function _getDefaultOptions()
+	{
+		return array(
+			'invalid'   => 'Email inválido.'
+		);
+	}
 
-  /**
-   * @see CoreExt_DataMapper#_getFindStatment($pkey) Sobre a conversão com floatval()
-   * @see CoreExt_Validate_Abstract#_validate($value)
-   */
-  protected function _validate($value)
-  {
-    if (FALSE === filter_var($value, FILTER_VALIDATE_EMAIL)) {
-      throw new Exception($this->_getErrorMessage('invalid'));
-    }
+	/**
+	* @see CoreExt_DataMapper#_getFindStatment($pkey) Sobre a conversão com floatval()
+	* @see CoreExt_Validate_Abstract#_validate($value)
+	*/
+	protected function _validate($value)
+	{
+		if (FALSE === filter_var($value, FILTER_VALIDATE_EMAIL))
+		{
+			throw new Exception($this->_getErrorMessage('invalid'));
+		}
 
-    return TRUE;
-  }
+		return TRUE;
+	}
 
-  /**
-   * Mensagem padrão para erros de valor obrigatório.
-   * @var string
-   */
-  protected $_requiredMessage = 'Informe um email válido.';
+	/**
+	* Mensagem padrão para erros de valor obrigatório.
+	* @var string
+	*/
+	protected $_requiredMessage = 'Informe um email válido.';
 }

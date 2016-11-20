@@ -1,101 +1,105 @@
 <?php
 
 /**
- * i-Educar - Sistema de gestão escolar
+ * i-Educar - Sistema de gestï¿½o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de Itajaí
+ * Copyright (C) 2006  Prefeitura Municipal de Itajaï¿½
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo
- * sob os termos da Licença Pública Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a versão 2 da Licença, como (a seu critério)
- * qualquer versão posterior.
+ * Este programa ï¿½ software livre; vocï¿½ pode redistribuï¿½-lo e/ou modificï¿½-lo
+ * sob os termos da Licenï¿½a Pï¿½blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a versï¿½o 2 da Licenï¿½a, como (a seu critï¿½rio)
+ * qualquer versï¿½o posterior.
  *
- * Este programa é distribuí­do na expectativa de que seja útil, porém, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implí­cita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral
+ * Este programa ï¿½ distribuï¿½ï¿½do na expectativa de que seja ï¿½til, porï¿½m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia implï¿½ï¿½cita de COMERCIABILIDADE OU
+ * ADEQUAï¿½ï¿½O A UMA FINALIDADE ESPECï¿½FICA. Consulte a Licenï¿½a Pï¿½blica Geral
  * do GNU para mais detalhes.
  *
- * Você deve ter recebido uma cópia da Licença Pública Geral do GNU junto
- * com este programa; se não, escreva para a Free Software Foundation, Inc., no
- * endereço 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Vocï¿½ deve ter recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral do GNU junto
+ * com este programa; se nï¿½o, escreva para a Free Software Foundation, Inc., no
+ * endereï¿½o 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
- * @package   CoreExt_Singleton
- * @since     Arquivo disponível desde a versão 1.1.0
+ * @package   Singleton
+ * @since     Arquivo disponï¿½vel desde a versï¿½o 1.1.0
  * @version   $Id$
  */
 
 /**
- * CoreExt_Singleton abstract class.
+ * Singleton abstract class.
  *
- * Funciona como uma interface de atalho para minimizar a duplicação de código
- * para criar instâncias singleton. Internamente, entretanto, funciona como um
- * {@link http://martinfowler.com/eaaCatalog/registry.html Registry} já que
- * todas as suas subclasses estarão armazenadas em um array estático desta
+ * Funciona como uma interface de atalho para minimizar a duplicaï¿½ï¿½o de cï¿½digo
+ * para criar instï¿½ncias singleton. Internamente, entretanto, funciona como um
+ * {@link http://martinfowler.com/eaaCatalog/registry.html Registry} jï¿½ que
+ * todas as suas subclasses estarï¿½o armazenadas em um array estï¿½tico desta
  * classe.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @link      http://martinfowler.com/eaaCatalog/registry.html Registry pattern
- * @package   CoreExt_Singleton
- * @since     Classe disponível desde a versão 1.1.0
+ * @package   Singleton
+ * @since     Classe disponï¿½vel desde a versï¿½o 1.1.0
  * @version   @@package_version@@
  */
-abstract class CoreExt_Singleton
+
+namespace CoreExt;
+
+use CoreExt\Exception;
+
+abstract class Singleton
 {
-  /**
-   * A instância singleton de CoreExt_Singleton
-   * @var array
-   */
-  private static $_instance = array();
+	/**
+	* A instï¿½ncia singleton de Singleton
+	* @var array
+	*/
+	private static $_instance = array();
 
-  /**
-   * Construtor.
-   */
-  private function __construct()
-  {
-  }
+	/**
+	* Construtor.
+	*/
+	private function __construct()
+	{
+	}
 
-  /**
-   * Sobrescreva esse método para garantir que a subclasse possa criar um
-   * singleton. Esta deve fazer uma chamada ao método _getInstance, passando
-   * uma string que tenha como valor o nome da classe. Uma forma conveniente
-   * de fazer isso é chamando _getInstance passando como parâmetro a constante
-   * mágica __CLASS__.
-   *
-   * Exemplo:
-   * <code>
-   * <?php
-   * ... // extends CoreExt_Singleton
-   * public static function getInstance()
-   * {
-   *   return self::_getInstance(__CLASS__);
-   * }
-   * </code>
-   *
-   * @return CoreExt_Singleton
-   */
-  public static function getInstance()
-  {
-    require_once 'CoreExt/Exception.php';
-    throw new CoreExt_Exception('É necessário sobrescrever o método "getInstance()" de CoreExt_Singleton.');
-  }
+	/**
+	* Sobrescreva esse mï¿½todo para garantir que a subclasse possa criar um
+	* singleton. Esta deve fazer uma chamada ao mï¿½todo _getInstance, passando
+	* uma string que tenha como valor o nome da classe. Uma forma conveniente
+	* de fazer isso ï¿½ chamando _getInstance passando como parï¿½metro a constante
+	* mï¿½gica __CLASS__.
+	*
+	* Exemplo:
+	* <code>
+	* <?php
+	* ... // extends Singleton
+	* public static function getInstance()
+	* {
+	*   return self::_getInstance(__CLASS__);
+	* }
+	* </code>
+	*
+	* @return Singleton
+	*/
+	public static function getInstance()
+	{
+		throw new Exception('ï¿½ necessï¿½rio sobrescrever o mï¿½todo "getInstance()" de Singleton.');
+	}
 
-  /**
-   * Retorna uma instância singleton, instanciando-a quando necessário.
-   *
-   * @param  string $self  Nome da subclasse de CoreExt_Singleton que será instanciada
-   * @return CoreExt_Singleton
-   */
-  protected static function _getInstance($self)
-  {
-    if (!isset(self::$_instance[$self])) {
-      self::$_instance[$self] = new $self();
-    }
-    return self::$_instance[$self];
-  }
+	/**
+	* Retorna uma instï¿½ncia singleton, instanciando-a quando necessï¿½rio.
+	*
+	* @param  string $self  Nome da subclasse de Singleton que serï¿½ instanciada
+	* @return Singleton
+	*/
+	protected static function _getInstance($self)
+	{
+		if (!isset(self::$_instance[$self])) {
+			self::$_instance[$self] = new $self();
+		}
+		return self::$_instance[$self];
+	}
 }

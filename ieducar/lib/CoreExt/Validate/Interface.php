@@ -1,65 +1,67 @@
 <?php
 
 /**
- * i-Educar - Sistema de gestão escolar
+ * i-Educar - Sistema de gestï¿½o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de Itajaí
+ * Copyright (C) 2006  Prefeitura Municipal de Itajaï¿½
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo
- * sob os termos da Licença Pública Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a versão 2 da Licença, como (a seu critério)
- * qualquer versão posterior.
+ * Este programa ï¿½ software livre; vocï¿½ pode redistribuï¿½-lo e/ou modificï¿½-lo
+ * sob os termos da Licenï¿½a Pï¿½blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a versï¿½o 2 da Licenï¿½a, como (a seu critï¿½rio)
+ * qualquer versï¿½o posterior.
  *
- * Este programa é distribuí­do na expectativa de que seja útil, porém, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implí­cita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral
+ * Este programa ï¿½ distribuï¿½ï¿½do na expectativa de que seja ï¿½til, porï¿½m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia implï¿½ï¿½cita de COMERCIABILIDADE OU
+ * ADEQUAï¿½ï¿½O A UMA FINALIDADE ESPECï¿½FICA. Consulte a Licenï¿½a Pï¿½blica Geral
  * do GNU para mais detalhes.
  *
- * Você deve ter recebido uma cópia da Licença Pública Geral do GNU junto
- * com este programa; se não, escreva para a Free Software Foundation, Inc., no
- * endereço 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Vocï¿½ deve ter recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral do GNU junto
+ * com este programa; se nï¿½o, escreva para a Free Software Foundation, Inc., no
+ * endereï¿½o 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Validate
- * @since     Arquivo disponível desde a versão 1.1.0
+ * @since     Arquivo disponï¿½vel desde a versï¿½o 1.1.0
  * @version   $Id$
  */
 
-require_once 'CoreExt/Configurable.php';
+namespace CoreExt\Validate;
+
+use CoreExt\Configurable;
 
 /**
  * CoreExt_Validate_Interface interface.
  *
- * @author    Eriksen Costa Paixão <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paixï¿½o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Validate
- * @since     Interface disponível desde a versão 1.1.0
+ * @since     Interface disponï¿½vel desde a versï¿½o 1.1.0
  * @version   @@package_version@@
  */
-interface CoreExt_Validate_Interface extends CoreExt_Configurable
+interface CoreExt_Validate_Interface extends Configurable
 {
-  /**
-   * Verifica se um dado valor é válido de acordo com a lógica implementada
-   * pela subclasse.
-   *
-   * @param $value
-   * @return bool
-   */
-  public function isValid($value);
+	/**
+	* Verifica se um dado valor ï¿½ vï¿½lido de acordo com a lï¿½gica implementada
+	* pela subclasse.
+	*
+	* @param $value
+	* @return bool
+	*/
+	public function isValid($value);
 
-  /**
-   * Retorna o valor que foi para a validação.
-   * @return mixed
-   */
-  public function getValue();
+	/**
+	* Retorna o valor que foi para a validaï¿½ï¿½o.
+	* @return mixed
+	*/
+	public function getValue();
 
-  /**
-   * Retorna o valor sanitizado após a validação.
-   * @return mixed
-   */
-  public function getSanitizedValue();
+	/**
+	* Retorna o valor sanitizado apï¿½s a validaï¿½ï¿½o.
+	* @return mixed
+	*/
+	public function getSanitizedValue();
 }

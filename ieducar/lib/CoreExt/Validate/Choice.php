@@ -28,7 +28,10 @@
  * @version   $Id$
  */
 
-require_once 'CoreExt/Validate/Abstract.php';
+namespace CoreExt\Validate;
+
+use CoreExt\Validate\CoreExt_Validate_Abstract;
+use Exception;
 
 /**
  * CoreExt_Validate_Choice class.
@@ -42,68 +45,73 @@ require_once 'CoreExt/Validate/Abstract.php';
  */
 class CoreExt_Validate_Choice extends CoreExt_Validate_Abstract
 {
-  /**
-   * @see CoreExt_Validate_Abstract#_getDefaultOptions()
-   */
-  protected function _getDefaultOptions()
-  {
-    $options = array(
-      'choices'  => array(),
-      'multiple' => FALSE,
-      'trim'     => FALSE,
-      'choice_error'   => 'A opção "@value" não existe.',
-    );
+	/**
+	* @see CoreExt_Validate_Abstract#_getDefaultOptions()
+	*/
+	protected function _getDefaultOptions()
+	{
+		$options = array(
+			'choices'  => array(),
+			'multiple' => FALSE,
+			'trim'     => FALSE,
+			'choice_error'   => 'A opção "@value" não existe.',
+		);
 
-    $options['multiple_error'] = array(
-      'singular' => $options['choice_error'],
-      'plural'   => 'As opções "@value" não existem.'
-    );
+		$options['multiple_error'] = array(
+			'singular' => $options['choice_error'],
+			'plural'   => 'As opções "@value" não existem.'
+		);
 
-    return $options;
-  }
+		return $options;
+	}
 
-  /**
-   * @see CoreExt_Validate_Abstract#_validate($value)
-   */
-  protected function _validate($value)
-  {
-    if ($this->_hasOption('choices')) {
-      $value   = $this->_getStringArray($value);
-      $choices = $this->_getStringArray($this->getOption('choices'));
+	/**
+	* @see CoreExt_Validate_Abstract#_validate($value)
+	*/
+	protected function _validate($value)
+	{
+		if ($this->_hasOption('choices'))
+		{
+			$value   = $this->_getStringArray($value);
+			$choices = $this->_getStringArray($this->getOption('choices'));
 
-      if ($this->_hasOption('multiple') && FALSE == $this->getOption('multiple')) {
-        if (in_array($value, $choices, TRUE)) {
-          return TRUE;
-        }
-        throw new Exception($this->_getErrorMessage('choice_error', array('@value' => $this->getSanitizedValue())));
-      }
-      else {
-        if (in_array($value, array($choices), TRUE)) {
-          return TRUE;
-        }
-        throw new Exception($this->_getErrorMessage(
-          'multiple_error',
-          array('@value' => array_diff($value, $this->getOption('choices'))))
-        );
-      }
-    }
-    return TRUE;
-  }
+			if ($this->_hasOption('multiple') && FALSE == $this->getOption('multiple'))
+			{
+				if (in_array($value, $choices, TRUE))
+				{
+					return TRUE;
+				}
+				throw new Exception($this->_getErrorMessage('choice_error', array('@value' => $this->getSanitizedValue())));
+			} else {
+				if (in_array($value, array($choices), TRUE)) {
+					return TRUE;
+				}
+				throw new Exception($this->_getErrorMessage(
+					'multiple_error',
+					array('@value' => array_diff($value, $this->getOption('choices'))))
+				);
+			}
+		}
 
-  /**
-   * Retorna um array de strings ou um valor numérico como string.
-   * @param array|numeric $value
-   * @return array|string
-   */
-  protected function _getStringArray($value)
-  {
-    if (is_array($value)) {
-      $return = array();
-      foreach ($value as $v) {
-        $return[] = (string) $v;
-      }
-      return $return;
-    }
-    return (string) $value;
-  }
+		return TRUE;
+	}
+
+	/**
+	* Retorna um array de strings ou um valor numérico como string.
+	* @param array|int $value
+	* @return array|string
+	*/
+	protected function _getStringArray($value)
+	{
+		if (is_array($value))
+		{
+			$return = array();
+			foreach ($value as $v)
+			{
+				$return[] = (string) $v;
+			}
+			return $return;
+		}
+		return (string) $value;
+	}
 }

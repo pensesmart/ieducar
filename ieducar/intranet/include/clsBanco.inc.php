@@ -28,6 +28,8 @@
  * @version   $Id$
  */
 
+namespace clsBanco;
+
 require_once '../includes/bootstrap.php';
 require_once 'include/clsBancoPgSql.inc.php';
 
@@ -41,91 +43,94 @@ require_once 'include/clsBancoPgSql.inc.php';
  * @since     Classe disponível desde a versão 1.0.0
  * @version   @@package_version@@
  */
-class clsBanco extends clsBancoSQL_
+class clsBanco extends \clsBancoSQL_
 {
-  /**
-   * Construtor (PHP 4).
-   */
-  public function clsBanco($strDataBase = FALSE)
-  {
-    parent::__construct($strDataBase);
+	/**
+	* Construtor (PHP 4).
+	*/
+	public function clsBanco($strDataBase = FALSE)
+	{
+		parent::__construct($strDataBase);
 
-    global $coreExt;
-    $config = $coreExt['Config']->app->database;
+		global $coreExt;
+		$config = $coreExt['Config']->app->database;
 
-    $this->setHost($config->hostname);
-    $this->setDbname($config->dbname);
-    $this->setPassword($config->password);
-    $this->setUser($config->username);
-    $this->setPort($config->port);
-  }
+		$this->setHost($config->hostname);
+		$this->setDbname($config->dbname);
+		$this->setPassword($config->password);
+		$this->setUser($config->username);
+		$this->setPort($config->port);
+	}
 
-  /**
-   * Retorna a quantidade de registros de uma tabela baseado no objeto que a
-   * abstrai. Este deve ter um atributo público Object->_tabela.
-   *
-   * @param   mixed   Objeto que abstrai a tabela
-   * @param   string  Nome da coluna para cálculo COUNT()
-   * @return  int     Quantidade de registros da tabela
-   */
-  public function doCountFromObj($obj, $column = '*')
-  {
-    if ($obj->_tabela == NULL) {
-      return FALSE;
-    }
+	/**
+	* Retorna a quantidade de registros de uma tabela baseado no objeto que a
+	* abstrai. Este deve ter um atributo público Object->_tabela.
+	*
+	* @param   mixed   Objeto que abstrai a tabela
+	* @param   string  Nome da coluna para cálculo COUNT()
+	* @return  int     Quantidade de registros da tabela
+	*/
+	public function doCountFromObj($obj, $column = '*')
+	{
+		if ($obj->_tabela == NULL)
+		{
+			return FALSE;
+		}
 
-    $sql = sprintf('SELECT COUNT(%s) FROM %s', $column, $obj->_tabela);
-    $this->Consulta($sql);
+		$sql = sprintf('SELECT COUNT(%s) FROM %s', $column, $obj->_tabela);
+		$this->Consulta($sql);
 
-    return (int)$this->UnicoCampo($sql);
-  }
+		return (int)$this->UnicoCampo($sql);
+	}
 
-  /**
-   * Retorna os dados convertidos para a sintaxe SQL aceita por ext/pgsql.
-   *
-   * <code>
-   * <?php
-   * $data = array(
-   *   'id' => 1,
-   *   'hasChild' = FALSE
-   * );
-   *
-   * $clsBanco->getDbValuesFromArray($data);
-   * // array(
-   * //   'id' => 1,
-   * //   'hasChild' => 'f'
-   * // );
-   * </code>
-   *
-   * Apenas o tipo booleano é convertido.
-   *
-   * @param array $data Array associativo com os valores a serem convertidos.
-   * @return array
-   */
-  public function formatValues(array $data)
-  {
-    $db = array();
-    foreach ($data as $key => $val) {
-      if (is_bool($val)) {
-        $db[$key] = $this->_formatBool($val);
-        continue;
-      }
-      $db[$key] = $val;
-    }
-    return $db;
-  }
+	/**
+	* Retorna os dados convertidos para a sintaxe SQL aceita por ext/pgsql.
+	*
+	* <code>
+	* <?php
+	* $data = array(
+	*   'id' => 1,
+	*   'hasChild' = FALSE
+	* );
+	*
+	* $clsBanco->getDbValuesFromArray($data);
+	* // array(
+	* //   'id' => 1,
+	* //   'hasChild' => 'f'
+	* // );
+	* </code>
+	*
+	* Apenas o tipo booleano é convertido.
+	*
+	* @param array $data Array associativo com os valores a serem convertidos.
+	* @return array
+	*/
+	public function formatValues(array $data)
+	{
+		$db = array();
+		foreach ($data as $key => $val)
+		{
+			if (is_bool($val))
+			{
+				$db[$key] = $this->_formatBool($val);
+				continue;
+			}
+			$db[$key] = $val;
+		}
+		return $db;
+	}
 
-  /**
-   * Retorna um valor formatado de acordo com o tipo output do tipo booleano
-   * no PostgreSQL.
-   *
-   * @link   http://www.postgresql.org/docs/8.2/interactive/datatype-boolean.html
-   * @link   http://www.php.net/manual/en/function.pg-query-params.php#78072
-   * @param  mixed $val
-   * @return string "t" para TRUE e "f" para false
-   */
-  protected function _formatBool($val)
-  {
-    return ($val == TRUE ? 't' : 'f');
-  }
+	/**
+	* Retorna um valor formatado de acordo com o tipo output do tipo booleano
+	* no PostgreSQL.
+	*
+	* @link   http://www.postgresql.org/docs/8.2/interactive/datatype-boolean.html
+	* @link   http://www.php.net/manual/en/function.pg-query-params.php#78072
+	* @param  mixed $val
+	* @return string "t" para TRUE e "f" para false
+	*/
+	protected function _formatBool($val)
+	{
+		return ($val == TRUE ? 't' : 'f');
+	}
 }
