@@ -1,25 +1,25 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	*																	     *
-	*	@author Prefeitura Municipal de ItajaÌ								 *
+	*	@author Prefeitura Municipal de Itaja√≠								 *
 	*	@updated 29/03/2007													 *
-	*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+	*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 	*																		 *
-	*	Copyright (C) 2006	PMI - Prefeitura Municipal de ItajaÌ			 *
+	*	Copyright (C) 2006	PMI - Prefeitura Municipal de Itaja√≠			 *
 	*						ctima@itajai.sc.gov.br					    	 *
 	*																		 *
-	*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-	*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-	*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-	*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+	*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+	*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+	*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+	*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 	*																		 *
-	*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-	*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-	*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-	*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+	*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+	*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+	*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+	*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 	*																		 *
-	*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-	*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+	*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+	*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 	*	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 	*	02111-1307, USA.													 *
 	*																		 *
@@ -109,7 +109,7 @@ class indice extends clsCadastro
 				$det_curso = $obj_curso->detalhe();
 				if(!$det_curso['edicao_final'])
 				{
-					echo "<script language='javascript'>alert('EdiÁ„o de nota n„o permitido');window.location='educar_falta_nota_aluno_det.php?ref_cod_matricula={$registro["ref_cod_matricula"]}&ref_cod_turma={$registro["ref_cod_turma"]}&sequencial={$registro["sequencial"]}';</script>"	;
+					echo "<script language='javascript'>alert('Edi√ß√£o de nota n√£o permitido');window.location='educar_falta_nota_aluno_det.php?ref_cod_matricula={$registro["ref_cod_matricula"]}&ref_cod_turma={$registro["ref_cod_turma"]}&sequencial={$registro["sequencial"]}';</script>"	;
 					die();
 				}
 
@@ -250,7 +250,7 @@ class indice extends clsCadastro
 					// guarda a qtd de modulos a serem cursados
 					$this->qtd_modulos = count($lst_ano_letivo_modulo);
 				}
-			}// Caso o curso N√O siga o padrao da escola
+			}// Caso o curso N√ÉO siga o padrao da escola
 			else
 			{
 				$obj_turma_modulo = new clsPmieducarTurmaModulo();
@@ -477,7 +477,7 @@ class indice extends clsCadastro
 								$prenche_edicao_obrigatorio = $lst_disciplina[$disciplinas["ref_cod_disciplina"]]['nota']  || strtolower($this->tipoacao) == 'novo' ? true : false;
 
 								/**
-								 * existe nota? mostra a opÁ„o para remove-la
+								 * existe nota? mostra a op√ß√£o para remove-la
 								 */
 								if( $lst_disciplina[$disciplinas["ref_cod_disciplina"]]['nota'] && $this->mat_modulo <= $this->modulo + 1 )
 								{
@@ -515,7 +515,7 @@ class indice extends clsCadastro
 								$prenche_edicao_obrigatorio = $lst_disciplina[$disciplinas["ref_cod_disciplina"]]['nota']  || strtolower($this->tipoacao) == 'novo' ? true : false;
 
 								/**
-								 * existe nota? mostra a opÁ„o para remove-la
+								 * existe nota? mostra a op√ß√£o para remove-la
 								 */
 								if($lst_disciplina[$disciplinas["ref_cod_disciplina"]]['nota'] && $this->mat_modulo <= $this->modulo + 1)
 								{
@@ -727,7 +727,7 @@ class indice extends clsCadastro
 						$prenche_edicao_obrigatorio = $lst_disciplina[$disciplina]['nota']  || strtolower($this->tipoacao) == 'novo' ? true : false;
 
 						/**
-						 * existe nota? mostra a opÁ„o para remove-la
+						 * existe nota? mostra a op√ß√£o para remove-la
 						 */
 						if($lst_disciplina[$disciplina]['nota'] && $this->mat_modulo <= $this->modulo + 1)
 						{
@@ -762,7 +762,7 @@ class indice extends clsCadastro
 								$prenche_edicao_obrigatorio = $lst_disciplina[$disciplinas["cod_disciplina"]]['nota']  || strtolower($this->tipoacao) == 'novo' ? true : false;
 
 								/**
-								 * existe nota? mostra a opÁ„o para remove-la
+								 * existe nota? mostra a op√ß√£o para remove-la
 								 */
 								if($lst_disciplina[$disciplinas["cod_disciplina"]]['nota'] && $this->mat_modulo <= $this->modulo + 1)
 								{
@@ -793,7 +793,7 @@ class indice extends clsCadastro
 								$prenche_edicao_obrigatorio = $lst_disciplina[$disciplinas["cod_disciplina"]]['nota']  || strtolower($this->tipoacao) == 'novo' ? true : false;
 
 									/**
-								 * existe nota? mostra a opÁ„o para remove-la
+								 * existe nota? mostra a op√ß√£o para remove-la
 								 */
 								if($lst_disciplina[$disciplinas["cod_disciplina"]]['nota'] && $this->mat_modulo <= $this->modulo + 1)
 								{
@@ -850,7 +850,7 @@ class indice extends clsCadastro
 
 			/**
 			 * Antes era obrigatorio o preenchimento de todas as notas
-			 * agora nao È mais.. logo È preciso verificar a quantidade
+			 * agora nao √© mais.. logo √© preciso verificar a quantidade
 			 * de disciplinas que estao sem notas
 			 * somente prosseguir caso nao tenha mais nenhuma disciplina
 			 * sem nota
@@ -986,7 +986,7 @@ class indice extends clsCadastro
 						if ( ($faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&falta=s';
 									}
@@ -1027,7 +1027,7 @@ class indice extends clsCadastro
 						if ( ($total_faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&falta=s';
 									}
@@ -1379,7 +1379,7 @@ class indice extends clsCadastro
 						if ( ($faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&falta=s';
 									}
@@ -1417,7 +1417,7 @@ class indice extends clsCadastro
 						if ( ($total_faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&falta=s';
 									}
@@ -1649,8 +1649,8 @@ class indice extends clsCadastro
 			$obj_nota_aluno = new clsPmieducarNotaAluno();
 			$total = $obj_nota_aluno->getQtdRestanteNotasAlunoNaoApuraFaltas($this->ref_cod_matricula,$this->ref_ref_cod_serie,$this->ref_cod_turma,$this->modulo,$this->ref_ref_cod_escola);
 			
-			/* verifica se o aluno est· em exame
-			 * e se todas as matÈrias do exame est„o com notas
+			/* verifica se o aluno est√° em exame
+			 * e se todas as mat√©rias do exame est√£o com notas
 			 */
 			
 			$aluno_esta_em_exame = $_POST["aluno_esta_em_exame"];
@@ -1685,7 +1685,7 @@ class indice extends clsCadastro
 				/**
 				 * caso NENHUMA materia tenha nota
 				 * (por motivo de exclusao) verificar se o modulo da matricula
-				 * È maior que o ultimo modulo com nota
+				 * √© maior que o ultimo modulo com nota
 				 * entao decrementar o modulo da matricula
 				 */
 
@@ -1825,7 +1825,7 @@ class indice extends clsCadastro
 						if ( ($faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&modulo=$this->modulo&falta=s';
 									}
@@ -1867,7 +1867,7 @@ class indice extends clsCadastro
 						if ( ($total_faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&modulo=$this->modulo&falta=s';
 									}
@@ -1905,7 +1905,7 @@ class indice extends clsCadastro
 
 
 			$db2 = new clsBanco();
-			//retorna quantas matÈrias o aluno cursa n„o contabilizando as matÈrias com dispensa
+			//retorna quantas mat√©rias o aluno cursa n√£o contabilizando as mat√©rias com dispensa
 			$sql = "SELECT COUNT(0) FROM pmieducar.escola_serie_disciplina WHERE ref_ref_cod_serie = {$this->ref_ref_cod_serie} 
 					AND ref_ref_cod_escola = {$this->ref_ref_cod_escola} AND escola_serie_disciplina.ativo = 1
 					AND ref_cod_disciplina NOT IN (
@@ -1915,7 +1915,7 @@ class indice extends clsCadastro
 						AND ref_cod_escola = {$this->ref_ref_cod_escola} AND ativo = 1
 					)";			
 			$qtd_materias = $db2->CampoUnico($sql);
-			//retorna quantas notas notas o aluno possui n„o contabilizandoa das matÈrias dispensadas
+			//retorna quantas notas notas o aluno possui n√£o contabilizandoa das mat√©rias dispensadas
 			$sql = "SELECT COUNT(0) FROM pmieducar.nota_aluno 
 					WHERE ref_cod_matricula = {$this->ref_cod_matricula} AND ativo = 1
 					AND ref_cod_disciplina NOT IN (
@@ -1923,7 +1923,7 @@ class indice extends clsCadastro
 							ref_cod_matricula = {$this->ref_cod_matricula} AND ref_cod_serie = {$this->ref_ref_cod_serie} 
 							AND ref_cod_escola = {$this->ref_ref_cod_escola} AND ativo = 1
 					)";
-			//vari·vel em uma ediÁ„o para verificar se o aluno possui todas as notas
+			//vari√°vel em uma edi√ß√£o para verificar se o aluno possui todas as notas
 			//para mudar o estado de aprovado dele		
 			$qtd_notas_possui = $db2->CampoUnico($sql);
 			
@@ -2309,7 +2309,7 @@ class indice extends clsCadastro
 						if ( ($faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&modulo=$this->modulo&falta=s';
 									}
@@ -2348,7 +2348,7 @@ class indice extends clsCadastro
 						if ( ($total_faltas > $max_falta) && !$this->reprova_falta )
 						{
 							echo "<script>
-									if( confirm('O aluno excedeu o valor m·ximo de faltas permitidas, \\n deseja reprov·-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m·ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov·-lo ou em CANCELAR para ignorar.') )
+									if( confirm('O aluno excedeu o valor m√°ximo de faltas permitidas, \\n deseja reprov√°-lo? \\n Quantidade de faltas do aluno: $total_faltas \\n Valor m√°ximo de faltas permitido: $max_falta \\n \\n Clique em OK para reprov√°-lo ou em CANCELAR para ignorar.') )
 									{
 										window.location = 'educar_falta_nota_aluno_cad.php?ref_cod_matricula=$this->ref_cod_matricula&ref_cod_turma=$this->ref_cod_turma&ref_sequencial_matricula_turma=$this->ref_sequencial_matricula_turma&modulo=$this->modulo&falta=s';
 									}

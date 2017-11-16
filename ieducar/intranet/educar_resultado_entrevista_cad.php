@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software Público Livre e Brasileiro					 *
+*   Pacote: i-PLB Software PÃºblico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  é  software livre, você pode redistribuí-lo e/ou	 *
-*	modificá-lo sob os termos da Licença Pública Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a versão 2 da	 *
-*	Licença   como  (a  seu  critério)  qualquer  versão  mais  nova.	 *
+*	Este  programa  Ã©  software livre, vocÃª pode redistribuÃ­-lo e/ou	 *
+*	modificÃ¡-lo sob os termos da LicenÃ§a PÃºblica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versÃ£o 2 da	 *
+*	LicenÃ§a   como  (a  seu  critÃ©rio)  qualquer  versÃ£o  mais  nova.	 *
 *																		 *
-*	Este programa  é distribuído na expectativa de ser útil, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implícita de COMERCIALI-	 *
-*	ZAÇÃO  ou  de ADEQUAÇÃO A QUALQUER PROPÓSITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licença  Pública  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  Ã© distribuÃ­do na expectativa de ser Ãºtil, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implÃ­cita de COMERCIALI-	 *
+*	ZAÃ‡ÃƒO  ou  de ADEQUAÃ‡ÃƒO A QUALQUER PROPÃ“SITO EM PARTICULAR. Con-	 *
+*	sulte  a  LicenÃ§a  PÃºblica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Você  deve  ter  recebido uma cópia da Licença Pública Geral GNU	 *
-*	junto  com  este  programa. Se não, escreva para a Free Software	 *
+*	VocÃª  deve  ter  recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU	 *
+*	junto  com  este  programa. Se nÃ£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -144,7 +144,7 @@ class indice extends clsCadastro
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "Início",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "InÃ­cio",
 			"educar_vps_index.php"                => "Trilha Jovem - VPS",
 			""                                    => "{$nomeMenu} entrevista"
 		));
@@ -235,7 +235,7 @@ class indice extends clsCadastro
 			$opcoes = array("" => "Erro na geracao");
 		}
 
-		$this->campoLista("ref_cod_vps_funcao", "Função/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "", true, false);
+		$this->campoLista("ref_cod_vps_funcao", "FunÃ§Ã£o/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "", true, false);
 
 		// Idioma
 		$opcoes = array("" => "Selecione");
@@ -282,7 +282,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'Data Início VPS',
+			'label'       => 'Data InÃ­cio VPS',
 			'placeholder' => '',
 			'value'       => Portabilis_Date_Utils::pgSQLToBr($this->inicio_vps),
 			'size'        => 7,
@@ -292,7 +292,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'Data Término VPS',
+			'label'       => 'Data TÃ©rmino VPS',
 			'placeholder' => '',
 			'value'       => Portabilis_Date_Utils::pgSQLToBr($this->termino_vps),
 			'size'        => 7,
@@ -303,7 +303,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'Data Inserção Profissional',
+			'label'       => 'Data InserÃ§Ã£o Profissional',
 			'placeholder' => '',
 			'value'       => Portabilis_Date_Utils::pgSQLToBr($this->insercao_vps),
 			'size'        => 7,
@@ -328,11 +328,11 @@ class indice extends clsCadastro
 
 		$this->campoQuebra();
 
-		$this->campoMonetario('salario', 'Salário', number_format($this->salario, 2, ',', '.'), 7, 7, false, "", "", "onChange", true);
+		$this->campoMonetario('salario', 'SalÃ¡rio', number_format($this->salario, 2, ',', '.'), 7, 7, false, "", "", "onChange", true);
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'Número de Vagas',
+			'label'       => 'NÃºmero de Vagas',
 			'placeholder' => '',
 			'value'       => $this->numero_vagas,
 			'max_length'  => 2,
@@ -345,7 +345,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'Número de Jovens por vaga',
+			'label'       => 'NÃºmero de Jovens por vaga',
 			'placeholder' => '',
 			'value'       => $this->numero_jovens,
 			'max_length'  => 2,
@@ -356,11 +356,11 @@ class indice extends clsCadastro
 
 		$this->inputsHelper()->integer('numero_jovens', $options);
 
-		$this->campoRotulo("data_entrevista", "Data/Hora",  Portabilis_Date_Utils::pgSQLToBr($this->data_entrevista) . " às " . $this->hora_entrevista);
+		$this->campoRotulo("data_entrevista", "Data/Hora",  Portabilis_Date_Utils::pgSQLToBr($this->data_entrevista) . " Ã s " . $this->hora_entrevista);
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'Descrição',
+			'label'       => 'DescriÃ§Ã£o',
 			'value'       => $this->descricao,
 			'cols'        => 30,
 			'max_length'  => 150,
@@ -372,7 +372,7 @@ class indice extends clsCadastro
 
 	function Novo()
 	{
-		$this->mensagem .= "Edição efetuada com sucesso.<br>";
+		$this->mensagem .= "EdiÃ§Ã£o efetuada com sucesso.<br>";
 		header("Location: educar_atribuir_entrevista_vps_lst.php");
 		die();
 		return true;
@@ -445,13 +445,13 @@ class indice extends clsCadastro
 				}
 			}
 
-			$this->mensagem .= "Edição efetuada com sucesso.<br>";
+			$this->mensagem .= "EdiÃ§Ã£o efetuada com sucesso.<br>";
 			header("Location: educar_resultado_entrevista_lst.php");
 			die();
 			return true;
 		}
 
-		$this->mensagem = "Edição não realizada.<br> ";
+		$this->mensagem = "EdiÃ§Ã£o nÃ£o realizada.<br> ";
 		echo "<!--\nErro ao editar clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->ref_usuario_exc))\n-->";
 
 		return false;

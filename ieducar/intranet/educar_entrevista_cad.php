@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 *																		 *
-*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -144,7 +144,7 @@ class indice extends clsCadastro
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			"educar_vps_index.php"                => "Trilha Jovem - VPS",
 			""                                    => "{$nomeMenu} entrevista"
 		));
@@ -212,7 +212,7 @@ class indice extends clsCadastro
 
 		$opcoes = array("NULL" => "Selecione");
 
-		// ColeÁ„o
+		// Cole√ß√£o
 		$opcoes = array("" => "Selecione");
 
 		if(class_exists("clsPmieducarVPSFuncao"))
@@ -253,7 +253,7 @@ class indice extends clsCadastro
 
 		$this->campoLista("ref_cod_vps_jornada_trabalho", "Jornada de Trabalho", $opcoes, $this->ref_cod_vps_jornada_trabalho, "", false, "", "<img id='img_jornada_trabalho' src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"showExpansivelImprimir(400, 150,'educar_vps_jornada_trabalho_cad_pop.php',[], 'Jornada de Trabalho')\" />");
 
-		$this->campoLista("ref_cod_vps_funcao", "FunÁ„o/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "<img id='img_funcao' src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"showExpansivelImprimir(500, 200,'educar_vps_funcao_cad_pop.php',[], 'FunÁ„o/Cargo')\" />", false, false);
+		$this->campoLista("ref_cod_vps_funcao", "Fun√ß√£o/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "<img id='img_funcao' src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"showExpansivelImprimir(500, 200,'educar_vps_funcao_cad_pop.php',[], 'Fun√ß√£o/Cargo')\" />", false, false);
 
 		$helperOptions = array('objectName' => 'idiomas');
 
@@ -376,8 +376,8 @@ class indice extends clsCadastro
 		}
 		else
 		{
-			echo "<!--\nErro\nClasse clsPmieducarVPSResponsavelEntrevista n„o encontrada\n-->";
-			$opcoes = array("" => "Erro na geraÁ„o");
+			echo "<!--\nErro\nClasse clsPmieducarVPSResponsavelEntrevista n√£o encontrada\n-->";
+			$opcoes = array("" => "Erro na gera√ß√£o");
 		}
 
 		if (is_array($this->vps_entrevista_responsavel))
@@ -385,23 +385,23 @@ class indice extends clsCadastro
 			$qtd_responsavel = count($this->vps_entrevista_responsavel);
 		}
 
-		// n„o existe um responsavel principal nem responsavel
+		// n√£o existe um responsavel principal nem responsavel
 		if (($this->checked != 1) && (!$qtd_responsavel || ($qtd_responsavel == 0)))
 		{
-			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons·vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,null,true,"","",false,false);
+			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons√°vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,null,true,"","",false,false);
 
-		 	$this->campoCheck("principal", "&nbsp;&nbsp;<img id='img_responsavel' src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"showExpansivelImprimir(500, 250,'educar_vps_responsavel_entrevista_cad_pop.php',[], 'Respons·vel')\" />", $this->principal,"<a href='#' onclick=\"getElementById('incluir_responsavel').value = 'S'; getElementById('tipoacao').value = ''; {$this->__nome}.submit();\"><img src='imagens/nvp_bot_adiciona.gif' title='Incluir' border=0></a>");
+		 	$this->campoCheck("principal", "&nbsp;&nbsp;<img id='img_responsavel' src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"showExpansivelImprimir(500, 250,'educar_vps_responsavel_entrevista_cad_pop.php',[], 'Respons√°vel')\" />", $this->principal,"<a href='#' onclick=\"getElementById('incluir_responsavel').value = 'S'; getElementById('tipoacao').value = ''; {$this->__nome}.submit();\"><img src='imagens/nvp_bot_adiciona.gif' title='Incluir' border=0></a>");
 		}
-		// n„o existe um responsavel principal, mas existe um responsavel
+		// n√£o existe um responsavel principal, mas existe um responsavel
 		else if (($this->checked != 1) && ($qtd_responsavel > 0))
 		{
-			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons·vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,null,true,null, null,null,false);
+			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons√°vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,null,true,null, null,null,false);
 		 	$this->campoCheck("principal", "&nbsp;&nbsp;<img src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"pesquisa_valores_popless('educar_vps_responsavel_entrevista_cad_pop.php')\" />", $this->principal,"<a href='#' onclick=\"getElementById('incluir_responsavel').value = 'S'; getElementById('tipoacao').value = ''; {$this->__nome}.submit();\"><img src='imagens/nvp_bot_adiciona.gif' title='Incluir' border=0></a>");
 		}
 		// existe um responsavel principal
 		else
 		{
-			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons·vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,"",false,"","<img src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"pesquisa_valores_popless('educar_vps_responsavel_entrevista_cad_pop.php')\" />&nbsp;&nbsp;<a href='#' onclick=\"getElementById('incluir_responsavel').value = 'S'; getElementById('tipoacao').value = ''; {$this->__nome}.submit();\"><img src='imagens/nvp_bot_adiciona.gif' title='Incluir' border=0></a>",false,false);
+			$this->campoLista("ref_cod_vps_responsavel_entrevista", "Respons√°vel", $opcoes, $this->ref_cod_vps_responsavel_entrevista,"",false,"","<img src='imagens/banco_imagens/escreve.gif' style='cursor:hand; cursor:pointer;' border='0' onclick=\"pesquisa_valores_popless('educar_vps_responsavel_entrevista_cad_pop.php')\" />&nbsp;&nbsp;<a href='#' onclick=\"getElementById('incluir_responsavel').value = 'S'; getElementById('tipoacao').value = ''; {$this->__nome}.submit();\"><img src='imagens/nvp_bot_adiciona.gif' title='Incluir' border=0></a>",false,false);
 		}
 
 		$this->campoOculto("incluir_responsavel", "");
@@ -409,11 +409,11 @@ class indice extends clsCadastro
 		$this->campoQuebra();
 		//-----------------------FIM RESPONSAVEL------------------------//
 
-		$this->campoMonetario('salario', 'Sal·rio', number_format($this->salario, 2, ',', '.'), 7, 7, false);
+		$this->campoMonetario('salario', 'Sal√°rio', number_format($this->salario, 2, ',', '.'), 7, 7, false);
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'N˙mero de Vagas DisponÌveis',
+			'label'       => 'N√∫mero de Vagas Dispon√≠veis',
 			'placeholder' => '',
 			'value'       => $this->numero_vagas,
 			'max_length'  => 2,
@@ -425,7 +425,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'N˙mero de Jovens por vaga disponÌvel',
+			'label'       => 'N√∫mero de Jovens por vaga dispon√≠vel',
 			'placeholder' => '',
 			'value'       => $this->numero_jovens,
 			'max_length'  => 2,
@@ -449,7 +449,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'DescriÁ„o',
+			'label'       => 'Descri√ß√£o',
 			'value'       => $this->descricao,
 			'cols'        => 30,
 			'max_length'  => 150
@@ -497,8 +497,8 @@ class indice extends clsCadastro
 
 					if (!$cadastrou2)
 					{
-						$this->mensagem  = "Cadastro n„o realizado.<br>";
-						$this->mensagem .= "<!--\nErro ao cadastrar clsPmieducarVPSEntrevistaResponsavel\nvalores obrigatÛrios\nis_numeric($cadastrou) && is_numeric({$responsavel["ref_cod_vps_responsavel_entrevista_"]}) && is_numeric({$responsavel["principal_"]})\n-->";
+						$this->mensagem  = "Cadastro n√£o realizado.<br>";
+						$this->mensagem .= "<!--\nErro ao cadastrar clsPmieducarVPSEntrevistaResponsavel\nvalores obrigat√≥rios\nis_numeric($cadastrou) && is_numeric({$responsavel["ref_cod_vps_responsavel_entrevista_"]}) && is_numeric({$responsavel["principal_"]})\n-->";
 						return false;
 					}
 				}
@@ -508,7 +508,7 @@ class indice extends clsCadastro
 			die();
 			return true;
 		}
-		$this->mensagem  = "Cadastro n„o realizado.<br>";
+		$this->mensagem  = "Cadastro n√£o realizado.<br>";
 		$this->mensagem .= "<!--\nErro ao cadastrar clsPmieducarVPSEntrevista\nvalores obrigatorios\nis_numeric($this->ref_cod_escola) && is_numeric($this->pessoa_logada) && is_numeric($this->ref_cod_vps_funcao) && is_numeric($this->ref_cod_vps_jornada_trabalho) && is_numeric($this->empresa_id) && is_numeric($this->ano)\n-->";
 		return false;
 	}
@@ -554,13 +554,13 @@ class indice extends clsCadastro
 
 						if (!$cadastrou2)
 						{
-							$this->mensagem = "Editar n„o realizado.<br>";
-							echo "<!--\nErro ao editar clsPmieducarVPSEntrevistaResponsavel\nvalores obrigatÛrios\nis_numeric($cadastrou) && is_numeric({$responsavel["ref_cod_vps_responsavel_entrevista_"]}) && is_numeric({$responsavel["principal_"]})\n-->";
+							$this->mensagem = "Editar n√£o realizado.<br>";
+							echo "<!--\nErro ao editar clsPmieducarVPSEntrevistaResponsavel\nvalores obrigat√≥rios\nis_numeric($cadastrou) && is_numeric({$responsavel["ref_cod_vps_responsavel_entrevista_"]}) && is_numeric({$responsavel["principal_"]})\n-->";
 							return false;
 						}
 					}
 				}
-				$this->mensagem .= "EdiÁ„o efetuada com sucesso.<br>";
+				$this->mensagem .= "Edi√ß√£o efetuada com sucesso.<br>";
 				header("Location: educar_entrevista_lst.php");
 				die();
 				return true;
@@ -569,7 +569,7 @@ class indice extends clsCadastro
 			return false;
 		}
 
-		$this->mensagem = "EdiÁ„o n„o realizada.<br>";
+		$this->mensagem = "Edi√ß√£o n√£o realizada.<br>";
 		echo "<!--\nErro ao editar clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->ref_usuario_exc))\n-->";
 
 		return false;
@@ -589,13 +589,13 @@ class indice extends clsCadastro
 
 		if($excluiu)
 		{
-			$this->mensagem .= "Exclus„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Exclus√£o efetuada com sucesso.<br>";
 			header("Location: educar_entrevista_lst.php");
 			die();
 			return true;
 		}
 
-		$this->mensagem = "Exclus„o n„o realizada.<br>";
+		$this->mensagem = "Exclus√£o n√£o realizada.<br>";
 		echo "<!--\nErro ao excluir clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->pessoa_logada))\n-->";
 		return false;
 	}
@@ -630,7 +630,7 @@ $pagina->MakeAll();
 	document.getElementById('ref_cod_vps_funcao').options[0].text = 'Selecione uma escola';
 
 	document.getElementById('ref_cod_vps_jornada_trabalho').disabled = true;
-	document.getElementById('ref_cod_vps_jornada_trabalho').options[0].text = 'Selecione uma instituiÁ„o';
+	document.getElementById('ref_cod_vps_jornada_trabalho').options[0].text = 'Selecione uma institui√ß√£o';
 
 	document.getElementById('ref_cod_vps_responsavel_entrevista').disabled = true;
 	document.getElementById('ref_cod_vps_responsavel_entrevista').options[0].text = 'Selecione uma empresa';
@@ -676,7 +676,7 @@ $pagina->MakeAll();
 		if(DOM_array.length)
 		{
 			campoFuncao.length = 1;
-			campoFuncao.options[0].text = 'Selecione uma FunÁ„o/Cargo';
+			campoFuncao.options[0].text = 'Selecione uma Fun√ß√£o/Cargo';
 			campoFuncao.disabled = false;
 
 			for(var i=0; i<DOM_array.length; i++)
@@ -696,7 +696,7 @@ $pagina->MakeAll();
 			}
 			else
 			{
-				campoFuncao.options[0].text = 'A Escola n„o possui funÁ„o/cargo';
+				campoFuncao.options[0].text = 'A Escola n√£o possui fun√ß√£o/cargo';
 				setVisibility(document.getElementById('img_funcao'), true);
 			}
 		}
@@ -725,12 +725,12 @@ $pagina->MakeAll();
 		{
 			if(document.getElementById('ref_cod_instituicao').value == "")
 			{
-				campoJornadaTrabalho.options[0].text = 'Selecione uma instituiÁ„o';
+				campoJornadaTrabalho.options[0].text = 'Selecione uma institui√ß√£o';
 				setVisibility(document.getElementById('img_jornada_trabalho'), false);
 			}
 			else
 			{
-				campoJornadaTrabalho.options[0].text = 'A instituiÁ„o n„o possui jornadas de trabalhos';
+				campoJornadaTrabalho.options[0].text = 'A institui√ß√£o n√£o possui jornadas de trabalhos';
 				setVisibility(document.getElementById('img_jornada_trabalho'), true);
 			}
 		}
@@ -744,7 +744,7 @@ $pagina->MakeAll();
 		if(DOM_array.length)
 		{
 			campoResponsavelEntrevista.length = 1;
-			campoResponsavelEntrevista.options[0].text = 'Selecione um respons·vel';
+			campoResponsavelEntrevista.options[0].text = 'Selecione um respons√°vel';
 			campoResponsavelEntrevista.disabled = false;
 
 			for(var i = 0; i < DOM_array.length; i++)
@@ -766,7 +766,7 @@ $pagina->MakeAll();
 			}
 			else
 			{
-				campoResponsavelEntrevista.options[0].text = 'A escola n„o possui respons·veis cadastrados';
+				campoResponsavelEntrevista.options[0].text = 'A escola n√£o possui respons√°veis cadastrados';
 				setVisibility(document.getElementById('img_responsavel'), true);
 			}
 		}
@@ -814,7 +814,7 @@ $pagina->MakeAll();
 
 		campoFuncao.length = 1;
 		campoFuncao.disabled = true;
-		campoFuncao.options[0].text = 'Carregando coleÔøΩÔøΩes';
+		campoFuncao.options[0].text = 'Carregando cole√Ø¬ø¬Ω√Ø¬ø¬Ωes';
 
 		var xml_funcao = new ajax(getFuncao);
 		xml_funcao.envia("educar_vps_funcao_xml.php?esc="+campoEscola);
@@ -855,7 +855,7 @@ $pagina->MakeAll();
 
 			campoResponsavel.length = 1;
 			campoResponsavel.disabled = true;
-			campoResponsavel.options[0].text = 'Carregando respons·vel';
+			campoResponsavel.options[0].text = 'Carregando respons√°vel';
 
 			var xml_jornada_trabalho = new ajax(getResponsavelEntrevista);
 			console.log("valores esc=" + campoEscola + "&idpes" + campoEmpresa);

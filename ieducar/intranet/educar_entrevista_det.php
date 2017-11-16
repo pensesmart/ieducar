@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P�blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software Pï¿½blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  �  software livre, voc� pode redistribu�-lo e/ou	 *
-*	modific�-lo sob os termos da Licen�a P�blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers�o 2 da	 *
-*	Licen�a   como  (a  seu  crit�rio)  qualquer  vers�o  mais  nova.	 *
+*	Este  programa  ï¿½  software livre, vocï¿½ pode redistribuï¿½-lo e/ou	 *
+*	modificï¿½-lo sob os termos da Licenï¿½a Pï¿½blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versï¿½o 2 da	 *
+*	Licenï¿½a   como  (a  seu  critï¿½rio)  qualquer  versï¿½o  mais  nova.	 *
 *																		 *
-*	Este programa  � distribu�do na expectativa de ser �til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia impl�cita de COMERCIALI-	 *
-*	ZA��O  ou  de ADEQUA��O A QUALQUER PROP�SITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licen�a  P�blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  ï¿½ distribuï¿½do na expectativa de ser ï¿½til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implï¿½cita de COMERCIALI-	 *
+*	ZAï¿½ï¿½O  ou  de ADEQUAï¿½ï¿½O A QUALQUER PROPï¿½SITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licenï¿½a  Pï¿½blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Voc�  deve  ter  recebido uma c�pia da Licen�a P�blica Geral GNU	 *
-*	junto  com  este  programa. Se n�o, escreva para a Free Software	 *
+*	Vocï¿½  deve  ter  recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral GNU	 *
+*	junto  com  este  programa. Se nï¿½o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -183,7 +183,7 @@ class indice extends clsDetalhe
 		{
 			if($registro["ref_cod_instituicao"])
 			{
-				$this->addDetalhe(array("Institui��o", "{$registro["ref_cod_instituicao"]}"));
+				$this->addDetalhe(array("Instituição", "{$registro["ref_cod_instituicao"]}"));
 			}
 		}
 		if($registro["ref_cod_curso"])
@@ -200,26 +200,26 @@ class indice extends clsDetalhe
 		}
 		if($registro["ref_cod_vps_funcao"])
 		{
-			$this->addDetalhe(array("Fun��o", "{$registro["ref_cod_vps_funcao"]}"));
+			$this->addDetalhe(array("Função", "{$registro["ref_cod_vps_funcao"]}"));
 		}
 		if($registro["descricao"])
 		{
-			$this->addDetalhe(array("Descri��o", "{$registro["descricao"]}"));
+			$this->addDetalhe(array("Descrição", "{$registro["descricao"]}"));
 		}
 		if($registro["salario"])
 		{
 			$valor = "R$ " . number_format($registro["salario"], 2, ",", ".");
-			$this->addDetalhe(array("Sal�rio", "{$valor}"));
+			$this->addDetalhe(array("Salário", "{$valor}"));
 		}
 		if($registro["numero_vagas"])
 		{
 			$valor = $registro["numero_vagas"];
-			$this->addDetalhe(array("N�mero de vagas", "{$valor} vagas"));
+			$this->addDetalhe(array("Número de vagas", "{$valor} vagas"));
 		}
 		if($registro["numero_jovens"])
 		{
 			$valor = $registro["numero_jovens"];
-			$this->addDetalhe(array("N�mero de jovens por vaga", "{$valor} jovens"));
+			$this->addDetalhe(array("Número de jovens por vaga", "{$valor} jovens"));
 		}
 		if($registro["data_entrevista"])
 		{
@@ -266,7 +266,7 @@ class indice extends clsDetalhe
 				if ($principal == 1)
 					$principal = "sim";
 				else
-					$principal = "n�o";
+					$principal = "não";
 
 				$tabela .= "<tr>
 								<td {$color} align=left>{$nm_autor}</td>
@@ -278,7 +278,7 @@ class indice extends clsDetalhe
 		}
 		if($tabela)
 		{
-			$this->addDetalhe(array("Respons�vel", "{$tabela}"));
+			$this->addDetalhe(array("Responsável", "{$tabela}"));
 		}
 
 		$obj = new clsPmieducarVPSIdioma();
@@ -291,7 +291,7 @@ class indice extends clsDetalhe
 				$assuntos.= '<span style="background-color: #A1B3BD; padding: 2px;"><b>' . $reg['nome'] . '</b></span>&nbsp; ';
 			}
 			if(!empty($assuntos))
-				$this->addDetalhe(array("Idiomas necess�rios", "{$assuntos}"));
+				$this->addDetalhe(array("Idiomas necessários", "{$assuntos}"));
 		}
 
 		$entrevistas = new clsPmieducarVPSAlunoEntrevista(null, null, $this->cod_vps_entrevista);
@@ -355,7 +355,7 @@ class indice extends clsDetalhe
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "In�cio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "Início",
 			"educar_vps_index.php"                => "Trilha Jovem Iguassu - VPS",
 			""                                    => "Detalhe da entrevista"
 		));

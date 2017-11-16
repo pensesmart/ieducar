@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software Público Livre e Brasileiro					 *
+*   Pacote: i-PLB Software PÃºblico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  é  software livre, você pode redistribuí-lo e/ou	 *
-*	modificá-lo sob os termos da Licença Pública Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a versão 2 da	 *
-*	Licença   como  (a  seu  critério)  qualquer  versão  mais  nova.	 *
+*	Este  programa  Ã©  software livre, vocÃª pode redistribuÃ­-lo e/ou	 *
+*	modificÃ¡-lo sob os termos da LicenÃ§a PÃºblica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versÃ£o 2 da	 *
+*	LicenÃ§a   como  (a  seu  critÃ©rio)  qualquer  versÃ£o  mais  nova.	 *
 *																		 *
-*	Este programa  é distribuído na expectativa de ser útil, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implícita de COMERCIALI-	 *
-*	ZAÇÃO  ou  de ADEQUAÇÃO A QUALQUER PROPÓSITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licença  Pública  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  Ã© distribuÃ­do na expectativa de ser Ãºtil, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implÃ­cita de COMERCIALI-	 *
+*	ZAÃ‡ÃƒO  ou  de ADEQUAÃ‡ÃƒO A QUALQUER PROPÃ“SITO EM PARTICULAR. Con-	 *
+*	sulte  a  LicenÃ§a  PÃºblica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Você  deve  ter  recebido uma cópia da Licença Pública Geral GNU	 *
-*	junto  com  este  programa. Se não, escreva para a Free Software	 *
+*	VocÃª  deve  ter  recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU	 *
+*	junto  com  este  programa. Se nÃ£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -147,7 +147,7 @@ class indice extends clsCadastro
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "Início",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "InÃ­cio",
 			"educar_vps_index.php"                => "Trilha Jovem - VPS",
 			""                                    => "{$nomeMenu} entrevista"
 		));
@@ -167,7 +167,7 @@ class indice extends clsCadastro
 
 		$this->campoRotulo("nm_aluno", "Aluno", $this->nome);
 
-		$this->campoRotulo("nm_situacao_vps", "Situação VPS", App_Model_VivenciaProfissionalSituacao::getInstance()->getValue($this->situacao_vps));
+		$this->campoRotulo("nm_situacao_vps", "SituaÃ§Ã£o VPS", App_Model_VivenciaProfissionalSituacao::getInstance()->getValue($this->situacao_vps));
 
 		if($this->situacao_vps >= App_Model_VivenciaProfissionalSituacao::EM_CUMPRIMENTO)
 		{
@@ -219,13 +219,13 @@ class indice extends clsCadastro
 			if($registroAlunoEntrevista["termino_vps"])
 			{
 				$terminoVPS = Portabilis_Date_Utils::pgSQLToBr($registroAlunoEntrevista["termino_vps"]);
-				$this->campoRotulo("termino_vps", "Conclusão VPS em", $terminoVPS);
+				$this->campoRotulo("termino_vps", "ConclusÃ£o VPS em", $terminoVPS);
 			}
 
 			if($registroAlunoEntrevista["insercao_vps"])
 			{
 				$insercaoVPS = Portabilis_Date_Utils::pgSQLToBr($registroAlunoEntrevista["insercao_vps"]);
-				$this->campoRotulo("insercao_vps", "Inserção Profissional em", $insercaoVPS);
+				$this->campoRotulo("insercao_vps", "InserÃ§Ã£o Profissional em", $insercaoVPS);
 			}
 
 			if( $this->ref_cod_usuario )
@@ -240,7 +240,7 @@ class indice extends clsCadastro
 			$parametros->setSubmit(0);
 			$parametros->adicionaCampoSelect("cod_usuario", "ref_cod_pessoa_fj", "nome");
 
-			$this->campoListaPesq( "cod_usuario", "Usuário", $opcoes, $this->ref_cod_usuario, "pesquisa_funcionario_lst.php", "", false, "", "", null, null, "", false, $parametros->serializaCampos() );
+			$this->campoListaPesq( "cod_usuario", "UsuÃ¡rio", $opcoes, $this->ref_cod_usuario, "pesquisa_funcionario_lst.php", "", false, "", "", null, null, "", false, $parametros->serializaCampos() );
 
 			$options = array(
 				'required'    => true,
@@ -264,7 +264,7 @@ class indice extends clsCadastro
 
 			$this->inputsHelper()->textArea('motivo_visita', $options);
 
-			$this->campoCheck("avaliacao", "Avaliação de VPS", $this->avaliacao, "Marcar como avaliação de VPS");
+			$this->campoCheck("avaliacao", "AvaliaÃ§Ã£o de VPS", $this->avaliacao, "Marcar como avaliaÃ§Ã£o de VPS");
 
 			// primary keys
 			$this->campoOculto("cod_vps_visita", $this->cod_vps_visita);
@@ -275,7 +275,7 @@ class indice extends clsCadastro
 
 			$this->campoOculto("ref_cod_vps_aluno_entrevista", $this->ref_cod_vps_aluno_entrevista);
 		} else {
-			$this->campoRotulo("evadiu", "Este aluno não está cumprindo VPS", "Não é possível agendar uma visita a um jovem que não está em VPS");
+			$this->campoRotulo("evadiu", "Este aluno nÃ£o estÃ¡ cumprindo VPS", "NÃ£o Ã© possÃ­vel agendar uma visita a um jovem que nÃ£o estÃ¡ em VPS");
 		}
 	}
 
@@ -311,7 +311,7 @@ class indice extends clsCadastro
 			}
 		}
 
-		$this->mensagem = "Edição não realizada.<br> ";
+		$this->mensagem = "EdiÃ§Ã£o nÃ£o realizada.<br> ";
 		echo "<!--\nErro ao editar clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->ref_usuario_exc))\n-->";
 
 		return false;
@@ -343,7 +343,7 @@ class indice extends clsCadastro
 
 				if($visita->edita())
 				{
-					$this->mensagem .= "Edição efetuada com sucesso.<br>";
+					$this->mensagem .= "EdiÃ§Ã£o efetuada com sucesso.<br>";
 					header("Location: educar_vps_visita_det.php?cod_vps_visita={$this->cod_vps_visita}");
 					die();
 					return true;
@@ -352,7 +352,7 @@ class indice extends clsCadastro
 			}
 		}
 
-		$this->mensagem = "Edição não realizada.<br> ";
+		$this->mensagem = "EdiÃ§Ã£o nÃ£o realizada.<br> ";
 		echo "<!--\nErro ao editar clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->ref_usuario_exc))\n-->";
 
 		return false;

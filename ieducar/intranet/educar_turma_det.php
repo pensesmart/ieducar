@@ -1,30 +1,30 @@
 <?php
 
 /**
- * i-Educar - Sistema de gest„o escolar
+ * i-Educar - Sistema de gest√£o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de ItajaÌ
+ * Copyright (C) 2006  Prefeitura Municipal de Itaja√≠
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa È software livre; vocÍ pode redistribuÌ-lo e/ou modific·-lo
- * sob os termos da LicenÁa P˙blica Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a vers„o 2 da LicenÁa, como (a seu critÈrio)
- * qualquer vers„o posterior.
+ * Este programa √© software livre; voc√™ pode redistribu√≠-lo e/ou modific√°-lo
+ * sob os termos da Licen√ßa P√∫blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a vers√£o 2 da Licen√ßa, como (a seu crit√©rio)
+ * qualquer vers√£o posterior.
  *
- * Este programa È distribuÌ≠do na expectativa de que seja ˙til, porÈm, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implÌ≠cita de COMERCIABILIDADE OU
- * ADEQUA«√O A UMA FINALIDADE ESPECÕFICA. Consulte a LicenÁa P˙blica Geral
+ * Este programa √© distribu√≠¬≠do na expectativa de que seja √∫til, por√©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia impl√≠¬≠cita de COMERCIABILIDADE OU
+ * ADEQUA√á√ÉO A UMA FINALIDADE ESPEC√çFICA. Consulte a Licen√ßa P√∫blica Geral
  * do GNU para mais detalhes.
  *
- * VocÍ deve ter recebido uma cÛpia da LicenÁa P˙blica Geral do GNU junto
- * com este programa; se n„o, escreva para a Free Software Foundation, Inc., no
- * endereÁo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Voc√™ deve ter recebido uma c√≥pia da Licen√ßa P√∫blica Geral do GNU junto
+ * com este programa; se n√£o, escreva para a Free Software Foundation, Inc., no
+ * endere√ßo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
  * @author    Adriano Nagasava <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Pmieducar
- * @since     Arquivo disponÌvel desde a vers„o 1.0.0
+ * @since     Arquivo dispon√≠vel desde a vers√£o 1.0.0
  * @version   $Id$
  */
 
@@ -42,7 +42,7 @@ require_once 'App/Model/IedFinder.php';
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Pmieducar
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class clsIndexBase extends clsBase
@@ -61,7 +61,7 @@ class clsIndexBase extends clsBase
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Pmieducar
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class indice extends clsDetalhe
@@ -133,7 +133,7 @@ class indice extends clsDetalhe
       $registro['ref_cod_turma_tipo'] = $det_ref_cod_turma_tipo['nm_tipo'];
     }
     else {
-      $registro['ref_cod_turma_tipo'] = 'Erro na geraÁ„o';
+      $registro['ref_cod_turma_tipo'] = 'Erro na gera√ß√£o';
     }
 
     if (class_exists('clsPmieducarInfraPredioComodo')) {
@@ -145,7 +145,7 @@ class indice extends clsDetalhe
       $registro['ref_cod_infra_predio_comodo'] = $det_ref_cod_infra_predio_comodo['nm_comodo'];
     }
     else {
-      $registro['ref_cod_infra_predio_comodo'] = 'Erro na geraÁ„o';
+      $registro['ref_cod_infra_predio_comodo'] = 'Erro na gera√ß√£o';
     }
 
     if (class_exists('clsPmieducarInstituicao')) {
@@ -157,7 +157,7 @@ class indice extends clsDetalhe
       $registro['ref_cod_instituicao'] = $obj_cod_instituicao_det['nm_instituicao'];
     }
     else {
-      $registro['ref_cod_instituicao'] = 'Erro na geraÁ„o';
+      $registro['ref_cod_instituicao'] = 'Erro na gera√ß√£o';
     }
 
     if (class_exists('clsPmieducarEscola')) {
@@ -167,7 +167,7 @@ class indice extends clsDetalhe
       $registro['ref_ref_cod_escola'] = $det_ref_cod_escola['nome'];
     }
     else {
-      $registro['ref_cod_escola'] = 'Erro na geraÁ„o';
+      $registro['ref_cod_escola'] = 'Erro na gera√ß√£o';
     }
 
     if (class_exists('clsPmieducarCurso')) {
@@ -177,7 +177,7 @@ class indice extends clsDetalhe
       $padrao_ano_escolar = $det_ref_cod_curso['padrao_ano_escolar'];
     }
     else {
-      $registro['ref_cod_curso'] = 'Erro na geraÁ„o';
+      $registro['ref_cod_curso'] = 'Erro na gera√ß√£o';
     }
 
     if (class_exists('clsPmieducarSerie')) {
@@ -187,7 +187,7 @@ class indice extends clsDetalhe
       $registro['ref_ref_cod_serie'] = $det_ser['nm_serie'];
     }
     else {
-      $registro['ref_ref_cod_serie'] = 'Erro na geraÁ„o';
+      $registro['ref_ref_cod_serie'] = 'Erro na gera√ß√£o';
     }
 
     $obj_permissoes = new clsPermissoes();
@@ -195,13 +195,13 @@ class indice extends clsDetalhe
 
     if ($nivel_usuario == 1) {
       if ($registro['ref_cod_instituicao']) {
-        $this->addDetalhe(array('InstituiÁ„o Executora', $registro['ref_cod_instituicao']));
+        $this->addDetalhe(array('Institui√ß√£o Executora', $registro['ref_cod_instituicao']));
       }
     }
 
     if ($nivel_usuario == 1 || $nivel_usuario == 2) {
       if ($registro['ref_ref_cod_escola']) {
-        $this->addDetalhe(array('InstituiÁ„o', $registro['ref_ref_cod_escola']));
+        $this->addDetalhe(array('Institui√ß√£o', $registro['ref_ref_cod_escola']));
       }
     }
 
@@ -237,17 +237,17 @@ class indice extends clsDetalhe
     }
 
     if ($registro['max_aluno']) {
-      $this->addDetalhe(array('M·ximo de Alunos', $registro['max_aluno']));
+      $this->addDetalhe(array('M√°ximo de Alunos', $registro['max_aluno']));
     }
 
-    $this->addDetalhe(array('SituaÁ„o', dbBool($registro['visivel']) ? 'Ativo' : 'Desativo'));
+    $this->addDetalhe(array('Situa√ß√£o', dbBool($registro['visivel']) ? 'Ativo' : 'Desativo'));
 
     if ($registro['multiseriada'] == 1) {
       if ($registro['multiseriada'] == 1) {
         $registro['multiseriada'] = 'sim';
       }
       else {
-        $registro['multiseriada'] = 'n„o';
+        $registro['multiseriada'] = 'n√£o';
       }
 
       $this->addDetalhe(array('Multi-Seriada', $registro['multiseriada']));
@@ -271,7 +271,7 @@ class indice extends clsDetalhe
 
       if ($registro['hora_inicio_intervalo']) {
         $registro['hora_inicio_intervalo'] = date('H:i', strtotime($registro['hora_inicio_intervalo']));
-        $this->addDetalhe(array('Hora InÌcio Intervalo', $registro['hora_inicio_intervalo']));
+        $this->addDetalhe(array('Hora In√≠cio Intervalo', $registro['hora_inicio_intervalo']));
       }
 
       if ($registro['hora_fim_intervalo']) {
@@ -289,7 +289,7 @@ class indice extends clsDetalhe
           <table>
             <tr align="center">
               <td bgcolor="#A1B3BD"><b>Nome</b></td>
-              <td bgcolor="#A1B3BD"><b>Data InÌcio</b></td>
+              <td bgcolor="#A1B3BD"><b>Data In√≠cio</b></td>
               <td bgcolor="#A1B3BD"><b>Data Fim</b></td>
             </tr>';
 
@@ -326,18 +326,18 @@ class indice extends clsDetalhe
       }
 
       if ($tabela) {
-        $this->addDetalhe(array('MÛdulo', $tabela));
+        $this->addDetalhe(array('M√≥dulo', $tabela));
       }
 
       $dias_da_semana = array(
         '' => 'Selecione',
         1  => 'Domingo',
         2  => 'Segunda',
-        3  => 'TerÁa',
+        3  => 'Ter√ßa',
         4  => 'Quarta',
         5  => 'Quinta',
         6  => 'Sexta',
-        7  => 'S·bado'
+        7  => 'S√°bado'
       );
 
       $obj = new clsPmieducarTurmaDiaSemana();
@@ -401,7 +401,7 @@ class indice extends clsDetalhe
       <table>
         <tr align="center">
           <td bgcolor="#A1B3BD"><b>Nome</b></td>
-          <td bgcolor="#A1B3BD"><b>Carga hor·ria</b></td>
+          <td bgcolor="#A1B3BD"><b>Carga hor√°ria</b></td>
         </tr>';
 
     $cont = 0;
@@ -430,14 +430,14 @@ class indice extends clsDetalhe
   }
 }
 
-// Instancia objeto de p·gina
+// Instancia objeto de p√°gina
 $pagina = new clsIndexBase();
 
-// Instancia objeto de conte˙do
+// Instancia objeto de conte√∫do
 $miolo = new indice();
 
-// Atribui o conte˙do ‡  p·gina
+// Atribui o conte√∫do √†  p√°gina
 $pagina->addForm($miolo);
 
-// Gera o cÛdigo HTML
+// Gera o c√≥digo HTML
 $pagina->MakeAll();

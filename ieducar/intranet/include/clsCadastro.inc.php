@@ -1,30 +1,30 @@
 <?php
 
 /**
- * i-Educar - Sistema de gest„o escolar
+ * i-Educar - Sistema de gest√£o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de ItajaÌ
+ * Copyright (C) 2006  Prefeitura Municipal de Itaja√≠
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa È software livre; vocÍ pode redistribuÌ-lo e/ou modific·-lo
- * sob os termos da LicenÁa P˙blica Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a vers„o 2 da LicenÁa, como (a seu critÈrio)
- * qualquer vers„o posterior.
+ * Este programa √© software livre; voc√™ pode redistribu√≠-lo e/ou modific√°-lo
+ * sob os termos da Licen√ßa P√∫blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a vers√£o 2 da Licen√ßa, como (a seu crit√©rio)
+ * qualquer vers√£o posterior.
  *
- * Este programa È distribuÌ≠do na expectativa de que seja ˙til, porÈm, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implÌ≠cita de COMERCIABILIDADE OU
- * ADEQUA«√O A UMA FINALIDADE ESPECÕFICA. Consulte a LicenÁa P˙blica Geral
+ * Este programa √© distribu√≠¬≠do na expectativa de que seja √∫til, por√©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia impl√≠¬≠cita de COMERCIABILIDADE OU
+ * ADEQUA√á√ÉO A UMA FINALIDADE ESPEC√çFICA. Consulte a Licen√ßa P√∫blica Geral
  * do GNU para mais detalhes.
  *
- * VocÍ deve ter recebido uma cÛpia da LicenÁa P˙blica Geral do GNU junto
- * com este programa; se n„o, escreva para a Free Software Foundation, Inc., no
- * endereÁo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Voc√™ deve ter recebido uma c√≥pia da Licen√ßa P√∫blica Geral do GNU junto
+ * com este programa; se n√£o, escreva para a Free Software Foundation, Inc., no
+ * endere√ßo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Include
- * @since     Arquivo disponÌvel desde a vers„o 1.0.0
+ * @since     Arquivo dispon√≠vel desde a vers√£o 1.0.0
  * @version   $Id$
  */
 
@@ -43,11 +43,11 @@ require_once 'include/localizacaoSistema.php';
 /**
  * clsCadastro class.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Include
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class clsCadastro extends clsCampos
@@ -177,7 +177,7 @@ class clsCadastro extends clsCampos
 				}
 				if (!$sucesso && empty($this->erros) && empty($this->mensagem))
 				{
-					$this->mensagem = "N„o foi possÌvel inserir a informaÁ„o. [CAD01]";
+					$this->mensagem = "N√£o foi poss√≠vel inserir a informa√ß√£o. [CAD01]";
 				}
 			}
 			elseif ($this->tipoacao == 'Editar')
@@ -185,7 +185,7 @@ class clsCadastro extends clsCampos
 				$sucesso = $this->Editar();
 				if (!$sucesso && empty($this->erros) && empty($this->mensagem))
 				{
-					$this->mensagem = "N„o foi possÌvel editar a informaÁ„o. [CAD02]";
+					$this->mensagem = "N√£o foi poss√≠vel editar a informa√ß√£o. [CAD02]";
 				}
 			}
 			elseif ($this->tipoacao == 'Excluir')
@@ -193,7 +193,7 @@ class clsCadastro extends clsCampos
 				$sucesso = $this->Excluir();
 				if (!$sucesso && empty($this->erros) && empty($this->mensagem))
 				{
-					$this->mensagem = "N„o foi possÌvel excluir a informaÁ„o. [CAD03]";
+					$this->mensagem = "N√£o foi poss√≠vel excluir a informa√ß√£o. [CAD03]";
 				}
 			}
 			elseif ($this->tipoacao == 'ExcluirImg')
@@ -201,7 +201,7 @@ class clsCadastro extends clsCampos
 				$sucesso = $this->ExcluirImg();
 				if (!$sucesso && empty( $this->erros ) && empty( $this->mensagem ))
 				{
-					$this->mensagem = "N„o foi possÌvel excluir a informaÁ„o. [CAD04]";
+					$this->mensagem = "N√£o foi poss√≠vel excluir a informa√ß√£o. [CAD04]";
 				}
 			}
 			if (empty($script) && $sucesso && !empty($this->url_sucesso))
@@ -339,7 +339,7 @@ class clsCadastro extends clsCampos
 
 		if (empty($this->campos))
 		{
-			$retorno .=  "<tr><td class='linhaSim' colspan='2'><span class='form'>N„o existe informaÁ„o disponÌvel</span></td></tr>";
+			$retorno .=  "<tr><td class='linhaSim' colspan='2'><span class='form'>N√£o existe informa√ß√£o dispon√≠vel</span></td></tr>";
 		} else {
 			// Verifica se houve erros no controller
 			$retorno .= $this->_getControllerErrors();
@@ -562,7 +562,7 @@ class clsCadastro extends clsCampos
 						$retorno .=  " document.$this->__nome.{$nome}_val.focus(); \n";
 						$retorno .=  " return false; } ";
 					} else {
-						//substituito referencia a elementos por padr„o W3C document.getElementById()
+						//substituito referencia a elementos por padr√£o W3C document.getElementById()
 						//quando se referenciava um nome de elemento como um array ex: cadastro[aluno]
 						//nao funcionava na referencia por nome
 						//16-08-2006
@@ -748,8 +748,8 @@ class clsCadastro extends clsCampos
 	}
 
 	/**
-	* Retorna uma lista formatada de erros que possam ter sido lanÁadas pela
-	* integraÁ„o CoreExt_Controller_Page_Interface com CoreExt_DataMapper e
+	* Retorna uma lista formatada de erros que possam ter sido lan√ßadas pela
+	* integra√ß√£o CoreExt_Controller_Page_Interface com CoreExt_DataMapper e
 	* CoreExt_Entity.
 	*
 	* @return string|NULL
@@ -768,7 +768,7 @@ class clsCadastro extends clsCampos
 		{
 			$htmlError = '
 				<div class="form error">
-				<p>Por favor, verifique a lista de erros e corrija as informaÁıes necess·rias no formul·rio.</p>
+				<p>Por favor, verifique a lista de erros e corrija as informa√ß√µes necess√°rias no formul√°rio.</p>
 				<ul>%s</ul>
 				</div>';
 

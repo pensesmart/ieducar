@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 *																		 *
-*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -33,7 +33,7 @@ class clsIndexBase extends clsBase
 {
 	function Formular()
 	{
-		$this->SetTitulo("{$this->_instituicao} - Respons·vel Entrevista");
+		$this->SetTitulo("{$this->_instituicao} - Respons√°vel Entrevista");
 		$this->processoAp = "594";
 		$this->addEstilo('localizacaoSistema');
 	}
@@ -116,9 +116,9 @@ class indice extends clsCadastro
 		$nomeMenu = $retorno == "Editar" ? $retorno : "Cadastrar";
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			"educar_vps_index.php"				  => "Trilha Jovem - VPS",
-			""									  => "{$nomeMenu} respons·vel entrevista"
+			""									  => "{$nomeMenu} respons√°vel entrevista"
 		));
 
 		$this->enviaLocalizacao($localizacao->montar());
@@ -147,13 +147,13 @@ class indice extends clsCadastro
 		$this->inputsHelper()->simpleSearchPessoaj('nome', $options, $helperOptions);
 
 		// text
-		$this->campoTexto("nm_responsavel", "Respons·vel Entrevista", $this->nm_responsavel, 30, 255, true);
+		$this->campoTexto("nm_responsavel", "Respons√°vel Entrevista", $this->nm_responsavel, 30, 255, true);
 		
 		$this->campoTexto('email', 'E-mail', $this->email, '50', '255', FALSE);
 		$this->inputTelefone('com', 'Telefone comercial');
 		$this->inputTelefone('cel', 'Celular');
 		
-		$this->campoMemo("observacao", "ObservaÁ„o", $this->observacao, 60, 5, false);
+		$this->campoMemo("observacao", "Observa√ß√£o", $this->observacao, 60, 5, false);
 		
 		$obj_permissoes = new clsPermissoes();
 		$nivel_usuario = $obj_permissoes->nivel_acesso($this->pessoa_logada);
@@ -181,8 +181,8 @@ class indice extends clsCadastro
 			return true;
 		}
 
-		$this->mensagem = "Cadastro n„o realizado.<br>";
-		$this->mensagem .= "<!--\nErro ao cadastrar clsPmieducarVPSResponsavelEntrevista\nvalores obrigatÛrios\nis_numeric($this->pessoa_logada) && is_string($this->nm_responsavel) && is_numeric($this->empresa_id)\n-->";
+		$this->mensagem = "Cadastro n√£o realizado.<br>";
+		$this->mensagem .= "<!--\nErro ao cadastrar clsPmieducarVPSResponsavelEntrevista\nvalores obrigat√≥rios\nis_numeric($this->pessoa_logada) && is_string($this->nm_responsavel) && is_numeric($this->empresa_id)\n-->";
 		
 		return false;
 	}
@@ -203,13 +203,13 @@ class indice extends clsCadastro
 		$editou = $obj->edita();
 		if($editou)
 		{
-			$this->mensagem .= "EdiÁ„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Edi√ß√£o efetuada com sucesso.<br>";
 			header("Location: educar_vps_responsavel_entrevista_lst.php");
 			die();
 			return true;
 		}
 
-		$this->mensagem  = "EdiÁ„o n„o realizada.<br>";
+		$this->mensagem  = "Edi√ß√£o n√£o realizada.<br>";
 		$this->mensagem .= "<!--\nErro ao editar clsPmieducarVPSResponsavelEntrevista\nvalores obrigatorios\nif(is_numeric($this->cod_vps_responsavel_entrevista) && is_numeric($this->pessoa_logada))\n-->";
 		return false;
 	}
@@ -227,13 +227,13 @@ class indice extends clsCadastro
 		$excluiu = $obj->excluir();
 		if($excluiu)
 		{
-			$this->mensagem .= "Exclus„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Exclus√£o efetuada com sucesso.<br>";
 			header("Location: educar_vps_responsavel_entrevista_lst.php");
 			die();
 			return true;
 		}
 
-		$this->mensagem  = "Exclus„o n„o realizada.<br>";
+		$this->mensagem  = "Exclus√£o n√£o realizada.<br>";
 		$this->mensagem .= "<!--\nErro ao excluir clsPmieducarVPSResponsavelEntrevista\nvalores obrigatorios\nif(is_numeric($this->cod_vps_responsavel_entrevista) && is_numeric($this->pessoa_logada))\n-->";
 		return false;
 	}

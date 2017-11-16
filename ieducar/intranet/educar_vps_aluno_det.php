@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 *																		 *
-*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -205,7 +205,7 @@ class indice extends clsDetalhe
 		{
 			if($registro["ref_cod_instituicao"])
 			{
-				$this->addDetalhe(array("InstituiÁ„o", "{$registro["ref_cod_instituicao"]}"));
+				$this->addDetalhe(array("Institui√ß√£o", "{$registro["ref_cod_instituicao"]}"));
 			}
 		}
 		if ($nivel_usuario == 1 || $nivel_usuario == 2)
@@ -229,11 +229,11 @@ class indice extends clsDetalhe
 		}
 		if($numero_entrevistas)
 		{
-			$this->addDetalhe(array("N˙mero de Entrevistas", "{$numero_entrevistas}"));
+			$this->addDetalhe(array("N√∫mero de Entrevistas", "{$numero_entrevistas}"));
 		}
 		if($situacaoVPS)
 		{
-			$this->addDetalhe(array("SituaÁ„o VPS", "{$situacaoVPS}"));
+			$this->addDetalhe(array("Situa√ß√£o VPS", "{$situacaoVPS}"));
 		}
 		if($prioridadeVPS)
 		{
@@ -245,19 +245,19 @@ class indice extends clsDetalhe
 		}
 		if($registro["ref_cod_vps_funcao"])
 		{
-			$this->addDetalhe(array("Entrevista inÌcio VPS", "<a href=\"educar_resultado_entrevista_cad.php?cod_vps_entrevista={$ref_cod_vps_entrevista}\" target=\"_blank\">{$registro["ref_cod_vps_funcao"]}</a>"));
+			$this->addDetalhe(array("Entrevista in√≠cio VPS", "<a href=\"educar_resultado_entrevista_cad.php?cod_vps_entrevista={$ref_cod_vps_entrevista}\" target=\"_blank\">{$registro["ref_cod_vps_funcao"]}</a>"));
 		}
 		if($inicioVPS)
 		{
-			$this->addDetalhe(array("Data InÌcio VPS", "$inicioVPS"));
+			$this->addDetalhe(array("Data In√≠cio VPS", "$inicioVPS"));
 		}
 		if($terminoVPS)
 		{
-			$this->addDetalhe(array("Data TÈrmino VPS", "$terminoVPS"));
+			$this->addDetalhe(array("Data T√©rmino VPS", "$terminoVPS"));
 		}
 		if($insercaoVPS)
 		{
-			$this->addDetalhe(array("Data InserÁ„o Profissional", "$insercaoVPS"));
+			$this->addDetalhe(array("Data Inser√ß√£o Profissional", "$insercaoVPS"));
 		}
 
 		$obj = new clsPmieducarVPSAlunoEntrevista();
@@ -305,7 +305,7 @@ class indice extends clsDetalhe
 				$hora_entrevista = $det["hora_entrevista"];
 
 				$entrevista .= "<a href=\"educar_resultado_entrevista_cad.php?cod_vps_entrevista={$ref_cod_vps_entrevista}\" target=\"_blank\">
-									{$registro["ref_cod_vps_funcao"]} / {$registro["ref_idpes"]} - {$data_entrevista} ‡s {$hora_entrevista}
+									{$registro["ref_cod_vps_funcao"]} / {$registro["ref_idpes"]} - {$data_entrevista} √†s {$hora_entrevista}
 								</a>";
 				$cont++;
 				$this->addDetalhe(array(" - Entrevista {$cont}", "{$entrevista}"), "entrevistas");
@@ -316,7 +316,7 @@ class indice extends clsDetalhe
 
 		if($obj_permissoes->permissao_cadastra(598, $this->pessoa_logada, 11))
 		{
-			$this->array_botao = array('Atualizar SituaÁ„o', 'Agendar Visita VPS');
+			$this->array_botao = array('Atualizar Situa√ß√£o', 'Agendar Visita VPS');
 
 			$this->array_botao_url_script = array(
 				sprintf('go("educar_vps_aluno_cad.php?cod_aluno=%d");', $this->cod_aluno),
@@ -329,7 +329,7 @@ class indice extends clsDetalhe
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			"educar_vps_index.php"                => "Trilha Jovem Iguassu - VPS",
 			""                                    => "Detalhe do Aluno"
 		));

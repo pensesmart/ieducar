@@ -4,30 +4,30 @@
 #ini_set("display_errors", 1);
 
 /**
- * i-Educar - Sistema de gest„o escolar
+ * i-Educar - Sistema de gest√£o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de ItajaÌ
+ * Copyright (C) 2006  Prefeitura Municipal de Itaja√≠
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa È software livre; vocÍ pode redistribuÌ-lo e/ou modific·-lo
- * sob os termos da LicenÁa P˙blica Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a vers„o 2 da LicenÁa, como (a seu critÈrio)
- * qualquer vers„o posterior.
+ * Este programa √© software livre; voc√™ pode redistribu√≠-lo e/ou modific√°-lo
+ * sob os termos da Licen√ßa P√∫blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a vers√£o 2 da Licen√ßa, como (a seu crit√©rio)
+ * qualquer vers√£o posterior.
  *
- * Este programa È distribuÌ≠do na expectativa de que seja ˙til, porÈm, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implÌ≠cita de COMERCIABILIDADE OU
- * ADEQUA«√O A UMA FINALIDADE ESPECÕFICA. Consulte a LicenÁa P˙blica Geral
+ * Este programa √© distribu√≠¬≠do na expectativa de que seja √∫til, por√©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia impl√≠¬≠cita de COMERCIABILIDADE OU
+ * ADEQUA√á√ÉO A UMA FINALIDADE ESPEC√çFICA. Consulte a Licen√ßa P√∫blica Geral
  * do GNU para mais detalhes.
  *
- * VocÍ deve ter recebido uma cÛpia da LicenÁa P˙blica Geral do GNU junto
- * com este programa; se n„o, escreva para a Free Software Foundation, Inc., no
- * endereÁo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Voc√™ deve ter recebido uma c√≥pia da Licen√ßa P√∫blica Geral do GNU junto
+ * com este programa; se n√£o, escreva para a Free Software Foundation, Inc., no
+ * endere√ßo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   http://creativecommons.org/licenses/GPL/2.0/legalcode.pt  CC GNU GPL
  * @package   Ied_Cadastro
- * @since     Arquivo disponÌvel desde a vers„o 1.0.0
+ * @since     Arquivo dispon√≠vel desde a vers√£o 1.0.0
  * @version   $Id$
  */
 
@@ -51,11 +51,11 @@ require_once 'image_check.php';
 /**
  * clsIndex class.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Cadastro
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class clsIndex extends clsBase
@@ -71,11 +71,11 @@ class clsIndex extends clsBase
 /**
  * indice class.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Cadastro
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class indice extends clsCadastro
@@ -155,7 +155,7 @@ class indice extends clsCadastro
 		$localizacao = new LocalizacaoSistema();
 
 		$localizacao->entradaCaminhos( array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			""                                    => "$nomeMenu Inscrito Processo Seletivo"
 		));
 
@@ -194,7 +194,7 @@ class indice extends clsCadastro
 
 		$this->campoTexto('nome', 'Nome', $this->nome, '50', '255', TRUE);
 
-		$this->campoTexto('nm_responsavel', 'Respons·vel', $this->nm_responsavel, '50', '255', false);
+		$this->campoTexto('nm_responsavel', 'Respons√°vel', $this->nm_responsavel, '50', '255', false);
 
 		$this->campoCpf('cpf', 'CPF', $this->cpf, FALSE);
 
@@ -206,7 +206,7 @@ class indice extends clsCadastro
 		$documentos        = $documentos->detalhe();
 
 		// rg
-		// o rg È obrigatorio ao cadastrar pai ou m„e, exceto se configurado como opcional.
+		// o rg √© obrigatorio ao cadastrar pai ou m√£e, exceto se configurado como opcional.
 
 		$required = (! empty($parentType));
 
@@ -217,7 +217,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => $required,
-			'label'       => 'RG / Data emiss„o',
+			'label'       => 'RG / Data emiss√£o',
 			'placeholder' => 'Documento identidade',
 			'value'       => $this->rg,
 			'max_length'  => 20,
@@ -227,12 +227,12 @@ class indice extends clsCadastro
 		$this->inputsHelper()->integer('rg', $options);
 
 
-		// data emiss„o rg
+		// data emiss√£o rg
 
 		/*$options = array(
 			'required'    => false,
 			'label'       => '',
-			'placeholder' => 'Data emiss„o',
+			'placeholder' => 'Data emiss√£o',
 			'value'       => $documentos['data_exp_rg'],
 			'size'        => 19
 		);
@@ -240,9 +240,9 @@ class indice extends clsCadastro
 		$this->inputsHelper()->date('data_emissao_rg', $options);
 
 
-		// org„o emiss„o rg
+		// org√£o emiss√£o rg
 
-		$selectOptions = array( null => 'Org„o emissor' );
+		$selectOptions = array( null => 'Org√£o emissor' );
 		$orgaos        = new clsOrgaoEmissorRg();
 		$orgaos        = $orgaos->lista();
 
@@ -262,7 +262,7 @@ class indice extends clsCadastro
 		$this->inputsHelper()->select('orgao_emissao_rg', $options);
 
 
-		// uf emiss„o rg
+		// uf emiss√£o rg
 
 		$options = array(
 			'required' => false,
@@ -314,22 +314,22 @@ class indice extends clsCadastro
 
 		$this->campoCheck('guarda_mirim', 'Guarda Mirim', $this->guarda_mirim, '', FALSE, FALSE);
 
-		$this->campoCheck('encaminhamento', 'Encaminhado pela rede de proteÁ„o', $this->encaminhamento, '', FALSE, FALSE);
+		$this->campoCheck('encaminhamento', 'Encaminhado pela rede de prote√ß√£o', $this->encaminhamento, '', FALSE, FALSE);
 
 		$options = array(
 			'required'	=> false,
-			'label'     => 'SÈrie',
+			'label'     => 'S√©rie',
 			'value'     => $this->serie,
 			'resources' => array(
-				'' => 'SÈrie',
-				'1' => '5™ sÈrie',
-				'2' => '6™ sÈrie',
-				'3' => '7™ sÈrie',
-				'4' => '8™ sÈrie',
-				'5' => '9™ sÈrie',
-				'6' => '1∫ ano Ensino MÈdio',
-				'7' => '2∫ ano Ensino MÈdio',
-				'8' => '3∫ ano Ensino MÈdio',
+				'' => 'S√©rie',
+				'1' => '5¬™ s√©rie',
+				'2' => '6¬™ s√©rie',
+				'3' => '7¬™ s√©rie',
+				'4' => '8¬™ s√©rie',
+				'5' => '9¬™ s√©rie',
+				'6' => '1¬∫ ano Ensino M√©dio',
+				'7' => '2¬∫ ano Ensino M√©dio',
+				'8' => '3¬∫ ano Ensino M√©dio',
 				'9' => 'Concluido',
 				'10' => 'EJA'
 			),
@@ -343,7 +343,7 @@ class indice extends clsCadastro
 			'value'     => $this->turno,
 			'resources' => array(
 				'' => 'Turno',
-				'1' => 'Manh„',
+				'1' => 'Manh√£',
 				'2' => 'Tarde',
 				'3' => 'Noite',
 			),
@@ -353,7 +353,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => $required,
-			'label'       => 'Ano de Conclus„o (egresso)',
+			'label'       => 'Ano de Conclus√£o (egresso)',
 			'placeholder' => 'Ano',
 			'value'       => $this->egresso,
 			'max_length'  => 4,
@@ -362,24 +362,24 @@ class indice extends clsCadastro
 
 		$this->inputsHelper()->integer('egresso', $options);
 
-		$this->campoCheck('copia_rg', 'CÛpia do RG', $this->copia_rg, '', FALSE, FALSE);
+		$this->campoCheck('copia_rg', 'C√≥pia do RG', $this->copia_rg, '', FALSE, FALSE);
 
-		$this->campoCheck('copia_cpf', 'CÛpia do CPF', $this->copia_cpf, '', FALSE, FALSE);
+		$this->campoCheck('copia_cpf', 'C√≥pia do CPF', $this->copia_cpf, '', FALSE, FALSE);
 
-		$this->campoCheck('copia_residencia', 'CÛpia do Comprovante de Residencia', $this->copia_residencia, '', FALSE, FALSE);
+		$this->campoCheck('copia_residencia', 'C√≥pia do Comprovante de Residencia', $this->copia_residencia, '', FALSE, FALSE);
 
-		$this->campoCheck('copia_historico', 'CÛpia do HistÛrio / DeclaraÁ„o', $this->copia_historico, '', FALSE, FALSE);
+		$this->campoCheck('copia_historico', 'C√≥pia do Hist√≥rio / Declara√ß√£o', $this->copia_historico, '', FALSE, FALSE);
 
 		$this->campoCheck('copia_renda', 'Comprovante de renda', $this->copia_renda, '', FALSE, FALSE);
 
 		$options = array(
 			'required' => false,
-			'label'    => "AvaliaÁ„o Projeto Etapa 1",
+			'label'    => "Avalia√ß√£o Projeto Etapa 1",
 			'inline'   => false,
 			'value'     => $this->etapa_1,
 			'resources' => array(
-				'' => '1™ Etapa',
-				'1' => 'N„o Adequado',
+				'' => '1¬™ Etapa',
+				'1' => 'N√£o Adequado',
 				'2' => 'Parcialmente Adequado',
 				'3' => 'Adequado'
 			),
@@ -389,12 +389,12 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required' => false,
-			'label'    => "AvaliaÁ„o Projeto Etapa 1",
+			'label'    => "Avalia√ß√£o Projeto Etapa 1",
 			'inline'   => false,
 			'value'     => $this->etapa_2,
 			'resources' => array(
-				'-1' => '2™ Etapa',
-				'1' => 'N„o Adequado',
+				'-1' => '2¬™ Etapa',
+				'1' => 'N√£o Adequado',
 				'2' => 'Parcialmente Adequado',
 				'3' => 'Adequado'
 			),
@@ -404,12 +404,12 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required' => false,
-			'label'    => "AvaliaÁ„o Projeto Etapa 1",
+			'label'    => "Avalia√ß√£o Projeto Etapa 1",
 			'inline'   => false,
 			'value'     => $this->etapa_3,
 			'resources' => array(
-				'-1' => '3™ Etapa',
-				'1' => 'N„o Aprovado',
+				'-1' => '3¬™ Etapa',
+				'1' => 'N√£o Aprovado',
 				'2' => 'Parcialmente Aprovado',
 				'3' => 'Aprovado'
 			),
@@ -432,7 +432,7 @@ class indice extends clsCadastro
 			die();
 		}
 
-		$this->mensagem = Portabilis_String_utils::toLatin1('Cadastro n„o realizado.');
+		$this->mensagem = Portabilis_String_utils::toLatin1('Cadastro n√£o realizado.');
 
 		return false;
 	}
@@ -446,7 +446,7 @@ class indice extends clsCadastro
 
 		if ($cadastrou)
 		{
-			$this->mensagem .= 'EdiÁ„o efetuada com sucesso.';
+			$this->mensagem .= 'Edi√ß√£o efetuada com sucesso.';
 			header('Location: selecao_inscritos_lst.php');
 			die();
 		}
@@ -468,7 +468,7 @@ class indice extends clsCadastro
 
 		if ($cpf && ! Portabilis_Utils_Validation::validatesCpf($cpf))
 		{
-			$this->erros['cpf'] = 'CPF inv·lido.';
+			$this->erros['cpf'] = 'CPF inv√°lido.';
 			$isValid = false;
 		} else if($cpf) {
 			$fisica      = new clsFisica();
@@ -480,7 +480,7 @@ class indice extends clsCadastro
 				$link = "<a class='decorated' target='__blank' href='/intranet/atendidos_cad.php?cod_inscrito=" .
 				"{$fisica['idpes']}'>{$fisica['idpes']}</a>";
 
-				$this->erros['cpf'] = "CPF j· utilizado pela pessoa $link.";
+				$this->erros['cpf'] = "CPF j√° utilizado pela pessoa $link.";
 				$isValid = false;
 			}
 		}
@@ -555,8 +555,8 @@ class indice extends clsCadastro
 	}
 
 	// inputs usados em Gerar,
-	// implementado estes metodos para n„o duplicar cÛdigo
-	// uma vez que estes campos s„o usados v·rias vezes em Gerar.
+	// implementado estes metodos para n√£o duplicar c√≥digo
+	// uma vez que estes campos s√£o usados v√°rias vezes em Gerar.
 
 	protected function inputTelefone($type, $typeLabel = '') {
 		if (! $typeLabel)
@@ -591,14 +591,14 @@ class indice extends clsCadastro
 	}
 }
 
-// Instancia objeto de p·gina
+// Instancia objeto de p√°gina
 $pagina = new clsIndex();
 
-// Instancia objeto de conte˙do
+// Instancia objeto de conte√∫do
 $miolo = new indice();
 
-// Atribui o conte˙do ‡ p·gina
+// Atribui o conte√∫do √† p√°gina
 $pagina->addForm($miolo);
 
-// Gera o cÛdigo HTML
+// Gera o c√≥digo HTML
 $pagina->MakeAll();

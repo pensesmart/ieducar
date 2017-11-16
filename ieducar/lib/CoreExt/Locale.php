@@ -1,30 +1,30 @@
 <?php
 
 /**
- * i-Educar - Sistema de gest„o escolar
+ * i-Educar - Sistema de gest√£o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de ItajaÌ
+ * Copyright (C) 2006  Prefeitura Municipal de Itaja√≠
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa È software livre; vocÍ pode redistribuÌ-lo e/ou modific·-lo
- * sob os termos da LicenÁa P˙blica Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a vers„o 2 da LicenÁa, como (a seu critÈrio)
- * qualquer vers„o posterior.
+ * Este programa √© software livre; voc√™ pode redistribu√≠-lo e/ou modific√°-lo
+ * sob os termos da Licen√ßa P√∫blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a vers√£o 2 da Licen√ßa, como (a seu crit√©rio)
+ * qualquer vers√£o posterior.
  *
- * Este programa È distribuÌ≠do na expectativa de que seja ˙til, porÈm, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implÌ≠cita de COMERCIABILIDADE OU
- * ADEQUA«√O A UMA FINALIDADE ESPECÕFICA. Consulte a LicenÁa P˙blica Geral
+ * Este programa √© distribu√≠¬≠do na expectativa de que seja √∫til, por√©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia impl√≠¬≠cita de COMERCIABILIDADE OU
+ * ADEQUA√á√ÉO A UMA FINALIDADE ESPEC√çFICA. Consulte a Licen√ßa P√∫blica Geral
  * do GNU para mais detalhes.
  *
- * VocÍ deve ter recebido uma cÛpia da LicenÁa P˙blica Geral do GNU junto
- * com este programa; se n„o, escreva para a Free Software Foundation, Inc., no
- * endereÁo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Voc√™ deve ter recebido uma c√≥pia da Licen√ßa P√∫blica Geral do GNU junto
+ * com este programa; se n√£o, escreva para a Free Software Foundation, Inc., no
+ * endere√ßo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Eriksen Costa Paix„o <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paix√£o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   CoreExt_Locale
- * @since     Arquivo disponÌvel desde a vers„o 1.1.0
+ * @since     Arquivo dispon√≠vel desde a vers√£o 1.1.0
  * @version   $Id$
  */
 
@@ -33,15 +33,15 @@ require_once 'CoreExt/Singleton.php';
 /**
  * CoreExt_Locale class.
  *
- * @author    Eriksen Costa Paix„o <eriksen.paixao_bs@cobra.com.br>
+ * @author    Eriksen Costa Paix√£o <eriksen.paixao_bs@cobra.com.br>
  * @category  i-Educar
  * @license   @@license@@
- * @link      http://br2.php.net/setlocale DocumentaÁ„o da funÁ„o setlocale()
+ * @link      http://br2.php.net/setlocale Documenta√ß√£o da fun√ß√£o setlocale()
  * @package   CoreExt_Locale
- * @since     Classe disponÌvel desde a vers„o 1.1.0
- * @todo      Verificar se existem implicaÁıes em sistemas operacionais que
+ * @since     Classe dispon√≠vel desde a vers√£o 1.1.0
+ * @todo      Verificar se existem implica√ß√µes em sistemas operacionais que
  *            especificam um encoding junto a locale string.
- * @todo      Utilizar um encoding de locale compatÌvel com o encoding de
+ * @todo      Utilizar um encoding de locale compat√≠vel com o encoding de
  *            escaping de CoreExt_View, quando este for implementado.
  * @version   @@package_version@@
  */
@@ -53,14 +53,14 @@ class CoreExt_Locale extends CoreExt_Singleton
   protected $_culture = 'en_US';
 
   /**
-   * Culture padr„o para en_US, para evitar problemas com c·lculos com
-   * n˙meros de precis„o arbitr·ria.
+   * Culture padr√£o para en_US, para evitar problemas com c√°lculos com
+   * n√∫meros de precis√£o arbitr√°ria.
    * @var string
    */
   protected $_defaultCulture = 'en_US';
 
   /**
-   * Cache de informaÁıes sobre um culture.
+   * Cache de informa√ß√µes sobre um culture.
    * @var array
    */
   protected $_cultureInfo = array();
@@ -85,7 +85,7 @@ class CoreExt_Locale extends CoreExt_Singleton
    * Setter.
    *
    * @param string $culture
-   * @return CoreExt_Locale ProvÍ interface fluÌda
+   * @return CoreExt_Locale Prov√™ interface flu√≠da
    */
   public function setCulture($culture)
   {
@@ -108,12 +108,12 @@ class CoreExt_Locale extends CoreExt_Singleton
    * Configura o locale para uma cultura especifica ou usa o valor corrente
    * da classe.
    *
-   * Tenta usar um locale ISO-8859-1 (por ser padr„o do banco de dados e da
-   * aplicaÁ„o). Como fallback, usa o locale genÈrico C e um UTF-8 para
+   * Tenta usar um locale ISO-8859-1 (por ser padr√£o do banco de dados e da
+   * aplica√ß√£o). Como fallback, usa o locale gen√©rico C e um UTF-8 para
    * LC_NUMERIC.
    *
-   * Como n„o existe consistÍncia na nomenclarura dos encodings entre os
-   * sistemas operacionais, tenta variaÁıes como ISO-8859-1 e ISO_8859_1.
+   * Como n√£o existe consist√™ncia na nomenclarura dos encodings entre os
+   * sistemas operacionais, tenta varia√ß√µes como ISO-8859-1 e ISO_8859_1.
    *
    * @link http://linux.die.net/man/3/setlocale Linux setlocale(3) man page
    * @param string|NULL $culture
@@ -130,10 +130,10 @@ class CoreExt_Locale extends CoreExt_Singleton
       $culture . '.ISO8859-1', $culture . '.iso8859-1', $culture . 'ISO_8859_1',
       $culture . '.iso_8859_1', $culture . '.ISO8859_1', $culture . '.iso8859_1'));
 
-    // Fallback. Caso n„o encontre um locale ISO-8859-1, usa um C (ASCII-like)
-    // e um UTF-8 somente para numÈricos. No final, tudo È manuseado em C
-    // pelas funÁıes de formataÁ„o de string, e como usam o locale C, ser·
-    // compatÌvel com a definiÁ„o ISO-8859-1.
+    // Fallback. Caso n√£o encontre um locale ISO-8859-1, usa um C (ASCII-like)
+    // e um UTF-8 somente para num√©ricos. No final, tudo √© manuseado em C
+    // pelas fun√ß√µes de formata√ß√£o de string, e como usam o locale C, ser√°
+    // compat√≠vel com a defini√ß√£o ISO-8859-1.
     if (FALSE == $actualCulture) {
       $actualCulture = array();
       $actualCulture['LC_ALL']     = $this->_setlocale(LC_ALL, array('C'));
@@ -144,14 +144,14 @@ class CoreExt_Locale extends CoreExt_Singleton
 
     $this->actualCulture = $actualCulture;
 
-    // Cache de informaÁıes do culture
+    // Cache de informa√ß√µes do culture
     if (!isset($this->_cultureInfo[$culture])) {
       $this->_cultureInfo[$culture] = localeconv();
     }
   }
 
   /**
-   * Chama a funÁ„o setlocale().
+   * Chama a fun√ß√£o setlocale().
    *
    * @param  string $category
    * @param  array  $locale

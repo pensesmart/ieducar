@@ -1,25 +1,25 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	*																	     *
-	*	@author Prefeitura Municipal de Itajaí								 *
+	*	@author Prefeitura Municipal de ItajaÃ­								 *
 	*	@updated 29/03/2007													 *
-	*   Pacote: i-PLB Software Público Livre e Brasileiro					 *
+	*   Pacote: i-PLB Software PÃºblico Livre e Brasileiro					 *
 	*																		 *
-	*	Copyright (C) 2006	PMI - Prefeitura Municipal de Itajaí			 *
+	*	Copyright (C) 2006	PMI - Prefeitura Municipal de ItajaÃ­			 *
 	*						ctima@itajai.sc.gov.br					    	 *
 	*																		 *
-	*	Este  programa  é  software livre, você pode redistribuí-lo e/ou	 *
-	*	modificá-lo sob os termos da Licença Pública Geral GNU, conforme	 *
-	*	publicada pela Free  Software  Foundation,  tanto  a versão 2 da	 *
-	*	Licença   como  (a  seu  critério)  qualquer  versão  mais  nova.	 *
+	*	Este  programa  Ã©  software livre, vocÃª pode redistribuÃ­-lo e/ou	 *
+	*	modificÃ¡-lo sob os termos da LicenÃ§a PÃºblica Geral GNU, conforme	 *
+	*	publicada pela Free  Software  Foundation,  tanto  a versÃ£o 2 da	 *
+	*	LicenÃ§a   como  (a  seu  critÃ©rio)  qualquer  versÃ£o  mais  nova.	 *
 	*																		 *
-	*	Este programa  é distribuído na expectativa de ser útil, mas SEM	 *
-	*	QUALQUER GARANTIA. Sem mesmo a garantia implícita de COMERCIALI-	 *
-	*	ZAÇÃO  ou  de ADEQUAÇÃO A QUALQUER PROPÓSITO EM PARTICULAR. Con-	 *
-	*	sulte  a  Licença  Pública  Geral  GNU para obter mais detalhes.	 *
+	*	Este programa  Ã© distribuÃ­do na expectativa de ser Ãºtil, mas SEM	 *
+	*	QUALQUER GARANTIA. Sem mesmo a garantia implÃ­cita de COMERCIALI-	 *
+	*	ZAÃ‡ÃƒO  ou  de ADEQUAÃ‡ÃƒO A QUALQUER PROPÃ“SITO EM PARTICULAR. Con-	 *
+	*	sulte  a  LicenÃ§a  PÃºblica  Geral  GNU para obter mais detalhes.	 *
 	*																		 *
-	*	Você  deve  ter  recebido uma cópia da Licença Pública Geral GNU	 *
-	*	junto  com  este  programa. Se não, escreva para a Free Software	 *
+	*	VocÃª  deve  ter  recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU	 *
+	*	junto  com  este  programa. Se nÃ£o, escreva para a Free Software	 *
 	*	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 	*	02111-1307, USA.													 *
 	*																		 *
@@ -34,7 +34,7 @@ class clsIndexBase extends clsBase
 {
 	function Formular()
 	{
-		$this->SetTitulo( "{$this->_instituicao} i-Educar - Matrícula Turma - Alunos" );
+		$this->SetTitulo( "{$this->_instituicao} i-Educar - MatrÃ­cula Turma - Alunos" );
 		$this->processoAp = "586"; //TODO verificar o que ? este processoAp
 		$this->addEstilo( "localizacaoSistema" );
 	}
@@ -142,7 +142,7 @@ class indice extends clsCadastro
     $obj_cod_instituicao = new clsPmieducarInstituicao($this->ref_cod_instituicao);
     $obj_cod_instituicao_det = $obj_cod_instituicao->detalhe();
     $nm_instituicao = $obj_cod_instituicao_det['nm_instituicao'];
-    $this->campoRotulo('nm_instituicao', 'Instituição Propronente', $nm_instituicao);
+    $this->campoRotulo('nm_instituicao', 'InstituiÃ§Ã£o Propronente', $nm_instituicao);
 
     if ($this->ref_ref_cod_escola) {
       $obj_ref_cod_escola = new clsPmieducarEscola($this->ref_ref_cod_escola);
@@ -174,7 +174,7 @@ class indice extends clsCadastro
         $ano_letivo = $det_ano_letivo['ano'];
       }
       else {
-        $this->mensagem = 'Não foi possível encontrar o ano letivo em andamento da escola.';
+        $this->mensagem = 'NÃ£o foi possÃ­vel encontrar o ano letivo em andamento da escola.';
         return FALSE;
       }
     }
@@ -189,12 +189,12 @@ class indice extends clsCadastro
     if ($this->ano)
     	$this->campoRotulo('ano', 'Ano', $this->ano);
     else
-    	$this->campoRotulo('ano', 'Ano', 'Não foi possível encontrar o ano referente a esta turma.');
+    	$this->campoRotulo('ano', 'Ano', 'NÃ£o foi possÃ­vel encontrar o ano referente a esta turma.');
     	
     if ($this->nm_prof_regente)
     	$this->campoRotulo('nm_prof_regente', 'Educador Coordenador', $this->nm_prof_regente);
     else
-    	$this->campoRotulo('nm_prof_regente', 'Educador Coordenador', 'Esta turma não possui Educador Coordenador');
+    	$this->campoRotulo('nm_prof_regente', 'Educador Coordenador', 'Esta turma nÃ£o possui Educador Coordenador');
     
     // Inclui os alunos
     $this->campoQuebra();
@@ -212,7 +212,7 @@ class indice extends clsCadastro
         }
       }
       else {
-      	$this->campoRotulo('rotulo_1', '-', 'Não há nenhum aluno matriculado nesta turma.');
+      	$this->campoRotulo('rotulo_1', '-', 'NÃ£o hÃ¡ nenhum aluno matriculado nesta turma.');
       	$this->acao_enviar = false;
       }
     }
@@ -249,14 +249,14 @@ class indice extends clsCadastro
   
 }
 
-// Instancia objeto de página
+// Instancia objeto de pÃ¡gina
 $pagina = new clsIndexBase();
 
-// Instancia objeto de conteúdo
+// Instancia objeto de conteÃºdo
 $miolo = new indice();
 
-// Atribui o conteúdo à  página
+// Atribui o conteÃºdo Ã   pÃ¡gina
 $pagina->addForm($miolo);
 
-// Gera o código HTML
+// Gera o cÃ³digo HTML
 $pagina->MakeAll();

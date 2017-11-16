@@ -28,11 +28,11 @@ class indice extends clsListagem
 
 		$options = array(
 			'required' => false,
-			'label'    => "Avaliação Projeto Etapa 1",
+			'label'    => "AvaliaÃ§Ã£o Projeto Etapa 1",
 			'value'     => $_GET['etapa_1'],
 			'resources' => array(
-				'' => '1ª Etapa',
-				'1' => 'Não Adequado',
+				'' => '1Âª Etapa',
+				'1' => 'NÃ£o Adequado',
 				'2' => 'Parcialmente Adequado',
 				'3' => 'Adequado'
 			),
@@ -42,12 +42,12 @@ class indice extends clsListagem
 
 		$options = array(
 			'required' => false,
-			'label'    => "Avaliação Projeto Etapa 2",
+			'label'    => "AvaliaÃ§Ã£o Projeto Etapa 2",
 			'value'     => $_GET['etapa_2'],
 			'resources' => array(
-				'' => '2ª Etapa',
-				'-1' => 'Não Avaliado',
-				'1' => 'Não Adequado',
+				'' => '2Âª Etapa',
+				'-1' => 'NÃ£o Avaliado',
+				'1' => 'NÃ£o Adequado',
 				'2' => 'Parcialmente Adequado',
 				'3' => 'Adequado'
 			),
@@ -92,14 +92,14 @@ class indice extends clsListagem
 		$iniciolimit = ( $_GET["pagina_{$this->nome}"] ) ? $_GET["pagina_{$this->nome}"] * $limite-$limite: 0;
 
 		$turno_campo = array(
-			'0' => 'Não definido',
-			'1' => 'Manhã',
+			'0' => 'NÃ£o definido',
+			'1' => 'ManhÃ£',
 			'2' => 'Tarde',
 			'3' => 'Noite'
 		);
 
 		$avaliacao = array(
-			'1' => 'Não Adequado',
+			'1' => 'NÃ£o Adequado',
 			'2' => 'Parcialmente Adequado',
 			'3' => 'Adequado'
 		);
@@ -157,7 +157,7 @@ class indice extends clsListagem
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos( array(
-			$_SERVER['SERVER_NAME']."/intranet" => "Início",
+			$_SERVER['SERVER_NAME']."/intranet" => "InÃ­cio",
 			""                                  => "Listagem de Inscritos Processo Seletivo"
 		));
 

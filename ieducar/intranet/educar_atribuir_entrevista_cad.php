@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 *																		 *
-*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -166,7 +166,7 @@ class indice extends clsCadastro
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos(array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			"educar_vps_index.php"                => "Trilha Jovem - VPS",
 			""                                    => "{$nomeMenu} entrevista"
 		));
@@ -234,7 +234,7 @@ class indice extends clsCadastro
 
 		$this->inputsHelper()->simpleSearchPessoaj('nome', $options, $helperOptions);
 
-		// ColeÁ„o
+		// Cole√ß√£o
 		$opcoes = array("" => "Selecione");
 
 		if(class_exists("clsPmieducarVPSFuncao"))
@@ -254,7 +254,7 @@ class indice extends clsCadastro
 			$opcoes = array("" => "Erro na geracao");
 		}
 
-		$this->campoLista("ref_cod_vps_funcao", "FunÁ„o/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "", true, false);
+		$this->campoLista("ref_cod_vps_funcao", "Fun√ß√£o/Cargo", $opcoes, $this->ref_cod_vps_funcao, "", false, "", "", true, false);
 
 		// Idioma
 		$opcoes = array("" => "Selecione");
@@ -295,11 +295,11 @@ class indice extends clsCadastro
 
 		$this->campoQuebra();
 
-		$this->campoMonetario('salario', 'Sal·rio', number_format($this->salario, 2, ',', '.'), 7, 7, false, "", "", "onChange", true);
+		$this->campoMonetario('salario', 'Sal√°rio', number_format($this->salario, 2, ',', '.'), 7, 7, false, "", "", "onChange", true);
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'N˙mero de Vagas DisponÌveis',
+			'label'       => 'N√∫mero de Vagas Dispon√≠veis',
 			'placeholder' => '',
 			'value'       => $this->numero_vagas,
 			'max_length'  => 2,
@@ -312,7 +312,7 @@ class indice extends clsCadastro
 
 		$options = array(
 			'required'    => true,
-			'label'       => 'N˙mero de Jovens por vaga disponÌvel',
+			'label'       => 'N√∫mero de Jovens por vaga dispon√≠vel',
 			'placeholder' => '',
 			'value'       => $this->numero_jovens,
 			'max_length'  => 2,
@@ -323,11 +323,11 @@ class indice extends clsCadastro
 
 		$this->inputsHelper()->integer('numero_jovens', $options);
 
-		$this->campoRotulo("data_entrevista", "Data/Hora",  Portabilis_Date_Utils::pgSQLToBr($this->data_entrevista) . " ‡s " . $this->hora_entrevista);
+		$this->campoRotulo("data_entrevista", "Data/Hora",  Portabilis_Date_Utils::pgSQLToBr($this->data_entrevista) . " √†s " . $this->hora_entrevista);
 
 		$options = array(
 			'required'    => false,
-			'label'       => 'DescriÁ„o',
+			'label'       => 'Descri√ß√£o',
 			'value'       => $this->descricao,
 			'cols'        => 30,
 			'max_length'  => 150,
@@ -365,13 +365,13 @@ class indice extends clsCadastro
 				$cadastrou = $jovemEntrevista->cadastra();
 			}
 
-			$this->mensagem .= "EdiÁ„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Edi√ß√£o efetuada com sucesso.<br>";
 			header("Location: educar_atribuir_entrevista_lst.php");
 			die();
 			return true;
 		}
 
-		$this->mensagem = "EdiÁ„o n„o realizada.<br> ";
+		$this->mensagem = "Edi√ß√£o n√£o realizada.<br> ";
 		echo "<!--\nErro ao editar clsPmieducarAcervo\nvalores obrigatorios\nif(is_numeric($this->cod_vps_entrevista) && is_numeric($this->ref_usuario_exc))\n-->";
 
 		return false;
@@ -393,7 +393,7 @@ $pagina->MakeAll();
 	document.getElementById('ref_cod_vps_funcao').options[0].text = 'Selecione uma escola';
 
 	document.getElementById('ref_cod_vps_jornada_trabalho').disabled = true;
-	document.getElementById('ref_cod_vps_jornada_trabalho').options[0].text = 'Selecione uma instituiÁ„o';
+	document.getElementById('ref_cod_vps_jornada_trabalho').options[0].text = 'Selecione uma institui√ß√£o';
 
 	document.getElementById('ref_cod_vps_responsavel_entrevista').disabled = true;
 	document.getElementById('ref_cod_vps_responsavel_entrevista').options[0].text = 'Selecione uma empresa';
@@ -439,7 +439,7 @@ $pagina->MakeAll();
 		if(DOM_array.length)
 		{
 			campoFuncao.length = 1;
-			campoFuncao.options[0].text = 'Selecione uma FunÁ„o/Cargo';
+			campoFuncao.options[0].text = 'Selecione uma Fun√ß√£o/Cargo';
 			campoFuncao.disabled = false;
 
 			for(var i=0; i<DOM_array.length; i++)
@@ -459,7 +459,7 @@ $pagina->MakeAll();
 			}
 			else
 			{
-				campoFuncao.options[0].text = 'A Escola n„o possui funÁ„o/cargo';
+				campoFuncao.options[0].text = 'A Escola n√£o possui fun√ß√£o/cargo';
 				setVisibility(document.getElementById('img_funcao'), true);
 			}
 		}
@@ -488,12 +488,12 @@ $pagina->MakeAll();
 		{
 			if(document.getElementById('ref_cod_instituicao').value == "")
 			{
-				campoJornadaTrabalho.options[0].text = 'Selecione uma instituiÁ„o';
+				campoJornadaTrabalho.options[0].text = 'Selecione uma institui√ß√£o';
 				setVisibility(document.getElementById('img_jornada_trabalho'), false);
 			}
 			else
 			{
-				campoJornadaTrabalho.options[0].text = 'A instituiÁ„o n„o possui jornadas de trabalhos';
+				campoJornadaTrabalho.options[0].text = 'A institui√ß√£o n√£o possui jornadas de trabalhos';
 				setVisibility(document.getElementById('img_jornada_trabalho'), true);
 			}
 		}
@@ -507,7 +507,7 @@ $pagina->MakeAll();
 		if(DOM_array.length)
 		{
 			campoResponsavelEntrevista.length = 1;
-			campoResponsavelEntrevista.options[0].text = 'Selecione um respons·vel';
+			campoResponsavelEntrevista.options[0].text = 'Selecione um respons√°vel';
 			campoResponsavelEntrevista.disabled = false;
 
 			for(var i = 0; i < DOM_array.length; i++)
@@ -529,7 +529,7 @@ $pagina->MakeAll();
 			}
 			else
 			{
-				campoResponsavelEntrevista.options[0].text = 'A escola n„o possui respons·veis cadastrados';
+				campoResponsavelEntrevista.options[0].text = 'A escola n√£o possui respons√°veis cadastrados';
 				setVisibility(document.getElementById('img_responsavel'), true);
 			}
 		}
@@ -577,7 +577,7 @@ $pagina->MakeAll();
 
 		campoFuncao.length = 1;
 		campoFuncao.disabled = true;
-		campoFuncao.options[0].text = 'Carregando coleÔøΩÔøΩes';
+		campoFuncao.options[0].text = 'Carregando cole√Ø¬ø¬Ω√Ø¬ø¬Ωes';
 
 		var xml_funcao = new ajax(getFuncao);
 		xml_funcao.envia("educar_vps_funcao_xml.php?esc="+campoEscola);
@@ -618,7 +618,7 @@ $pagina->MakeAll();
 
 			campoResponsavel.length = 1;
 			campoResponsavel.disabled = true;
-			campoResponsavel.options[0].text = 'Carregando respons·vel';
+			campoResponsavel.options[0].text = 'Carregando respons√°vel';
 
 			var xml_jornada_trabalho = new ajax(getResponsavelEntrevista);
 			console.log("valores esc=" + campoEscola + "&idpes" + campoEmpresa);

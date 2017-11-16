@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software P˙blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software P√∫blico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  È  software livre, vocÍ pode redistribuÌ-lo e/ou	 *
-*	modific·-lo sob os termos da LicenÁa P˙blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers„o 2 da	 *
-*	LicenÁa   como  (a  seu  critÈrio)  qualquer  vers„o  mais  nova.	 *
+*	Este  programa  √©  software livre, voc√™ pode redistribu√≠-lo e/ou	 *
+*	modific√°-lo sob os termos da Licen√ßa P√∫blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a vers√£o 2 da	 *
+*	Licen√ßa   como  (a  seu  crit√©rio)  qualquer  vers√£o  mais  nova.	 *
 *																		 *
-*	Este programa  È distribuÌdo na expectativa de ser ˙til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implÌcita de COMERCIALI-	 *
-*	ZA«√O  ou  de ADEQUA«√O A QUALQUER PROP”SITO EM PARTICULAR. Con-	 *
-*	sulte  a  LicenÁa  P˙blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  √© distribu√≠do na expectativa de ser √∫til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia impl√≠cita de COMERCIALI-	 *
+*	ZA√á√ÉO  ou  de ADEQUA√á√ÉO A QUALQUER PROP√ìSITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licen√ßa  P√∫blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	VocÍ  deve  ter  recebido uma cÛpia da LicenÁa P˙blica Geral GNU	 *
-*	junto  com  este  programa. Se n„o, escreva para a Free Software	 *
+*	Voc√™  deve  ter  recebido uma c√≥pia da Licen√ßa P√∫blica Geral GNU	 *
+*	junto  com  este  programa. Se n√£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -33,7 +33,7 @@ class clsIndexBase extends clsBase
 {
 	function Formular()
 	{
-		$this->SetTitulo( "{$this->_instituicao} - FunÁ„o" );
+		$this->SetTitulo( "{$this->_instituicao} - Fun√ß√£o" );
 		$this->processoAp = "593";
 		$this->addEstilo('localizacaoSistema');
 	}
@@ -104,9 +104,9 @@ class indice extends clsCadastro
 		$nomeMenu = $retorno == "Editar" ? $retorno : "Cadastrar";
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos( array(
-			 $_SERVER['SERVER_NAME'] . "/intranet" => "InÌcio",
+			 $_SERVER['SERVER_NAME'] . "/intranet" => "In√≠cio",
 			 "educar_vps_index.php"                => "Trilha Jovem - VPS",
-			 ""                                    => "{$nomeMenu} FunÁ„o"
+			 ""                                    => "{$nomeMenu} Fun√ß√£o"
 		));
 		
 		$this->enviaLocalizacao($localizacao->montar());
@@ -131,8 +131,8 @@ class indice extends clsCadastro
 		include("include/pmieducar/educar_campo_lista.php");
 
 		// text
-		$this->campoTexto( "nm_funcao", "FunÁ„o", $this->nm_funcao, 30, 255, true );
-		$this->campoMemo( "descricao", "DescriÁ„o", $this->descricao, 60, 5, false );
+		$this->campoTexto( "nm_funcao", "Fun√ß√£o", $this->nm_funcao, 30, 255, true );
+		$this->campoMemo( "descricao", "Descri√ß√£o", $this->descricao, 60, 5, false );
 
 	}
 
@@ -156,7 +156,7 @@ class indice extends clsCadastro
 			return true;
 		}
 
-		$this->mensagem = "Cadastro n„o realizado.<br>";
+		$this->mensagem = "Cadastro n√£o realizado.<br>";
 		echo "<!--\nErro ao cadastrar clsPmieducarVPSFuncao\nvalores obrigatorios\nis_numeric( $this->ref_usuario_cad ) && is_string( $this->nm_funcao )\n-->";
 		return false;
 	}
@@ -175,13 +175,13 @@ class indice extends clsCadastro
 		$editou = $obj->edita();
 		if( $editou )
 		{
-			$this->mensagem .= "EdiÁ„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Edi√ß√£o efetuada com sucesso.<br>";
 			header( "Location: educar_vps_funcao_lst.php" );
 			die();
 			return true;
 		}
 
-		$this->mensagem = "EdiÁ„o n„o realizada.<br>";
+		$this->mensagem = "Edi√ß√£o n√£o realizada.<br>";
 		echo "<!--\nErro ao editar clsPmieducarVPSFuncao\nvalores obrigatorios\nif( is_numeric( $this->cod_vps_funcao ) && is_numeric( $this->ref_usuario_exc ) )\n-->";
 		return false;
 	}
@@ -201,13 +201,13 @@ class indice extends clsCadastro
 		
 		if( $excluiu )
 		{
-			$this->mensagem .= "Exclus„o efetuada com sucesso.<br>";
+			$this->mensagem .= "Exclus√£o efetuada com sucesso.<br>";
 			header( "Location: educar_vps_funcao_lst.php" );
 			die();
 			return true;
 		}
 
-		$this->mensagem = "Exclus„o n„o realizada.<br>";
+		$this->mensagem = "Exclus√£o n√£o realizada.<br>";
 		echo "<!--\nErro ao excluir clsPmieducarVPSFuncao\nvalores obrigatorios\nif( is_numeric( $this->cod_vps_funcao ) && is_numeric( $this->ref_usuario_exc ) )\n-->";
 		return false;
 	}

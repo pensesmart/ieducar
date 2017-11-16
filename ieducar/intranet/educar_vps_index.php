@@ -3,23 +3,23 @@
 *																		 *
 *	@author Smart Consultoria e Desenvolvimento WEB						 *
 *	@updated 17/09/2016													 *
-*   Pacote: i-PLB Software Público Livre e Brasileiro					 *
+*   Pacote: i-PLB Software PÃºblico Livre e Brasileiro					 *
 *																		 *
 *	Copyright (C) 2016	Smart Consultoria e Desenvolvimento Web			 *
 *						medaumoi@pensesmart.com							 *
 *																		 *
-*	Este  programa  é  software livre, você pode redistribuí-lo e/ou	 *
-*	modificá-lo sob os termos da Licença Pública Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a versão 2 da	 *
-*	Licença   como  (a  seu  critério)  qualquer  versão  mais  nova.	 *
+*	Este  programa  Ã©  software livre, vocÃª pode redistribuÃ­-lo e/ou	 *
+*	modificÃ¡-lo sob os termos da LicenÃ§a PÃºblica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versÃ£o 2 da	 *
+*	LicenÃ§a   como  (a  seu  critÃ©rio)  qualquer  versÃ£o  mais  nova.	 *
 *																		 *
-*	Este programa  é distribuído na expectativa de ser útil, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implícita de COMERCIALI-	 *
-*	ZAÇÃO  ou  de ADEQUAÇÃO A QUALQUER PROPÓSITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licença  Pública  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  Ã© distribuÃ­do na expectativa de ser Ãºtil, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implÃ­cita de COMERCIALI-	 *
+*	ZAÃ‡ÃƒO  ou  de ADEQUAÃ‡ÃƒO A QUALQUER PROPÃ“SITO EM PARTICULAR. Con-	 *
+*	sulte  a  LicenÃ§a  PÃºblica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Você  deve  ter  recebido uma cópia da Licença Pública Geral GNU	 *
-*	junto  com  este  programa. Se não, escreva para a Free Software	 *
+*	VocÃª  deve  ter  recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU	 *
+*	junto  com  este  programa. Se nÃ£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -36,7 +36,7 @@ class clsIndex extends clsBase
 
 	function Formular()
 	{
-		$this->SetTitulo( "{$this->_instituicao} Gestão de VPS" );
+		$this->SetTitulo( "{$this->_instituicao} GestÃ£o de VPS" );
 		$this->processoAp = "625";
 		$this->addEstilo('localizacaoSistema');
 	}
@@ -78,13 +78,13 @@ class indice extends clsListagem
 			$this->pessoa_logada = $_SESSION['id_pessoa'];
 		session_write_close();
 
-		$this->titulo = "Gestão de VPS - Estatísticas";
+		$this->titulo = "GestÃ£o de VPS - EstatÃ­sticas";
 
 		$this->template = "listagemEstatistica";
 
 		$this->addCabecalhos(array(
-			"Situação",
-			"Número de Jovens"
+			"SituaÃ§Ã£o",
+			"NÃºmero de Jovens"
 		));
 
 		$registroSituacao = App_Model_VivenciaProfissionalSituacao::getInstance()->getValues();
@@ -116,7 +116,7 @@ class indice extends clsListagem
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos( array(
-			$_SERVER['SERVER_NAME'] . "/intranet" => "Início",
+			$_SERVER['SERVER_NAME'] . "/intranet" => "InÃ­cio",
 			"educar_vps_index.php"                => "Trilha Jovem Iguassu - VPS",
 		));
 

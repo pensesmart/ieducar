@@ -4,30 +4,30 @@
 #ini_set("display_errors", 1);
 
 /**
- * i-Educar - Sistema de gestão escolar
+ * i-Educar - Sistema de gestÃ£o escolar
  *
  * Copyright 
  *
- * Este programa é software livre; você pode redistribuí-lo e/ou modificá-lo
- * sob os termos da Licença Pública Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a versão 2 da Licença, como (a seu critério)
- * qualquer versão posterior.
+ * Este programa Ã© software livre; vocÃª pode redistribuÃ­-lo e/ou modificÃ¡-lo
+ * sob os termos da LicenÃ§a PÃºblica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a versÃ£o 2 da LicenÃ§a, como (a seu critÃ©rio)
+ * qualquer versÃ£o posterior.
  *
- * Este programa é distribuí­do na expectativa de que seja útil, porém, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implí­cita de COMERCIABILIDADE OU
- * ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA. Consulte a Licença Pública Geral
+ * Este programa Ã© distribuÃ­Â­do na expectativa de que seja Ãºtil, porÃ©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia implÃ­Â­cita de COMERCIABILIDADE OU
+ * ADEQUAÃ‡ÃƒO A UMA FINALIDADE ESPECÃFICA. Consulte a LicenÃ§a PÃºblica Geral
  * do GNU para mais detalhes.
  *
- * Você deve ter recebido uma cópia da Licença Pública Geral do GNU junto
- * com este programa; se não, escreva para a Free Software Foundation, Inc., no
- * endereço 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * VocÃª deve ter recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral do GNU junto
+ * com este programa; se nÃ£o, escreva para a Free Software Foundation, Inc., no
+ * endereÃ§o 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
  * @author
  * @category    i-Educar
  * @license     @@license@@
  * @package     Reports
  * @subpackage  Modules
- * @since       Arquivo disponível desde a versão 
+ * @since       Arquivo disponÃ­vel desde a versÃ£o 
  * @version     $Id$
  */
 
@@ -42,15 +42,15 @@ require_once "Reports/Reports/AlunosTurmaReport.php";
  * @license     @@license@@
  * @package     Reports
  * @subpackage  Modules
- * @since       Classe disponível desde a versão 
+ * @since       Classe disponÃ­vel desde a versÃ£o 
  * @version     @@package_version@@
  */
 class AlunosTurmaController extends Portabilis_Controller_ReportCoreController
 {
 
-	protected $_titulo = 'Relatório de Alunos por Turma';
+	protected $_titulo = 'RelatÃ³rio de Alunos por Turma';
 
-  	// TODO quando tiver um menu para chegar nesta tela, devem ser criados os campos para filtro de turma por instituição, série e turma.
+  	// TODO quando tiver um menu para chegar nesta tela, devem ser criados os campos para filtro de turma por instituiÃ§Ã£o, sÃ©rie e turma.
 	function form() {
 		$this->inputsHelper()->dynamic(array('ano', 'instituicao', 'escola', 'curso', 'serie', 'turma'));
 	}

@@ -1,25 +1,25 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *																	     *
-*	@author Prefeitura Municipal de Itaja�								 *
+*	@author Prefeitura Municipal de Itajaï¿½								 *
 *	@updated 29/03/2007													 *
-*   Pacote: i-PLB Software P�blico Livre e Brasileiro					 *
+*   Pacote: i-PLB Software Pï¿½blico Livre e Brasileiro					 *
 *																		 *
-*	Copyright (C) 2006	PMI - Prefeitura Municipal de Itaja�			 *
+*	Copyright (C) 2006	PMI - Prefeitura Municipal de Itajaï¿½			 *
 *						ctima@itajai.sc.gov.br					    	 *
 *																		 *
-*	Este  programa  �  software livre, voc� pode redistribu�-lo e/ou	 *
-*	modific�-lo sob os termos da Licen�a P�blica Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a vers�o 2 da	 *
-*	Licen�a   como  (a  seu  crit�rio)  qualquer  vers�o  mais  nova.	 *
+*	Este  programa  ï¿½  software livre, vocï¿½ pode redistribuï¿½-lo e/ou	 *
+*	modificï¿½-lo sob os termos da Licenï¿½a Pï¿½blica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versï¿½o 2 da	 *
+*	Licenï¿½a   como  (a  seu  critï¿½rio)  qualquer  versï¿½o  mais  nova.	 *
 *																		 *
-*	Este programa  � distribu�do na expectativa de ser �til, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia impl�cita de COMERCIALI-	 *
-*	ZA��O  ou  de ADEQUA��O A QUALQUER PROP�SITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licen�a  P�blica  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  ï¿½ distribuï¿½do na expectativa de ser ï¿½til, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implï¿½cita de COMERCIALI-	 *
+*	ZAï¿½ï¿½O  ou  de ADEQUAï¿½ï¿½O A QUALQUER PROPï¿½SITO EM PARTICULAR. Con-	 *
+*	sulte  a  Licenï¿½a  Pï¿½blica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Voc�  deve  ter  recebido uma c�pia da Licen�a P�blica Geral GNU	 *
-*	junto  com  este  programa. Se n�o, escreva para a Free Software	 *
+*	Vocï¿½  deve  ter  recebido uma cï¿½pia da Licenï¿½a Pï¿½blica Geral GNU	 *
+*	junto  com  este  programa. Se nï¿½o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
@@ -138,7 +138,7 @@
 				$obj_escola = new clsPmieducarEscola($this->ref_cod_escola);
 				$det_escola = $obj_escola->detalhe();
 				$nm_escola = $det_escola['nome'];
-				$this->campoRotulo( "nm_escola","Institui��o Executora", $nm_escola );
+				$this->campoRotulo( "nm_escola","Instituição Executora", $nm_escola );
 			}
 			if ( $get_biblioteca )
 			{
@@ -169,11 +169,11 @@
 
 		if ($get_biblioteca)
 		{
-			$this->campoLista( "ref_cod_escola", "Institui��o Executora", $opcoes_escola, $this->ref_cod_escola,"getBiblioteca(2);",null,null,null,$escola_desabilitado,$escola_obrigatorio );
+			$this->campoLista( "ref_cod_escola", "Instituição Executora", $opcoes_escola, $this->ref_cod_escola,"getBiblioteca(2);",null,null,null,$escola_desabilitado,$escola_obrigatorio );
 		}
 		else
 		{
-			$this->campoLista( "ref_cod_escola", "Institui��o Executora", $opcoes_escola, $this->ref_cod_escola,null,null,null,null,$escola_desabilitado,$escola_obrigatorio );
+			$this->campoLista( "ref_cod_escola", "Instituição Executora", $opcoes_escola, $this->ref_cod_escola,null,null,null,null,$escola_desabilitado,$escola_obrigatorio );
 		}
 	}
 	if ($get_curso)
@@ -262,7 +262,7 @@
 				}
 			}
 		}
-		$this->campoLista( "ref_cod_serie", "S�rie", $opcoes_serie, $this->ref_cod_serie, null, null, null, null, $serie_desabilitado, $serie_obrigatorio );
+		$this->campoLista( "ref_cod_serie", "Sï¿½rie", $opcoes_serie, $this->ref_cod_serie, null, null, null, null, $serie_desabilitado, $serie_obrigatorio );
 
 	}
 
@@ -362,7 +362,7 @@
 				}
 			}
 		}
-		$this->campoLista( "ref_cod_funcao", "Fun��o", $opcoes_funcao, $this->ref_cod_funcao, null, null, null, null, $funcao_desabilitado, $funcao_obrigatorio );
+		$this->campoLista( "ref_cod_funcao", "Funï¿½ï¿½o", $opcoes_funcao, $this->ref_cod_funcao, null, null, null, null, $funcao_desabilitado, $funcao_obrigatorio );
 	}
 	if ( $get_turma )
 	{
@@ -390,9 +390,9 @@
 		else if ($nivel_usuario == 1 || $nivel_usuario == 2 || $nivel_usuario == 4)
 			${$get_cabecalho}[] = "Biblioteca";
 		if ($nivel_usuario == 1 || $nivel_usuario == 2)
-			${$get_cabecalho}[] = "Institui��o Executora";
+			${$get_cabecalho}[] = "Instituição Executora";
 		if ($nivel_usuario == 1)
-			${$get_cabecalho}[] = "Institui��o";
+			${$get_cabecalho}[] = "Instituição";
 	}
 ?>
 <script type='text/javascript'>
@@ -453,7 +453,7 @@ if ( $nivel_usuario == 1 || $nivel_usuario == 2 || $cad_usuario )
 		}
 		else
 		{
-			campoEscola.options[0].text = 'A institui��o n�o possui nenhuma escola';
+			campoEscola.options[0].text = 'A instituiï¿½ï¿½o nï¿½o possui nenhuma escola';
 		}
 
 		if( typeof after_getEscola == 'function' )
@@ -513,7 +513,7 @@ if ( $get_curso && $sem_padrao && !$get_matricula )
 		}
 		else
 		{
-			campoCurso.options[0].text = 'A institui��o n�o possui nenhum curso';
+			campoCurso.options[0].text = 'A instituiï¿½ï¿½o nï¿½o possui nenhum curso';
 		}
 	}
 <?
@@ -558,7 +558,7 @@ elseif ( $get_curso && !$get_matricula )
 		}
 		else
 		{
-			campoCurso.options[0].text = 'A institui��o n�o possui nenhum curso';
+			campoCurso.options[0].text = 'A instituiï¿½ï¿½o nï¿½o possui nenhum curso';
 		}
 	}
 <?
@@ -636,7 +636,7 @@ if ( $get_curso )
 		}
 		else
 		{
-			campoCurso.options[0].text = 'A escola n�o possui nenhum curso';
+			campoCurso.options[0].text = 'A escola nï¿½o possui nenhum curso';
 		}
 	}
 <?
@@ -660,7 +660,7 @@ if ( $get_escola_curso_serie && $get_matricula && $_GET["ref_cod_aluno"] )
 		if( campoInstituicao && campoCursoValue && campoEscola && cod_aluno )
 		{
 			campoSerie.disabled = true;
-			campoSerie.options[0].text = 'Carregando s�ries';
+			campoSerie.options[0].text = 'Carregando sï¿½ries';
 
 			var xml = new ajax(atualizaLstSerieMatricula);
 			xml.envia("educar_serie_matricula_xml.php?ins="+campoInstituicao+"&cur="+campoCursoValue+"&esc="+campoEscola+"&alu="+cod_aluno);
@@ -675,7 +675,7 @@ if ( $get_escola_curso_serie && $get_matricula && $_GET["ref_cod_aluno"] )
 	{
 		var campoSerie = document.getElementById('ref_ref_cod_serie');
 		campoSerie.length = 1;
-		campoSerie.options[0].text = 'Selecione uma s�rie';
+		campoSerie.options[0].text = 'Selecione uma sï¿½rie';
 		campoSerie.disabled = false;
 
 		series = xml.getElementsByTagName('serie');
@@ -688,7 +688,7 @@ if ( $get_escola_curso_serie && $get_matricula && $_GET["ref_cod_aluno"] )
 		}
 		else
 		{
-			campoSerie.options[0].text = 'A escola/curso n�o possui nenhuma s�rie';
+			campoSerie.options[0].text = 'A escola/curso nï¿½o possui nenhuma sï¿½rie';
 		}
 	}
 <?
@@ -714,7 +714,7 @@ if ( $get_escola_curso_serie  && !$get_matricula )
 		if( campoEscola && campoCurso )
 		{
 			campoSerie.disabled = true;
-			campoSerie.options[0].text = 'Carregando s�ries';
+			campoSerie.options[0].text = 'Carregando sï¿½ries';
 			var xml = new ajax(atualizaLstEscolaCursoSerie);
 			xml.envia("educar_escola_curso_serie_xml.php?esc="+campoEscola+"&cur="+campoCurso);
 		}
@@ -728,7 +728,7 @@ if ( $get_escola_curso_serie  && !$get_matricula )
 	{
 		var campoSerie = document.getElementById('ref_ref_cod_serie');
 		campoSerie.length = 1;
-		campoSerie.options[0].text = 'Selecione uma s�rie';
+		campoSerie.options[0].text = 'Selecione uma sï¿½rie';
 		campoSerie.disabled = false;
 
 		series = xml.getElementsByTagName('serie');
@@ -741,7 +741,7 @@ if ( $get_escola_curso_serie  && !$get_matricula )
 		}
 		else
 		{
-			campoSerie.options[0].text = 'A escola/curso n�o possui nenhuma s�rie';
+			campoSerie.options[0].text = 'A escola/curso nï¿½o possui nenhuma sï¿½rie';
 		}
 	}
 <?
@@ -769,7 +769,7 @@ if ( $get_serie && $get_escola_serie)
 		if( campoEscola && campoCurso )
 		{
 			campoSerie.disabled = true;
-			campoSerie.options[0].text = 'Carregando s�ries';
+			campoSerie.options[0].text = 'Carregando sï¿½ries';
 
 			var xml = new ajax(atualizaLstSerie);
 			xml.envia("educar_serie_not_escola_xml.php?esc="+campoEscola+"&cur="+campoCurso);
@@ -785,7 +785,7 @@ if ( $get_serie && $get_escola_serie)
 
 		var campoSerie = document.getElementById('ref_cod_serie');
 		campoSerie.length = 1;
-		campoSerie.options[0].text = 'Selecione uma s�rie';
+		campoSerie.options[0].text = 'Selecione uma sï¿½rie';
 		campoSerie.disabled = false;
 
 		series = xml.getElementsByTagName('serie');
@@ -798,7 +798,7 @@ if ( $get_serie && $get_escola_serie)
 		}
 		else
 		{
-			campoSerie.options[0].text = 'O curso n�o possui nenhuma s�rie ou todas as s�ries j� est� associadas a essa escola';
+			campoSerie.options[0].text = 'O curso nï¿½o possui nenhuma sï¿½rie ou todas as sï¿½ries jï¿½ estï¿½ associadas a essa escola';
 		}
 	}
 <?
@@ -818,7 +818,7 @@ if ( $get_serie && !$get_escola_serie  || $exibe_get_serie)
 		if( campoCurso )
 		{
 			campoSerie.disabled = true;
-			campoSerie.options[0].text = 'Carregando s�ries';
+			campoSerie.options[0].text = 'Carregando sï¿½ries';
 
 			var xml = new ajax(atualizaLstSerie);
 			xml.envia("educar_serie_xml.php?cur="+campoCurso);
@@ -835,7 +835,7 @@ if ( $get_serie && !$get_escola_serie  || $exibe_get_serie)
 		if(!campoSerie)
 			campoSerie = document.getElementById('ref_ref_cod_serie');
 		campoSerie.length = 1;
-		campoSerie.options[0].text = 'Selecione uma s�rie';
+		campoSerie.options[0].text = 'Selecione uma sï¿½rie';
 		campoSerie.disabled = false;
 
 		series = xml.getElementsByTagName('serie');
@@ -848,7 +848,7 @@ if ( $get_serie && !$get_escola_serie  || $exibe_get_serie)
 		}
 		else
 		{
-			campoSerie.options[0].text = 'O curso n�o possui nenhuma s�rie';
+			campoSerie.options[0].text = 'O curso nï¿½o possui nenhuma sï¿½rie';
 		}
 	}
 <?
@@ -940,7 +940,7 @@ if ( $get_cliente_tipo )
 		}
 		else
 		{
-			campoClienteTipo.options[0].text = 'A biblioteca n�o possui nenhum tipo de cliente';
+			campoClienteTipo.options[0].text = 'A biblioteca nï¿½o possui nenhum tipo de cliente';
 		}
 	}
 <?
@@ -957,7 +957,7 @@ if ( $get_funcao )
 		if( campoFuncao )
 		{
 			campoFuncao.disabled = true;
-			campoFuncao.options[0].text = 'Carregando fun��es';
+			campoFuncao.options[0].text = 'Carregando funï¿½ï¿½es';
 
 			var xml = new ajax(atualizaLstFuncao);
 			xml.envia("educar_funcao_xml.php?ins="+campoInstituicao);
@@ -972,7 +972,7 @@ if ( $get_funcao )
 	{
 		var campoFuncao = document.getElementById('ref_cod_funcao');
 		campoFuncao.length = 1;
-		campoFuncao.options[0].text = 'Selecione uma fun��o';
+		campoFuncao.options[0].text = 'Selecione uma funï¿½ï¿½o';
 		campoFuncao.disabled = false;
 
 		var funcoes = xml.getElementsByTagName('funcao');
@@ -985,7 +985,7 @@ if ( $get_funcao )
 		}
 		else
 		{
-			campoFuncao.options[0].text = 'A institui��o n�o possui nenhuma fun��o';
+			campoFuncao.options[0].text = 'A instituiï¿½ï¿½o nï¿½o possui nenhuma funï¿½ï¿½o';
 		}
 	}
 <?
@@ -1034,7 +1034,7 @@ if ( $get_turma )
 		}
 		else
 		{
-			campoTurma.options[0].text = 'A s�rie n�o possui nenhuma turma';
+			campoTurma.options[0].text = 'A sï¿½rie nï¿½o possui nenhuma turma';
 		}
 
 		after_getTurma();
@@ -1109,8 +1109,8 @@ if ($get_semestre)
 									parameters: pars,
 									onComplete: function (resp) {
 										if (resp.responseText == 0) {
-											var radios = "<input type='radio' id='sem1' name='semestre' value='1'>1� Semestre<br>"+
-														  "<input type='radio' id='sem2' name='semestre' value='2'>2� Semestre<br>";
+											var radios = "<input type='radio' id='sem1' name='semestre' value='1'>1ï¿½ Semestre<br>"+
+														  "<input type='radio' id='sem2' name='semestre' value='2'>2ï¿½ Semestre<br>";
 											$('div_semestre').innerHTML = radios;
 											$('is_padrao').value = 0;
 										} else {

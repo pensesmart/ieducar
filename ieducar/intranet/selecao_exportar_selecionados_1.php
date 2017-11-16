@@ -12,7 +12,7 @@ header('Content-Disposition: attachment; filename=data.csv');
 $output = fopen('php://output', 'w');
 
 // output the column headings
-fputcsv($output, array('Nome', 'Turno', 'Data Nascimento', 'Idade', 'Telefone', 'Bairro', 'Avaliação Etapa 1', 'Avaliação Etapa 2'), ";");
+fputcsv($output, array('Nome', 'Turno', 'Data Nascimento', 'Idade', 'Telefone', 'Bairro', 'AvaliaÃ§Ã£o Etapa 1', 'AvaliaÃ§Ã£o Etapa 2'), ";");
 
 $objPessoa = new clsPreInscrito();
 
@@ -24,14 +24,14 @@ $pessoas = $objPessoa->lista2(2);
 }*/
 
 $turno_campo = array(
-	'0' => 'Não definido',
-	'1' => 'Manhã',
+	'0' => 'NÃ£o definido',
+	'1' => 'ManhÃ£',
 	'2' => 'Tarde',
 	'3' => 'Noite',
 );
 
 $avaliacao = array(
-	'1' => 'Não Adequado',
+	'1' => 'NÃ£o Adequado',
 	'2' => 'Parcialmente Adequado',
 	'3' => 'Adequado'
 );

@@ -1,31 +1,31 @@
 <?php
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 *																	     *
-*	@author Prefeitura Municipal de Itajaí								 *
+*	@author Prefeitura Municipal de ItajaÃ­								 *
 *	@updated 29/03/2007													 *
-*   Pacote: i-PLB Software Público Livre e Brasileiro					 *
+*   Pacote: i-PLB Software PÃºblico Livre e Brasileiro					 *
 *																		 *
-*	Copyright (C) 2006	PMI - Prefeitura Municipal de Itajaí			 *
+*	Copyright (C) 2006	PMI - Prefeitura Municipal de ItajaÃ­			 *
 *						ctima@itajai.sc.gov.br					    	 *
 *																		 *
-*	Este  programa  é  software livre, você pode redistribuí-lo e/ou	 *
-*	modificá-lo sob os termos da Licença Pública Geral GNU, conforme	 *
-*	publicada pela Free  Software  Foundation,  tanto  a versão 2 da	 *
-*	Licença   como  (a  seu  critério)  qualquer  versão  mais  nova.	 *
+*	Este  programa  Ã©  software livre, vocÃª pode redistribuÃ­-lo e/ou	 *
+*	modificÃ¡-lo sob os termos da LicenÃ§a PÃºblica Geral GNU, conforme	 *
+*	publicada pela Free  Software  Foundation,  tanto  a versÃ£o 2 da	 *
+*	LicenÃ§a   como  (a  seu  critÃ©rio)  qualquer  versÃ£o  mais  nova.	 *
 *																		 *
-*	Este programa  é distribuído na expectativa de ser útil, mas SEM	 *
-*	QUALQUER GARANTIA. Sem mesmo a garantia implícita de COMERCIALI-	 *
-*	ZAÇÃO  ou  de ADEQUAÇÃO A QUALQUER PROPÓSITO EM PARTICULAR. Con-	 *
-*	sulte  a  Licença  Pública  Geral  GNU para obter mais detalhes.	 *
+*	Este programa  Ã© distribuÃ­do na expectativa de ser Ãºtil, mas SEM	 *
+*	QUALQUER GARANTIA. Sem mesmo a garantia implÃ­cita de COMERCIALI-	 *
+*	ZAÃ‡ÃƒO  ou  de ADEQUAÃ‡ÃƒO A QUALQUER PROPÃ“SITO EM PARTICULAR. Con-	 *
+*	sulte  a  LicenÃ§a  PÃºblica  Geral  GNU para obter mais detalhes.	 *
 *																		 *
-*	Você  deve  ter  recebido uma cópia da Licença Pública Geral GNU	 *
-*	junto  com  este  programa. Se não, escreva para a Free Software	 *
+*	VocÃª  deve  ter  recebido uma cÃ³pia da LicenÃ§a PÃºblica Geral GNU	 *
+*	junto  com  este  programa. Se nÃ£o, escreva para a Free Software	 *
 *	Foundation,  Inc.,  59  Temple  Place,  Suite  330,  Boston,  MA	 *
 *	02111-1307, USA.													 *
 *																		 *
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /**
-* @author Prefeitura Municipal de Itajaí
+* @author Prefeitura Municipal de ItajaÃ­
 *
 * Criado em 11/08/2006 17:44 pelo gerador automatico de classes
 */
@@ -789,7 +789,7 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula a média do aluno $cod_matricula na disciplina $cod_disciplina
+	 * calcula a mÃ©dia do aluno $cod_matricula na disciplina $cod_disciplina
 	 *
 	 * @param int  $cod_matricula
 	 * @param int  $cod_disciplina
@@ -954,7 +954,7 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula a média especial do aluno $cod_matricula na disciplina $cod_disciplina
+	 * calcula a mÃ©dia especial do aluno $cod_matricula na disciplina $cod_disciplina
 	 * calculo = (quantidade de disciplinas acima da media / quantidades de disciplinas) * 10 ) tem que ser maior que a media
 	 * se for maior o aluno esta aprovado
 	 * @param int  $cod_matricula
@@ -1058,8 +1058,8 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula as médias do aluno $cod_matricula em todas as disciplinas, encontra
-	 * os que estão abaixo da média ($media) e retorna as disciplinas
+	 * calcula as mÃ©dias do aluno $cod_matricula em todas as disciplinas, encontra
+	 * os que estÃ£o abaixo da mÃ©dia ($media) e retorna as disciplinas
 	 *
 	 * @param int $cod_matricula
 	 * @param int $qtd_modulos
@@ -1088,7 +1088,7 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula as médias do aluno $cod_matricula em todas as disciplinas
+	 * calcula as mÃ©dias do aluno $cod_matricula em todas as disciplinas
 	 *
 	 * @param int $cod_matricula
 	 * @param int $qtd_modulos
@@ -1148,8 +1148,8 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula as médias dos alunos da turma $cod_turma em todas as disciplinas, encontra
-	 * os que estão abaixo da média ($media) e retorna as matriculas
+	 * calcula as mÃ©dias dos alunos da turma $cod_turma em todas as disciplinas, encontra
+	 * os que estÃ£o abaixo da mÃ©dia ($media) e retorna as matriculas
 	 *
 	 * @param int $cod_turma
 	 * @param int $qtd_modulos
@@ -1209,8 +1209,8 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * calcula as médias dos alunos da turma $cod_turma em todas as disciplinas, encontra
-	 * os que estão abaixo da média ($media) e retorna as disciplinas
+	 * calcula as mÃ©dias dos alunos da turma $cod_turma em todas as disciplinas, encontra
+	 * os que estÃ£o abaixo da mÃ©dia ($media) e retorna as disciplinas
 	 *
 	 * @param int $cod_turma
 	 * @param int $qtd_modulos
@@ -1281,8 +1281,8 @@ class clsPmieducarNotaAluno
 
 
 	/**
-	 * calcula as médias dos alunos da turma $cod_turma em uma disciplina especifica $cod_disciplina, encontra
-	 * os que estão abaixo da média ($media) e retorna as matriculas
+	 * calcula as mÃ©dias dos alunos da turma $cod_turma em uma disciplina especifica $cod_disciplina, encontra
+	 * os que estÃ£o abaixo da mÃ©dia ($media) e retorna as matriculas
 	 *
 	 * @param int $cod_turma
 	 * @param int $cod_disciplina
@@ -1434,7 +1434,7 @@ class clsPmieducarNotaAluno
 
 
 	/**
-	 * Retorna uma variável com o resultado
+	 * Retorna uma variÃ¡vel com o resultado
 	 *
 	 * @return int
 	 */
@@ -1572,7 +1572,7 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * Retorna uma lista com as médias filtradas conforme os parâmetros
+	 * Retorna uma lista com as mÃ©dias filtradas conforme os parÃ¢metros
 	 *
 	 * @return array
 	 */
@@ -1723,7 +1723,7 @@ class clsPmieducarNotaAluno
 	}
 
 	/**
-	 * Retorna uma variável com o resultado
+	 * Retorna uma variÃ¡vel com o resultado
 	 *
 	 * @return int
 	 */

@@ -1,30 +1,30 @@
 <?php
 
 /**
- * i-Educar - Sistema de gest„o escolar
+ * i-Educar - Sistema de gest√£o escolar
  *
- * Copyright (C) 2006  Prefeitura Municipal de ItajaÌ
+ * Copyright (C) 2006  Prefeitura Municipal de Itaja√≠
  *                     <ctima@itajai.sc.gov.br>
  *
- * Este programa È software livre; vocÍ pode redistribuÌ-lo e/ou modific·-lo
- * sob os termos da LicenÁa P˙blica Geral GNU conforme publicada pela Free
- * Software Foundation; tanto a vers„o 2 da LicenÁa, como (a seu critÈrio)
- * qualquer vers„o posterior.
+ * Este programa √© software livre; voc√™ pode redistribu√≠-lo e/ou modific√°-lo
+ * sob os termos da Licen√ßa P√∫blica Geral GNU conforme publicada pela Free
+ * Software Foundation; tanto a vers√£o 2 da Licen√ßa, como (a seu crit√©rio)
+ * qualquer vers√£o posterior.
  *
- * Este programa È distribuÌ≠do na expectativa de que seja ˙til, porÈm, SEM
- * NENHUMA GARANTIA; nem mesmo a garantia implÌ≠cita de COMERCIABILIDADE OU
- * ADEQUA«√O A UMA FINALIDADE ESPECÕFICA. Consulte a LicenÁa P˙blica Geral
+ * Este programa √© distribu√≠¬≠do na expectativa de que seja √∫til, por√©m, SEM
+ * NENHUMA GARANTIA; nem mesmo a garantia impl√≠¬≠cita de COMERCIABILIDADE OU
+ * ADEQUA√á√ÉO A UMA FINALIDADE ESPEC√çFICA. Consulte a Licen√ßa P√∫blica Geral
  * do GNU para mais detalhes.
  *
- * VocÍ deve ter recebido uma cÛpia da LicenÁa P˙blica Geral do GNU junto
- * com este programa; se n„o, escreva para a Free Software Foundation, Inc., no
- * endereÁo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
+ * Voc√™ deve ter recebido uma c√≥pia da Licen√ßa P√∫blica Geral do GNU junto
+ * com este programa; se n√£o, escreva para a Free Software Foundation, Inc., no
+ * endere√ßo 59 Temple Street, Suite 330, Boston, MA 02111-1307 USA.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   http://creativecommons.org/licenses/GPL/2.0/legalcode.pt  CC GNU GPL
  * @package   Ied_Cadastro
- * @since     Arquivo disponÌvel desde a vers„o 1.0.0
+ * @since     Arquivo dispon√≠vel desde a vers√£o 1.0.0
  * @version   $Id$
  */
 
@@ -40,11 +40,11 @@ require_once 'App/Model/ZonaLocalizacao.php';
 /**
  * clsIndex class.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Cadastro
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class clsIndex extends clsBase
@@ -60,11 +60,11 @@ class clsIndex extends clsBase
 /**
  * indice class.
  *
- * @author    Prefeitura Municipal de ItajaÌ <ctima@itajai.sc.gov.br>
+ * @author    Prefeitura Municipal de Itaja√≠ <ctima@itajai.sc.gov.br>
  * @category  i-Educar
  * @license   @@license@@
  * @package   iEd_Cadastro
- * @since     Classe disponÌvel desde a vers„o 1.0.0
+ * @since     Classe dispon√≠vel desde a vers√£o 1.0.0
  * @version   @@package_version@@
  */
 class indice extends clsDetalhe
@@ -101,12 +101,12 @@ class indice extends clsDetalhe
 		if ($detalhe['sexo'])
 		{
 			$sexo = $detalhe['sexo'] == 'M' ? 'Masculino' : 'Feminino';
-			$this->addDetalhe(array('GÍnero', $sexo));
+			$this->addDetalhe(array('G√™nero', $sexo));
 		}
 
 		if ($detalhe['nm_responsavel'])
 		{
-			$this->addDetalhe(array('Nome do Respons·vel', $detalhe['nm_responsavel']));
+			$this->addDetalhe(array('Nome do Respons√°vel', $detalhe['nm_responsavel']));
 		}
 
 		if ($detalhe['ddd_telefone_1'] && $detalhe['telefone_1'])
@@ -139,19 +139,19 @@ class indice extends clsDetalhe
 
 		if ($detalhe['guarda_mirim'])
 		{
-			$this->addDetalhe(array('Inscrito na Guarda Mirim?', ($detalhe['guarda_mirim'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Inscrito na Guarda Mirim?', ($detalhe['guarda_mirim'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		$serie = array(
-			'0' => 'N„o definido',
-			'1' => '5™ sÈrie',
-			'2' => '6™ sÈrie',
-			'3' => '7™ sÈrie',
-			'4' => '8™ sÈrie',
-			'5' => '9™ sÈrie',
-			'6' => '1∫ ano Ensino MÈdio',
-			'7' => '2∫ ano Ensino MÈdio',
-			'8' => '3∫ ano Ensino MÈdio',
+			'0' => 'N√£o definido',
+			'1' => '5¬™ s√©rie',
+			'2' => '6¬™ s√©rie',
+			'3' => '7¬™ s√©rie',
+			'4' => '8¬™ s√©rie',
+			'5' => '9¬™ s√©rie',
+			'6' => '1¬∫ ano Ensino M√©dio',
+			'7' => '2¬∫ ano Ensino M√©dio',
+			'8' => '3¬∫ ano Ensino M√©dio',
 			'9' => 'Concluido',
 			'10' => 'EJA'
 		);
@@ -162,8 +162,8 @@ class indice extends clsDetalhe
 		}
 
 		$turno = array(
-			'0' => 'N„o definido',
-			'1' => 'Manh„',
+			'0' => 'N√£o definido',
+			'1' => 'Manh√£',
 			'2' => 'Tarde',
 			'3' => 'Noite',
 		);
@@ -175,36 +175,36 @@ class indice extends clsDetalhe
 
 		if ($detalhe['egresso'])
 		{
-			$this->addDetalhe(array('Ano de Conclus„o', $detalhe['egresso']));
+			$this->addDetalhe(array('Ano de Conclus√£o', $detalhe['egresso']));
 		}
 
 		if ($detalhe['copia_rg'])
 		{
-			$this->addDetalhe(array('Entregou CÛpia do RG?', ($detalhe['copia_rg'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Entregou C√≥pia do RG?', ($detalhe['copia_rg'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		if ($detalhe['copia_cpf'])
 		{
-			$this->addDetalhe(array('Entregou CÛpia do CPF?', ($detalhe['copia_cpf'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Entregou C√≥pia do CPF?', ($detalhe['copia_cpf'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		if ($detalhe['copia_residencia'])
 		{
-			$this->addDetalhe(array('Entregou CÛpia do Comprovante de ResidÍncia?', ($detalhe['copia_residencia'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Entregou C√≥pia do Comprovante de Resid√™ncia?', ($detalhe['copia_residencia'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		if ($detalhe['copia_historico'])
 		{
-			$this->addDetalhe(array('Entregou HistÛrico ou DeclaraÁ„o de MatrÌcula?', ($detalhe['copia_historico'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Entregou Hist√≥rico ou Declara√ß√£o de Matr√≠cula?', ($detalhe['copia_historico'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		if ($detalhe['copia_renda'])
 		{
-			$this->addDetalhe(array('Entregou ComprovaÁ„o de Renda Familiar?', ($detalhe['copia_renda'] == 1) ? 'sim' : 'n„o'));
+			$this->addDetalhe(array('Entregou Comprova√ß√£o de Renda Familiar?', ($detalhe['copia_renda'] == 1) ? 'sim' : 'n√£o'));
 		}
 
 		$avaliacao = array(
-			'1' => 'N„o Adequado',
+			'1' => 'N√£o Adequado',
 			'2' => 'Parcialmente Adequado',
 			'3' => 'Adequado'
 		);
@@ -222,7 +222,7 @@ class indice extends clsDetalhe
 
 		$localizacao = new LocalizacaoSistema();
 		$localizacao->entradaCaminhos( array(
-			$_SERVER['SERVER_NAME']."/intranet" => "InÌcio",
+			$_SERVER['SERVER_NAME']."/intranet" => "In√≠cio",
 			""                                  => "Detalhe do Jovem - Processo Seletivo"
 		));
 
@@ -230,14 +230,14 @@ class indice extends clsDetalhe
 	}
 }
 
-// Instancia objeto de p·gina
+// Instancia objeto de p√°gina
 $pagina = new clsIndex();
 
-// Instancia objeto de conte˙do
+// Instancia objeto de conte√∫do
 $miolo = new indice();
 
-// Atribui o conte˙do ‡ p·gina
+// Atribui o conte√∫do √† p√°gina
 $pagina->addForm($miolo);
 
-// Gera o cÛdigo HTML
+// Gera o c√≥digo HTML
 $pagina->MakeAll();
