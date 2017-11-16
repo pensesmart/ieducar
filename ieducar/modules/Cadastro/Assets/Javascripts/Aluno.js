@@ -37,33 +37,33 @@ var $pessoaMaeActionBar = $pessoaPaiActionBar.clone()
                                          .appendTo($maeNomeField.parent());
 
 var $linkToCreatePessoaPai = $j('<a>').addClass('cadastrar-pessoa-pai decorated')
-                                      .attr('id', 'cadastrar-pessoa-pai-link')
+                                      .prop('id', 'cadastrar-pessoa-pai-link')
                                       .html('Cadastrar pessoa')
                                       .appendTo($pessoaPaiActionBar);
 
 var $linkToEditPessoaPai = $j('<a>').hide()
                                     .addClass('editar-pessoa-pai decorated')
-                                    .attr('id', 'editar-pessoa-pai-link')
+                                    .prop('id', 'editar-pessoa-pai-link')
                                     .html('Editar pessoa')
                                     .appendTo($pessoaPaiActionBar);
 
 var $linkToCreatePessoaMae = $linkToCreatePessoaPai.clone()
                                                    .removeClass('cadastrar-pessoa-pai')
-                                                   .attr('id', 'cadastrar-pessoa-mae-link')
+                                                   .prop('id', 'cadastrar-pessoa-mae-link')
                                                    .addClass('cadastrar-pessoa-mae')
                                                    .appendTo($pessoaMaeActionBar);
 
 var $linkToEditPessoaMae = $linkToEditPessoaPai.clone()
                                                .removeClass('editar-pessoa-pai')
                                                .addClass('editar-pessoa-mae')
-                                               .attr('id', 'editar-pessoa-mae-link')
+                                               .prop('id', 'editar-pessoa-mae-link')
                                                .appendTo($pessoaMaeActionBar);
 
 
 
 
 // adiciona id 'stop' na linha separadora
-$j('.tableDetalheLinhaSeparador').closest('tr').attr('id','stop');
+$j('.tableDetalheLinhaSeparador').closest('tr').prop('id','stop');
 // Adiciona abas na p√°gina
 $j('td .formdktd').append('<div id="tabControl"><ul><li><div id="tab1" class="alunoTab"> <span class="tabText">Dados pessoais</span></div></li><li><div id="tab2" class="alunoTab"> <span class="tabText">Ficha m\u00e9dica</span></div></li><li><div id="tab3" class="alunoTab"> <span class="tabText">Uniforme</span></div></li><li><div id="tab4" class="alunoTab"> <span class="tabText">Moradia</span></div></li></ul></div>');
 
@@ -88,7 +88,7 @@ $j('#quantidade_camiseta, #tamanho_camiseta').addClass('uniforme');
 // ajax
 
 resourceOptions.handlePost = function(dataResponse) {
-  $nomeField.attr('disabled', 'disabled');
+  $nomeField.prop('disabled', 'disabled');
   $j('.pessoa-links .cadastrar-pessoa').hide();
 
   if (! dataResponse.any_error_msg)
@@ -116,8 +116,8 @@ resourceOptions.handleGet = function(dataResponse) {
   console.log('teste' + dataResponse.pre_inscrito);
 
   if (dataResponse.id && ! dataResponse.ativo) {
-    $submitButton.attr('disabled', 'disabled').hide();
-    $deleteButton.attr('disabled', 'disabled').hide();
+    $submitButton.prop('disabled', 'disabled').hide();
+    $deleteButton.prop('disabled', 'disabled').hide();
 
     var msg = "Este cadastro foi desativado em <b>"+ dataResponse.destroyed_at +
               " </b><br/>pelo usu·rio <b>" + dataResponse.destroyed_by + "</b>, ";
@@ -125,7 +125,7 @@ resourceOptions.handleGet = function(dataResponse) {
     $resourceNotice.html(stringUtils.toUtf8(msg)).slideDown('fast');
 
     $j('<a>').addClass('decorated')
-             .attr('href', '#')
+             .prop('href', '#')
              .click(resourceOptions.enable)
              .html('reativar cadastro.')
              .appendTo($resourceNotice);
@@ -141,7 +141,7 @@ resourceOptions.handleGet = function(dataResponse) {
   $j('#religiao_id').val(dataResponse.religiao_id);
   $j('#beneficio_id').val(dataResponse.beneficio_id);
   $j('#tipo_transporte').val(dataResponse.tipo_transporte);
-  $j('#alfabetizado').attr('checked', dataResponse.alfabetizado);
+  $j('#alfabetizado').prop('checked', dataResponse.alfabetizado);
 
   /***********************************************
       CAMPOS DA FICHA M…DICA
@@ -151,116 +151,116 @@ resourceOptions.handleGet = function(dataResponse) {
 
   //campos checkbox
    if (dataResponse.alergia_medicamento == 'S'){
-    $j('#alergia_medicamento').attr('checked',true);
+    $j('#alergia_medicamento').prop('checked',true);
     $j('#alergia_medicamento').val('on');
   }
 
    if (dataResponse.alergia_alimento == 'S'){
-    $j('#alergia_alimento').attr('checked',true);
+    $j('#alergia_alimento').prop('checked',true);
     $j('#alergia_alimento').val('on');
   }
 
    if (dataResponse.doenca_congenita == 'S'){
-    $j('#doenca_congenita').attr('checked',true);
+    $j('#doenca_congenita').prop('checked',true);
     $j('#doenca_congenita').val('on');
   }
 
    if (dataResponse.fumante == 'S'){
-    $j('#fumante').attr('checked',true);
+    $j('#fumante').prop('checked',true);
     $j('#fumante').val('on');
   }
 
    if (dataResponse.doenca_caxumba == 'S'){
-    $j('#doenca_caxumba').attr('checked',true);
+    $j('#doenca_caxumba').prop('checked',true);
     $j('#doenca_caxumba').val('on');
   }
 
    if (dataResponse.doenca_sarampo == 'S'){
-    $j('#doenca_sarampo').attr('checked',true);
+    $j('#doenca_sarampo').prop('checked',true);
     $j('#doenca_sarampo').val('on');
   }
 
    if (dataResponse.doenca_rubeola == 'S'){
-    $j('#doenca_rubeola').attr('checked',true);
+    $j('#doenca_rubeola').prop('checked',true);
     $j('#doenca_rubeola').val('on');
   }
 
    if (dataResponse.doenca_catapora == 'S'){
-    $j('#doenca_catapora').attr('checked',true);
+    $j('#doenca_catapora').prop('checked',true);
     $j('#doenca_catapora').val('on');
   }
 
    if (dataResponse.doenca_escarlatina == 'S'){
-    $j('#doenca_escarlatina').attr('checked',true);
+    $j('#doenca_escarlatina').prop('checked',true);
     $j('#doenca_escarlatina').val('on');
   }
 
    if (dataResponse.doenca_coqueluche == 'S'){
-    $j('#doenca_coqueluche').attr('checked',true);
+    $j('#doenca_coqueluche').prop('checked',true);
     $j('#doenca_coqueluche').val('on');
   }
 
    if (dataResponse.epiletico == 'S'){
-    $j('#epiletico').attr('checked',true);
+    $j('#epiletico').prop('checked',true);
     $j('#epiletico').val('on');
   }
 
    if (dataResponse.epiletico_tratamento == 'S'){
-    $j('#epiletico_tratamento').attr('checked',true);
+    $j('#epiletico_tratamento').prop('checked',true);
     $j('#epiletico_tratamento').val('on');
   }
 
    if (dataResponse.hemofilico == 'S'){
-    $j('#hemofilico').attr('checked',true);
+    $j('#hemofilico').prop('checked',true);
     $j('#hemofilico').val('on');
   }
 
    if (dataResponse.hipertenso == 'S'){
-    $j('#hipertenso').attr('checked',true);
+    $j('#hipertenso').prop('checked',true);
     $j('#hipertenso').val('on');
   }
 
    if (dataResponse.asmatico == 'S'){
-    $j('#asmatico').attr('checked',true);
+    $j('#asmatico').prop('checked',true);
     $j('#asmatico').val('on');
   }
 
    if (dataResponse.diabetico == 'S'){
-    $j('#diabetico').attr('checked',true);
+    $j('#diabetico').prop('checked',true);
     $j('#diabetico').val('on');
   }
 
    if (dataResponse.insulina == 'S'){
-    $j('#insulina').attr('checked',true);
+    $j('#insulina').prop('checked',true);
     $j('#insulina').val('on');
   }
 
    if (dataResponse.tratamento_medico == 'S'){
-    $j('#tratamento_medico').attr('checked',true);
+    $j('#tratamento_medico').prop('checked',true);
     $j('#tratamento_medico').val('on');
   }
 
    if (dataResponse.medicacao_especifica == 'S'){
-    $j('#medicacao_especifica').attr('checked',true);
+    $j('#medicacao_especifica').prop('checked',true);
     $j('#medicacao_especifica').val('on');
   }
 
    if (dataResponse.acomp_medico_psicologico == 'S'){
-    $j('#acomp_medico_psicologico').attr('checked',true);
+    $j('#acomp_medico_psicologico').prop('checked',true);
     $j('#acomp_medico_psicologico').val('on');
   }
 
    if (dataResponse.restricao_atividade_fisica == 'S'){
-    $j('#restricao_atividade_fisica').attr('checked',true);
+    $j('#restricao_atividade_fisica').prop('checked',true);
     $j('#restricao_atividade_fisica').val('on');
   }
 
    if (dataResponse.fratura_trauma == 'S'){
-    $j('#fratura_trauma').attr('checked',true);
+    $j('#fratura_trauma').prop('checked',true);
     $j('#fratura_trauma').val('on');
   }
    if (dataResponse.plano_saude == 'S'){
-    $j('#plano_saude').attr('checked',true);
+    $j('#plano_saude').prop('checked',true);
     $j('#plano_saude').val('on');
   }
   // campos texto
@@ -291,7 +291,7 @@ resourceOptions.handleGet = function(dataResponse) {
     ************************************************/
 
   if (dataResponse.recebeu_uniforme == 'S'){
-    $j('#recebeu_uniforme').attr('checked',true);
+    $j('#recebeu_uniforme').prop('checked',true);
     $j('#recebeu_uniforme').val('on');
   }
   $j('#tamanho_camiseta').val(dataResponse.tamanho_camiseta);
@@ -302,75 +302,75 @@ resourceOptions.handleGet = function(dataResponse) {
     ************************************************/
 
   if (dataResponse.empregada_domestica == 'S'){
-    $j('#empregada_domestica').attr('checked',true);
+    $j('#empregada_domestica').prop('checked',true);
     $j('#empregada_domestica').val('on');
   }
   if (dataResponse.automovel == 'S'){
-    $j('#automovel').attr('checked',true);
+    $j('#automovel').prop('checked',true);
     $j('#automovel').val('on');
   }
   if (dataResponse.motocicleta == 'S'){
-    $j('#motocicleta').attr('checked',true);
+    $j('#motocicleta').prop('checked',true);
     $j('#motocicleta').val('on');
   }
   if (dataResponse.computador == 'S'){
-    $j('#computador').attr('checked',true);
+    $j('#computador').prop('checked',true);
     $j('#computador').val('on');
   }
   if (dataResponse.geladeira == 'S'){
-    $j('#geladeira').attr('checked',true);
+    $j('#geladeira').prop('checked',true);
     $j('#geladeira').val('on');
   }
   if (dataResponse.fogao == 'S'){
-    $j('#fogao').attr('checked',true);
+    $j('#fogao').prop('checked',true);
     $j('#fogao').val('on');
   }
   if (dataResponse.maquina_lavar == 'S'){
-    $j('#maquina_lavar').attr('checked',true);
+    $j('#maquina_lavar').prop('checked',true);
     $j('#maquina_lavar').val('on');
   }
   if (dataResponse.microondas == 'S'){
-    $j('#microondas').attr('checked',true);
+    $j('#microondas').prop('checked',true);
     $j('#microondas').val('on');
   }
   if (dataResponse.video_dvd == 'S'){
-    $j('#video_dvd').attr('checked',true);
+    $j('#video_dvd').prop('checked',true);
     $j('#video_dvd').val('on');
   }
   if (dataResponse.televisao == 'S'){
-    $j('#televisao').attr('checked',true);
+    $j('#televisao').prop('checked',true);
     $j('#televisao').val('on');
   }
   if (dataResponse.telefone == 'S'){
-    $j('#telefone').attr('checked',true);
+    $j('#telefone').prop('checked',true);
     $j('#telefone').val('on');
   }
   if (dataResponse.celular == 'S'){
-    $j('#celular').attr('checked',true);
+    $j('#celular').prop('checked',true);
     $j('#celular').val('on');
   }
   if (dataResponse.agua_encanada == 'S'){
-    $j('#agua_encanada').attr('checked',true);
+    $j('#agua_encanada').prop('checked',true);
     $j('#agua_encanada').val('on');
   }
   if (dataResponse.poco == 'S'){
-    $j('#poco').attr('checked',true);
+    $j('#poco').prop('checked',true);
     $j('#poco').val('on');
   }
   if (dataResponse.energia == 'S'){
-    $j('#energia').attr('checked',true);
+    $j('#energia').prop('checked',true);
     $j('#energia').val('on');
   }
   if (dataResponse.esgoto == 'S'){
-    $j('#esgoto').attr('checked',true);
+    $j('#esgoto').prop('checked',true);
     $j('#esgoto').val('on');
   }
   if (dataResponse.fossa == 'S'){
-    $j('#fossa').attr('checked',true);
+    $j('#fossa').prop('checked',true);
     $j('#fossa').val('on');
   }
   if (dataResponse.lixo == 'S'){
-    $j('#lixo').attr('checked',true);
+    $j('#lixo').prop('checked',true);
     $j('#lixo').val('on');
   }
 
@@ -437,14 +437,14 @@ var handleGetPersonDetails = function(dataResponse) {
   var alunoId = dataResponse.aluno_id;
 
   if (alunoId && alunoId != resource.id()) {
-    $submitButton.attr('disabled', 'disabled').hide();
+    $submitButton.prop('disabled', 'disabled').hide();
 
     $pessoaNotice.html(stringUtils.toUtf8('Esta pessoa j√° possui o aluno c√≥digo '+ alunoId +' cadastrado, ' ))
                  .slideDown('fast');
 
     $j('<a>').addClass('decorated')
-             .attr('href', resource.url(alunoId))
-             .attr('target', '_blank')
+             .prop('href', resource.url(alunoId))
+             .prop('target', '_blank')
              .html('acessar cadastro.')
              .appendTo($pessoaNotice);
   }
@@ -498,7 +498,7 @@ var handleGetPersonDetails = function(dataResponse) {
   $deficiencias = $j('#deficiencias');
 
   $j.each(dataResponse.deficiencias, function(id, nome) {
-    $deficiencias.children("[value=" + id + "]").attr('selected', '');
+    $deficiencias.children("[value=" + id + "]").prop('selected', '');
   });
 
   $deficiencias.trigger('liszt:updated');
@@ -651,8 +651,8 @@ function canShowParentsFields(){
     $paiNomeField.removeAttr('disabled');
     $maeNomeField.removeAttr('disabled');
   }else{
-    $paiNomeField.attr('disabled', 'true');
-    $maeNomeField.attr('disabled', 'true');
+    $paiNomeField.prop('disabled', 'true');
+    $maeNomeField.prop('disabled', 'true');
   }
 }
 
@@ -670,13 +670,13 @@ function canShowParentsFields(){
 
     $j('<a>').hide()
              .addClass('cadastrar-pessoa decorated')
-             .attr('id', 'cadastrar-pessoa-link')
+             .prop('id', 'cadastrar-pessoa-link')
              .html('Cadastrar pessoa')
              .appendTo($pessoaActionBar);
 
     $j('<a>').hide()
              .addClass('editar-pessoa decorated')
-             .attr('id', 'editar-pessoa-link')
+             .prop('id', 'editar-pessoa-link')
              .html('Editar pessoa')
              .appendTo($pessoaActionBar);
 
@@ -685,7 +685,7 @@ function canShowParentsFields(){
       $j('.pessoa-links .cadastrar-pessoa').show().css('display', 'inline');
     }
     else
-      $nomeField.attr('disabled', 'disabled');
+      $nomeField.prop('disabled', 'disabled');
 
     // responsavel
 
@@ -802,7 +802,7 @@ function canShowParentsFields(){
         if ($j('#'+this.id).prop('checked'))
           $j('#desc_'+this.id).removeAttr('disabled');
         else{
-          $j('#desc_'+this.id).attr('disabled','disabled');
+          $j('#desc_'+this.id).prop('disabled','disabled');
           $j('#desc_'+this.id).val('');
         }
     });
@@ -811,7 +811,7 @@ function canShowParentsFields(){
       if ($j('#recebeu_uniforme').prop('checked'))
         $j('.uniforme').removeAttr('disabled');
       else{
-        $j('.uniforme').attr('disabled','disabled');
+        $j('.uniforme').prop('disabled','disabled');
         $j('.uniforme').val('');
       }
     });
@@ -840,36 +840,36 @@ function canShowParentsFields(){
       allFields = $j( [] ).add( name ).add( sexo ).add( estadocivil ).add(datanasc).add(municipio).add(municipio_id)
       .add(complemento).add(numero).add(letra).add(apartamento).add(bloco).add(andar);
 
-    municipio.show().toggleClass('geral text').attr('display', 'block').appendTo('#dialog-form-pessoa-aluno tr td:first-child fieldset');
+    municipio.show().toggleClass('geral text').prop('display', 'block').appendTo('#dialog-form-pessoa-aluno tr td:first-child fieldset');
 
-    $j('<label>').html('CEP').attr('for', 'cep_').insertBefore($j('#cep_'));
+    $j('<label>').html('CEP').prop('for', 'cep_').insertBefore($j('#cep_'));
     $j('#cep_').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('Munic&iacute;pio').attr('for', 'municipio_municipio').insertBefore($j('#municipio_municipio'));
+    $j('<label>').html('Munic&iacute;pio').prop('for', 'municipio_municipio').insertBefore($j('#municipio_municipio'));
     $j('#municipio_municipio').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('Logradouro').attr('for', 'logradouro_logradouro').insertBefore($j('#logradouro_logradouro'));
+    $j('<label>').html('Logradouro').prop('for', 'logradouro_logradouro').insertBefore($j('#logradouro_logradouro'));
     $j('#logradouro_logradouro').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('Tipo de logradouro').attr('for', 'idtlog').insertBefore($j('#idtlog'));
+    $j('<label>').html('Tipo de logradouro').prop('for', 'idtlog').insertBefore($j('#idtlog'));
     $j('#idtlog').toggleClass('geral text');
-    $j('<label>').html('Logradouro').attr('for', 'logradouro').insertBefore($j('#logradouro'));
+    $j('<label>').html('Logradouro').prop('for', 'logradouro').insertBefore($j('#logradouro'));
     $j('#logradouro').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('Bairro').attr('for', 'bairro_bairro').insertBefore($j('#bairro_bairro'));
+    $j('<label>').html('Bairro').prop('for', 'bairro_bairro').insertBefore($j('#bairro_bairro'));
     $j('#bairro_bairro').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('Zona de localiza&ccedil;&atilde;o').attr('for', 'zona_localizacao').insertBefore($j('#zona_localizacao'));
+    $j('<label>').html('Zona de localiza&ccedil;&atilde;o').prop('for', 'zona_localizacao').insertBefore($j('#zona_localizacao'));
     $j('#zona_localizacao').toggleClass('geral text');
-    $j('<label>').html('Bairro').attr('for', 'bairro').insertBefore($j('#bairro'));
+    $j('<label>').html('Bairro').prop('for', 'bairro').insertBefore($j('#bairro'));
     $j('#bairro').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
 
-    $j('<label>').html('Complemento').attr('for', 'complemento').insertBefore($j('#complemento'));
+    $j('<label>').html('Complemento').prop('for', 'complemento').insertBefore($j('#complemento'));
     $j('#complemento').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(2) fieldset table').find('td').removeClass();
-    $j('<label>').html('N&uacute;mero').attr('for', 'numero').insertBefore($j('#numero'));
+    $j('<label>').html('N&uacute;mero').prop('for', 'numero').insertBefore($j('#numero'));
     $j('#numero').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(3) fieldset table').find('td').removeClass();
-    $j('<label>').html('Letra').attr('for', 'letra').insertBefore($j('#letra'));
+    $j('<label>').html('Letra').prop('for', 'letra').insertBefore($j('#letra'));
     $j('#letra').toggleClass('geral text');
-    $j('<label>').html('N&ordm; de apartamento').attr('for', 'apartamento').insertBefore($j('#apartamento'));
+    $j('<label>').html('N&ordm; de apartamento').prop('for', 'apartamento').insertBefore($j('#apartamento'));
     $j('#apartamento').toggleClass('geral text').closest('tr').show().find('td:first-child').hide().closest('tr').removeClass().appendTo('#dialog-form-pessoa-aluno tr td:nth-child(3) fieldset table').find('td').removeClass();
-    $j('<label>').html('Bloco').attr('for', 'bloco').insertBefore($j('#bloco'));
+    $j('<label>').html('Bloco').prop('for', 'bloco').insertBefore($j('#bloco'));
     $j('#bloco').toggleClass('geral text');
-    $j('<label>').html('Andar').attr('for', 'andar').insertBefore($j('#andar'));
+    $j('<label>').html('Andar').prop('for', 'andar').insertBefore($j('#andar'));
     $j('#andar').toggleClass('geral text');
 
     $j('#dialog-form-pessoa-aluno').find(':input').css('display', 'block');
@@ -981,7 +981,7 @@ function canShowParentsFields(){
 
     $j("#cadastrar-pessoa-link").click(function() {
 
-        $j('#link_cadastro_detalhado').attr('href','/intranet/atendidos_cad.php');
+        $j('#link_cadastro_detalhado').prop('href','/intranet/atendidos_cad.php');
 
         $j( "#dialog-form-pessoa-aluno" ).dialog( "open" );
 
@@ -1003,7 +1003,7 @@ function canShowParentsFields(){
 
     $j("#editar-pessoa-link").click(function() {
 
-        $j('#link_cadastro_detalhado').attr('href','/intranet/atendidos_cad.php?cod_pessoa_fj=' + person_details.id);
+        $j('#link_cadastro_detalhado').prop('href','/intranet/atendidos_cad.php?cod_pessoa_fj=' + person_details.id);
         clearEnderecoFields();
 
         name.val(person_details.nome);
@@ -1127,7 +1127,7 @@ function canShowParentsFields(){
 
     function openModalParent(parentType){
 
-      $j('#link_cadastro_detalhado_parent').attr('href','/intranet/atendidos_cad.php?parent_type='+parentType);
+      $j('#link_cadastro_detalhado_parent').prop('href','/intranet/atendidos_cad.php?parent_type='+parentType);
 
       $j( "#dialog-form-pessoa-parent" ).dialog( "open" );
 
@@ -1146,7 +1146,7 @@ function canShowParentsFields(){
 
     function openEditModalParent(parentType){
 
-      $j('#link_cadastro_detalhado_parent').attr('href','/intranet/atendidos_cad.php?cod_pessoa_fj='+ $j('#'+parentType+'_id').val() +'&parent_type='+parentType);
+      $j('#link_cadastro_detalhado_parent').prop('href','/intranet/atendidos_cad.php?cod_pessoa_fj='+ $j('#'+parentType+'_id').val() +'&parent_type='+parentType);
 
       $j( "#dialog-form-pessoa-parent" ).dialog( "open" );
 

@@ -40,28 +40,28 @@ var $pessoaMaeActionBar = $pessoaPaiActionBar.clone()
                                          .appendTo($maeNomeField.parent());
 
 var $linkToCreatePessoaPai = $j('<a>').addClass('cadastrar-pessoa-pai decorated')
-                                      .attr('href', hrefToCreateParent('pai'))
-                                      .attr('target', '_blank')
+                                      .prop('href', hrefToCreateParent('pai'))
+                                      .prop('target', '_blank')
                                       .html('Cadastrar pessoa')
                                       .appendTo($pessoaPaiActionBar);
 
 var $linkToEditPessoaPai = $j('<a>').hide()
                                     .addClass('editar-pessoa-pai decorated')
-                                    .attr('href', hrefToEditParent('pai'))
-                                    .attr('target', '_blank')
+                                    .prop('href', hrefToEditParent('pai'))
+                                    .prop('target', '_blank')
                                     .html('Editar pessoa')
                                     .appendTo($pessoaPaiActionBar);
 
 var $linkToCreatePessoaMae = $linkToCreatePessoaPai.clone()
                                                    .removeClass('cadastrar-pessoa-pai')
                                                    .addClass('cadastrar-pessoa-mae')
-                                                   .attr('href', hrefToCreateParent('mae'))
+                                                   .prop('href', hrefToCreateParent('mae'))
                                                    .appendTo($pessoaMaeActionBar);
 
 var $linkToEditPessoaMae = $linkToEditPessoaPai.clone()
                                                .removeClass('editar-pessoa-pai')
                                                .addClass('editar-pessoa-mae')
-                                               .attr('href', hrefToEditParent('mae'))
+                                               .prop('href', hrefToEditParent('mae'))
                                                .appendTo($pessoaMaeActionBar);
 
 var handleGetPersonByCpf = function(dataResponse) {
@@ -74,8 +74,8 @@ var handleGetPersonByCpf = function(dataResponse) {
     $cpfNotice.html(stringUtils.toUtf8('CPF já utilizado pela pessoa código ' + pessoaId + ', ')).slideDown('fast');
 
     $j('<a>').addClass('decorated')
-             .attr('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
-             .attr('target', '_blank')
+             .prop('href', '/intranet/atendidos_cad.php?cod_pessoa_fj=' + pessoaId)
+             .prop('target', '_blank')
              .html('acessar cadastro.')
              .appendTo($cpfNotice);
 
@@ -231,7 +231,7 @@ var changeVisibilityOfLinksToPessoaParent = function(parentType) {
   var $linkToEdit = $j('.pessoa-' + parentType + '-links .editar-pessoa-' + parentType);
 
   if($nomeField.val() && $idField.val()) {
-    $linkToEdit.attr('href', hrefToEditParent(parentType));
+    $linkToEdit.prop('href', hrefToEditParent(parentType));
     $linkToEdit.show().css('display', 'inline');
   }
   else {

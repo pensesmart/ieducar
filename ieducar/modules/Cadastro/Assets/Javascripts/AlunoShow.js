@@ -4,7 +4,7 @@ function fixupTabelaMatriculas() {
 
   $j('<p>').html(stringUtils.toUtf8('<strong>Matrículas:</strong>')).appendTo($parentTd);
 
-  var $table = $j('<table>').attr('id', 'matriculas').addClass('styled horizontal-expand').hide();
+  var $table = $j('<table>').prop('id', 'matriculas').addClass('styled horizontal-expand').hide();
   var $tr    = $j('<tr>');
 
   $j('<th>').html('').appendTo($tr);
@@ -39,7 +39,7 @@ var handleGetMatriculas = function(dataResponse) {
       var $tr = $j('<tr>');
 
       if (matricula.user_can_access) {
-        var linkToMatricula = $j('<a>').attr('href', 'educar_matricula_det.php?cod_matricula=' + matricula.id)
+        var linkToMatricula = $j('<a>').prop('href', 'educar_matricula_det.php?cod_matricula=' + matricula.id)
                                        .html('Visualizar')
                                        .addClass('decorated');
 
@@ -48,7 +48,7 @@ var handleGetMatriculas = function(dataResponse) {
         var linkToMatricula = '';
 
       if (!matricula.transferencia_em_aberto && matricula.situacao == 'Em andamento')
-        matricula.data_saida = '';      
+        matricula.data_saida = '';
 
       $j('<td>').html(linkToMatricula).appendTo($tr).addClass('center');
       $j('<td>').html(matricula.ano).appendTo($tr);
@@ -73,7 +73,7 @@ var handleGetMatriculas = function(dataResponse) {
     if(dataResponse.matriculas.length < 1) {
       var $p = $j('<p>').html(stringUtils.toUtf8('Aluno sem matrÃ­culas, ')).addClass('notice simple-block');
 
-      $j('<a>').attr('href', 'educar_matricula_cad.php?ref_cod_aluno=' + $j('#aluno_id').val())
+      $j('<a>').prop('href', 'educar_matricula_cad.php?ref_cod_aluno=' + $j('#aluno_id').val())
                .html('matricular aluno.')
                .addClass('decorated')
                .appendTo($p);
@@ -84,7 +84,7 @@ var handleGetMatriculas = function(dataResponse) {
       var $p = $j('<p>').html(stringUtils.toUtf8('* MatrÃ­cula com solicitaÃ§Ã£o de transferÃªncia interna em aberto, '))
                         .addClass('notice simple-block');
 
-      $j('<a>').attr('href', 'educar_matricula_cad.php?ref_cod_aluno=' + $j('#aluno_id').val())
+      $j('<a>').prop('href', 'educar_matricula_cad.php?ref_cod_aluno=' + $j('#aluno_id').val())
                .html('matricular aluno.')
                .addClass('decorated')
                .appendTo($p);
@@ -125,7 +125,7 @@ var getMatriculas = function() {
   getResource(options);
 }
 
-$j('.tableDetalheLinhaSeparador').closest('tr').attr('id','stop');
+$j('.tableDetalheLinhaSeparador').closest('tr').prop('id','stop');
 
 // Verifica se possui ficha médica, verificando se existe o primeiro campo
 var possui_ficha_medica = $j('#fmedica').length>0;
@@ -142,7 +142,7 @@ var linha_inicial_fmedica = 0;
 
 if(possui_ficha_medica){
   // Atribui um id a linha, para identificar até onde/a partir de onde esconder os campos
-  $j('#fmedica').closest('tr').attr('id','tfmedica');
+  $j('#fmedica').closest('tr').prop('id','tfmedica');
 
   // Pega o número dessa linha
   linha_inicial_fmedica = $j('#tfmedica').index();
@@ -151,7 +151,7 @@ if(possui_ficha_medica){
   $j('.tableDetalhe >tbody  > tr').each(function(index, row) {
     if (index>=linha_inicial_fmedica){
       if (row.id!='stop')
-        row.hide();    
+        row.hide();
       else
         return false;
     }
@@ -160,7 +160,7 @@ if(possui_ficha_medica){
 
 if(possui_uniforme_escolar){
   // Atribui um id a linha, para identificar até onde/a partir de onde esconder os campos
-  $j('#funiforme').closest('tr').attr('id','tfuniforme');
+  $j('#funiforme').closest('tr').prop('id','tfuniforme');
 
   // Pega o número dessa linha
   linha_inicial_funiforme = $j('#tfuniforme').index();
@@ -169,7 +169,7 @@ if(possui_uniforme_escolar){
   $j('.tableDetalhe >tbody  > tr').each(function(index, row) {
     if (index>=linha_inicial_funiforme){
       if (row.id!='stop')
-        row.hide();    
+        row.hide();
       else
         return false;
     }
@@ -178,7 +178,7 @@ if(possui_uniforme_escolar){
 
 if(possui_moradia){
   // Atribui um id a linha, para identificar até onde/a partir de onde esconder os campos
-  $j('#fmoradia').closest('tr').attr('id','tfmoradia');
+  $j('#fmoradia').closest('tr').prop('id','tfmoradia');
 
   // Pega o número dessa linha
   linha_inicial_fmoradia = $j('#tfmoradia').index();
@@ -187,7 +187,7 @@ if(possui_moradia){
   $j('.tableDetalhe >tbody  > tr').each(function(index, row) {
     if (index>=linha_inicial_fmoradia){
       if (row.id!='stop')
-        row.hide();    
+        row.hide();
       else
         return false;
     }
@@ -201,7 +201,7 @@ $j(document).ready(function() {
   // on click das abas
 
   // DADOS PESSOAIS
-    $j('#tab1').click( 
+    $j('#tab1').click(
       function(){
 
         $j('.alunoTab-active2').toggleClass('alunoTab-active2 alunoTab2');
@@ -209,18 +209,18 @@ $j(document).ready(function() {
         $j('.tableDetalhe >tbody  > tr').each(function(index, row) {
           if (index>=linha_inicial_fmedica){
             if (row.id!='stop')
-              row.hide();    
+              row.hide();
             else
               return false;
           }else{
             row.show();
           }
-        });        
+        });
       }
-    );  
+    );
 
     // FICHA MÉ‰DICA
-    $j('#tab2').click( 
+    $j('#tab2').click(
       function(){
         if (possui_ficha_medica){
           $j('.alunoTab-active2').toggleClass('alunoTab-active2 alunoTab2');
@@ -237,11 +237,11 @@ $j(document).ready(function() {
           });
         }else
           alert('Dados da ficha m\u00e9dica n\u00e3o foram adicionados ainda. \nVoc\u00ea pode adicion\u00e1-los clicando em editar.');
-      
+
       });
 
       // FICHA MÉ‰DICA
-      $j('#tab3').click( 
+      $j('#tab3').click(
         function(){
           if (possui_uniforme_escolar){
             $j('.alunoTab-active2').toggleClass('alunoTab-active2 alunoTab2');
@@ -258,10 +258,10 @@ $j(document).ready(function() {
             });
           }else
             alert('Dados do uniforme não foram adicionados ainda. \nVocê pode adicioná-los clicando em editar.');
-        
-        });          
+
+        });
       // FICHA MÉDICA
-      $j('#tab4').click( 
+      $j('#tab4').click(
         function(){
           if (possui_moradia){
             $j('.alunoTab-active2').toggleClass('alunoTab-active2 alunoTab2');
@@ -278,8 +278,8 @@ $j(document).ready(function() {
             });
           }else
             alert('Dados da moradia n\u00e3o foram adicionados ainda. \nVoc\u00ea pode adicion\u00e1-los clicando em editar.');
-        
-        });    
+
+        });
 
   getMatriculas();
 

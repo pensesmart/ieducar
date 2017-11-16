@@ -1,10 +1,10 @@
 // --------------------------------- SCRIPTS ENDEREÇAMENTO ---------------------------------------- //
 
   $j('<a>') .html('N&atilde;o sei meu CEP')
-               .attr('target', '_blank')
+               .prop('target', '_blank')
                .css('color', 'blue')
                .css('margin-left', '10px')
-               .attr('href', 'http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuLogradouro')
+               .prop('href', 'http://www.buscacep.correios.com.br/servicos/dnec/menuAction.do?Metodo=menuLogradouro')
                .appendTo($j('#cep_').closest('td'));
 
 function hideEnderecoFields(){
@@ -91,13 +91,13 @@ var searchCep = function() {
 }
 // Ao digitar um cep inválido todos os campos de endereçamento são bloqueados e limpados
 function clearEnderecoFields(){
-  $j('#bairro').attr('disabled','disabled');
-  $j('#zona_localizacao').attr('disabled','disabled');
-  $j('#bairro_bairro').attr('disabled','disabled');
-  $j('#logradouro_logradouro').attr('disabled','disabled');
-  $j('#idtlog').attr('disabled','disabled');
-  $j('#logradouro').attr('disabled','disabled');
-  $j('#municipio_municipio').attr('disabled','disabled');
+  $j('#bairro').prop('disabled','disabled');
+  $j('#zona_localizacao').prop('disabled','disabled');
+  $j('#bairro_bairro').prop('disabled','disabled');
+  $j('#logradouro_logradouro').prop('disabled','disabled');
+  $j('#idtlog').prop('disabled','disabled');
+  $j('#logradouro').prop('disabled','disabled');
+  $j('#municipio_municipio').prop('disabled','disabled');
   $j('#bairro').val('');
   $j('#zona_localizacao').val('');
   $j('#bairro_bairro').val('');
@@ -177,7 +177,7 @@ function clearLogradouroAndBairroFields(){
 // Adiciona links para Informar/Atualizar troca entre cadastro ou busca
 function addLinksEnderecamento(){
   $j('<span>') .html('ou cadastre um novo bairro')
-               .attr('id', 'span-busca-bairro')
+               .prop('id', 'span-busca-bairro')
                .css('color','blue')
                .css('margin-left','5px')
                .css('cursor','pointer')
@@ -185,7 +185,7 @@ function addLinksEnderecamento(){
                .appendTo($j('#bairro_bairro').closest('td'));
 
   $j('<span>').html('ou busque um bairro existente')
-              .attr('id', 'span-cad-bairro')
+              .prop('id', 'span-cad-bairro')
               .css('color','blue')
               .css('margin-left','5px')
               .css('cursor','pointer')
@@ -193,7 +193,7 @@ function addLinksEnderecamento(){
               .appendTo($j('#zona_localizacao').closest('td'));
 
   $j('<span>').html('ou cadastre um novo logradouro')
-              .attr('id', 'span-busca-logradouro')
+              .prop('id', 'span-busca-logradouro')
               .css('color','blue')
               .css('margin-left','5px')
               .css('cursor','pointer')
@@ -201,7 +201,7 @@ function addLinksEnderecamento(){
               .appendTo($j('#logradouro_logradouro').closest('td'));
 
   $j('<span>').html('ou busque logradouro existente')
-              .attr('id', 'span-cad-logradouro')
+              .prop('id', 'span-cad-logradouro')
               .css('color','blue')
               .css('margin-left','5px')
               .css('cursor','pointer')
@@ -213,9 +213,9 @@ addLinksEnderecamento();
 
 function desativaAutoComplete(){
 
-  $j('#logradouro').attr('autocomplete', 'off');
-  $j('#bairro').attr('autocomplete', 'off');
-  $j('#cep_').attr('autocomplete', 'off');
+  $j('#logradouro').prop('autocomplete', 'off');
+  $j('#bairro').prop('autocomplete', 'off');
+  $j('#cep_').prop('autocomplete', 'off');
 
 }
 
@@ -263,11 +263,11 @@ $j('#logradouro_logradouro').focusout( function(){
 $j('#municipio_id').change(clearLogradouroAndBairroFields);
 
 function fixUpPlaceholderEndereco(){
-  $j('#municipio_municipio').attr('placeholder' , 'Digite o nome de um munic\u00edpio para buscar');
-  $j('#bairro_bairro').attr('placeholder' , 'Digite o nome de um bairro para buscar');
-  $j('#logradouro_logradouro').attr('placeholder' , 'Digite o nome de um logradouro para buscar');
-  $j('#bairro').attr('placeholder' , 'Digite o nome do novo bairro');
-  $j('#logradouro').attr('placeholder' , 'Digite o nome do novo logradouro');
+  $j('#municipio_municipio').prop('placeholder' , 'Digite o nome de um munic\u00edpio para buscar');
+  $j('#bairro_bairro').prop('placeholder' , 'Digite o nome de um bairro para buscar');
+  $j('#logradouro_logradouro').prop('placeholder' , 'Digite o nome de um logradouro para buscar');
+  $j('#bairro').prop('placeholder' , 'Digite o nome do novo bairro');
+  $j('#logradouro').prop('placeholder' , 'Digite o nome do novo logradouro');
 }
 
 function validateEndereco(){
@@ -278,8 +278,8 @@ function validateEndereco(){
 
     $j('#municipio_municipio').addClass('error');
     $j('#municipio_id').addClass('error');
-    messageUtils.error('Informe um CEP no formato NNNNN-NNN.'); 
-    err = true;   
+    messageUtils.error('Informe um CEP no formato NNNNN-NNN.');
+    err = true;
 
   }
 
