@@ -108,12 +108,12 @@ class CoreExt_Locale extends CoreExt_Singleton
    * Configura o locale para uma cultura especifica ou usa o valor corrente
    * da classe.
    *
-   * Tenta usar um locale ISO-8859-1 (por ser padrão do banco de dados e da
+   * Tenta usar um locale UTF-8 (por ser padrão do banco de dados e da
    * aplicação). Como fallback, usa o locale genérico C e um UTF-8 para
    * LC_NUMERIC.
    *
    * Como não existe consistência na nomenclarura dos encodings entre os
-   * sistemas operacionais, tenta variações como ISO-8859-1 e ISO_8859_1.
+   * sistemas operacionais, tenta variações como UTF-8 e ISO_8859_1.
    *
    * @link http://linux.die.net/man/3/setlocale Linux setlocale(3) man page
    * @param string|NULL $culture
@@ -124,16 +124,16 @@ class CoreExt_Locale extends CoreExt_Singleton
       $culture = $this->getCulture();
     }
 
-    // Nos velhos tempos, o Linux vinha com locales ISO-8859-1 (European LATIN1)
-    $actualCulture = $this->_setLocale(LC_ALL, array($culture . '.ISO-8859-1',
-      $culture . '.iso-8859-1', $culture . '.ISO88591', $culture . '.iso88591',
+    // Nos velhos tempos, o Linux vinha com locales UTF-8 (European LATIN1)
+    $actualCulture = $this->_setLocale(LC_ALL, array($culture . '.UTF-8',
+      $culture . '.UTF-8', $culture . '.ISO88591', $culture . '.iso88591',
       $culture . '.ISO8859-1', $culture . '.iso8859-1', $culture . 'ISO_8859_1',
       $culture . '.iso_8859_1', $culture . '.ISO8859_1', $culture . '.iso8859_1'));
 
-    // Fallback. Caso não encontre um locale ISO-8859-1, usa um C (ASCII-like)
+    // Fallback. Caso não encontre um locale UTF-8, usa um C (ASCII-like)
     // e um UTF-8 somente para numéricos. No final, tudo é manuseado em C
     // pelas funções de formatação de string, e como usam o locale C, será
-    // compatível com a definição ISO-8859-1.
+    // compatível com a definição UTF-8.
     if (FALSE == $actualCulture) {
       $actualCulture = array();
       $actualCulture['LC_ALL']     = $this->_setlocale(LC_ALL, array('C'));

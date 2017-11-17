@@ -140,9 +140,9 @@ class CustomPdo extends clsBanco
   }
 
   /**
-   * Callback para ProximoRegistro(), converte uma referência para ISO-8859-1
+   * Callback para ProximoRegistro(), converte uma referência para UTF-8
    * caso esteja em UTF-8. Isso é feito pois o SQLite não permite mudar o
-   * encoding de uma conexão ativa para ISO-8859-1.
+   * encoding de uma conexão ativa para UTF-8.
    *
    * @link http://www.sqlite.org/pragma.html Veja PRAGMA encoding para mais
    *   informações sobre os encodings suportados pelo SQLite

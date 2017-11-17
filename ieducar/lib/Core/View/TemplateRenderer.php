@@ -26,7 +26,7 @@ class TemplateRenderer
 
 		$envOptions += array(
 			'debug' => false,
-			'charset' => 'iso-8859-1',
+			'charset' => 'UTF-8',
 			'cache' => $cachePath,
 			'strict_variables' => true,
 		);
