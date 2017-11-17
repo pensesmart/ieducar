@@ -42,7 +42,7 @@ class clsIndexBase extends clsBase
   public function Formular() {
     $this->SetTitulo($this->_instituicao . 'Listagem Categoria N&iacute;vel');
     $this->processoAp = '829';
-    $this->addEstilo('localizacaoSistema');    
+    $this->addEstilo('localizacaoSistema');
   }
 }
 
@@ -95,8 +95,6 @@ class indice extends clsListagem {
     foreach ($_GET as $var => $val) {
       $this->$var = ($val === "") ? NULL : $val;
     }
-
-    $this->addBanner('imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg', 'Intranet');
 
     $this->addCabecalhos(array(
       'Nome Categoria Nivel'

@@ -44,48 +44,47 @@ class indice extends clsListagem
 		@session_start();
 			$id_pessoa = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet",false );
+
 		$this->addCabecalhos( array( "Nome do setor") );
 
 		$this->titulo = "Cadastro de Secretaria Respons&aacute;vel";
 		// Filtros de Busca
-		
+
 		$setores = array('' => 'Selecione');
-		
+
 		$obj_setor = new clsSetor();
 
 		$obj_setor_lista = $obj_setor->lista(null,null,null,null,null,null,null,null,null,1,0,null,null,"nm_setor",null,null,null,null,null,null,$cod_setor);
-		
+
 		if($obj_setor_lista)
 		{
 			foreach ($obj_setor_lista as $secretaria)
 			{
 				$setores[$secretaria["cod_setor"]] = $secretaria["sgl_setor"];
-				
+
 			}
 		}
 		$this->campoLista("setor","Setor",$setores,$_GET["setor"],'',false,'','','',true);
-				
+
 		// Paginador
-		$limite = 10; 
-		$iniciolimit = ( $_GET["pagina_{$this->__nome}"] ) ? $_GET["pagina_{$this->__nome}"]*$limite-$limite: 0;		
+		$limite = 10;
+		$iniciolimit = ( $_GET["pagina_{$this->__nome}"] ) ? $_GET["pagina_{$this->__nome}"]*$limite-$limite: 0;
 		$Objsetors = new clsPmiacoesSecretariaResponsavel();
 		$Objsetors->setLimite($limite, $iniciolimit);
 		$Listasetors = $Objsetors->lista($_GET["setor"]);
 		if($Listasetors)
 		{
-			foreach ($Listasetors as $setor) 
+			foreach ($Listasetors as $setor)
 			{
-				
+
 				$objSetor = new clsSetor();
 				$niveis = $objSetor->getNiveis($setor['ref_cod_setor']);
 				$strNivel = "";
 				$gruda = "";
 				sort($niveis);
-				if($niveis)			
+				if($niveis)
 				{
-					foreach ($niveis as $nivel) 
+					foreach ($niveis as $nivel)
 					{
 						$objSetor = new clsSetor($nivel);
 						$detalhe = $objSetor->detalhe();
@@ -96,12 +95,12 @@ class indice extends clsListagem
 				$this->addLinhas(array("<img src='imagens/noticia.jpg' border=0> <a href='acoes_setor_det.php?cod_setor={$setor['ref_cod_setor']}'>{$strNivel}</a>"));
 				$total = $setor['_total'];
 			}
-		}		
+		}
 		// Paginador
-		$this->addPaginador2( "acoes_setor_lst.php", $total, $_GET, $this->__nome, $limite );		
+		$this->addPaginador2( "acoes_setor_lst.php", $total, $_GET, $this->__nome, $limite );
 		$this->acao = "go(\"acoes_setor_cad.php\")";
-		$this->nome_acao = "Novo";			
-		
+		$this->nome_acao = "Novo";
+
 		// Define Largura da Página
 		$this->largura = "100%";
 	}

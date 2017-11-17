@@ -95,7 +95,6 @@ class indice extends clsDetalhe
     session_write_close();
 
     $this->titulo = "Matr�cula - Detalhe";
-    $this->addBanner("imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet");
 
     $this->ref_cod_matricula = $_GET["cod_matricula"];
 

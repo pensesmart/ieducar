@@ -45,9 +45,6 @@ class indice extends clsListagem
 			$id_pessoa = $_SESSION['id_pessoa'];
 		@session_write_close();
 
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet",false );
-
-
 		$this->titulo = "Listagem de a&ccedil;&otilde;es do Governo";
 
 		$nm_acao = @$_GET['nm_acao'];

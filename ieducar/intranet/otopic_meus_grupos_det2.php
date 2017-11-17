@@ -53,7 +53,6 @@ class indice extends clsDetalhe
 		$cod_grupo = $_GET['cod_grupo'];
 
 		$this->titulo = "Detalhe do Grupo";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet", false);
 
 		/*
 			Verifica se o Usuário atual está cadastrado no grupo,
@@ -102,7 +101,6 @@ class Listas extends clsListagem
 		$this->nome = "Form1";
 
 		$this->titulo = "Tópicos Sugeridos";
-		$this->addBanner(false,false,false,false );
 
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
@@ -202,7 +200,6 @@ class Listas2 extends clsListagem
 		$this->nome = "Form2";
 
 		$this->titulo = "Tópicos Aguardando em Reunião";
-		$this->addBanner(false,false,false,false );
 
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
@@ -311,7 +308,6 @@ class Listas3 extends clsListagem
 		$this->nome = "Form4";
 
 		$this->titulo = "Tópicos Finalizados";
-		$this->addBanner( );
 
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
@@ -419,7 +415,6 @@ class lista_reunioes extends clsListagem
 
 		$this->nome = "Form4";
 		$this->titulo = "Reuniões";
-		$this->addBanner(false,false,false,false );
 
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];

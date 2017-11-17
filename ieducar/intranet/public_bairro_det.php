@@ -89,8 +89,6 @@ class indice extends clsDetalhe
     session_write_close();
 
     $this->titulo = 'Bairro - Detalhe';
-    $this->addBanner('imagens/nvp_top_intranet.jpg',
-      'imagens/nvp_vert_intranet.jpg', 'Intranet');
 
     $this->idbai = $_GET['idbai'];
 
@@ -137,7 +135,7 @@ class indice extends clsDetalhe
          $_SERVER['SERVER_NAME']."/intranet" => "In&iacute;cio",
          ""                                  => "Detalhe do bairro"
     ));
-    $this->enviaLocalizacao($localizacao->montar());    
+    $this->enviaLocalizacao($localizacao->montar());
   }
 }
 

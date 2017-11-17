@@ -47,10 +47,7 @@ require_once 'include/localizacaoSistema.php';
 class clsDetalhe extends Core_Controller_Page_Abstract
 {
 	var $titulo;
-	var $banner = FALSE;
-	var $bannerLateral = FALSE;
 	var $titulo_barra;
-	var $bannerClose = FALSE;
 	var $largura;
 	var $detalhe = array();
 	var $locale = null;
@@ -65,22 +62,6 @@ class clsDetalhe extends Core_Controller_Page_Abstract
 	var $array_botao;
 	var $array_botao_url;
 	var $array_botao_url_script;
-
-	function addBanner($strBannerUrl = '', $strBannerLateralUrl = '',
-		$strBannerTitulo = '', $boolFechaBanner = TRUE)
-	{
-		if ($strBannerUrl != '') {
-			$this->banner = $strBannerUrl;
-		}
-		if ($strBannerLateralUrl != '') {
-			$this->bannerLateral = $strBannerLateralUrl;
-		}
-		if ($strBannerTitulo != '') {
-			$this->titulo_barra = $strBannerTitulo;
-		}
-		$this->bannerClose = $boolFechaBanner;
-	}
-
 
 	function addDetalhe($detalhe, $grupo = "principal")
 	{
@@ -190,15 +171,6 @@ class clsDetalhe extends Core_Controller_Page_Abstract
 		$retorno .= "
 			</table><br><br>
 			<!-- detalhe end -->";
-
-		if ($this->bannerClose)
-		{
-			$retorno .= "
-				<!-- Fechando o Banner (clsDetalhe) -->
-				</td>
-				</tr>
-				</table>";
-		}
 
 		return $retorno;
 	}

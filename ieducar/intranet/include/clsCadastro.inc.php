@@ -53,8 +53,6 @@ require_once 'include/localizacaoSistema.php';
 class clsCadastro extends clsCampos
 {
 	var $__nome = 'formcadastro';
-	var $banner;
-	var $bannerLateral;
 	var $titulo_barra;
 	var $target = '_self';
 
@@ -100,24 +98,6 @@ class clsCadastro extends clsCampos
 
 	var $form_enctype;
 	var $template = "cadastro";
-
-	function addBanner($strBannerUrl = '', $strBannerLateralUrl = '',
-		$strBannerTitulo = '', $boolFechaBanner = TRUE)
-	{
-		if ($strBannerUrl != '')
-		{
-			$this->banner = $strBannerUrl;
-		}
-		if ($strBannerLateralUrl != '')
-		{
-			$this->bannerLateral = $strBannerLateralUrl;
-		}
-		if ($strBannerTitulo != '')
-		{
-			$this->titulo_barra = $strBannerTitulo;
-		}
-		$this->bannerClose = $boolFechaBanner;
-	}
 
 	function clsCadastro()
 	{
@@ -259,17 +239,10 @@ class clsCadastro extends clsCampos
 	{
 		$this->_preRender();
 
-		$this->bannerLateral = 'imagens/nvp_vert_intranet.jpg';
 		$this->titulo_barra = 'Intranet';
 		$this->Processar();
 
 		$retorno = '';
-
-		if ($this->banner)
-		{
-			$retorno .= "<table width='100%' style=\"height:100%\" border='0' cellpadding='0' cellspacing='0'><tr>";
-			$retorno .= "<td class=\"barraLateral\" width=\"21\" valign=\"top\"><a href='#'><img src=\"{$this->bannerLateral}\" align=\"right\" border=\"0\" alt=\"$this->titulo_barra\" title=\"$this->titulo_barra\"></a></td><td valign='top'>";
-		}
 
 		$this->Gerar();
 
@@ -706,11 +679,6 @@ class clsCadastro extends clsCampos
 		$retorno .=  "</td>\n</tr>\n";
 		$retorno .=  "</table></div>\n</center>\n<!-- cadastro end -->\n";
 		$retorno .=  "</form>\n";
-
-		if ($this->bannerClose)
-		{
-			$retorno .= "</td></tr></table>";
-		}
 
 		if ($this->executa_script)
 		{

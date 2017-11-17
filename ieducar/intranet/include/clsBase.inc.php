@@ -577,8 +577,6 @@ class clsBase extends clsConfig
 			$saida = str_replace("<!-- #&MENU&# -->", $menu, $saida);
 		}
 
-		$menu_dinamico = $this->makeBanner();
-
 		$notificacao = "";
 		$this->db()->Consulta("SELECT cod_notificacao, titulo, conteudo, url FROM portal.notificacao WHERE ref_cod_funcionario = '{$this->currentUserId()}' AND data_hora_ativa < NOW()");
 
@@ -645,51 +643,6 @@ class clsBase extends clsConfig
 		}
 
 		return array($listaBanners, $aux_fim);
-	}
-
-	function makeBanner()
-	{
-		$retorno = '';
-		$listaBanners = array();
-		$this->db()->Consulta("SELECT caminho, title, prioridade, link FROM portal_banner WHERE lateral_=1 ORDER BY prioridade, title");
-		while ($this->db()->ProximoRegistro()) {
-			list($caminho, $title, $prioridade, $link) = $this->db()->Tupla();
-			$listaBanners[] = array("titulo"=>$title, "caminho"=>$caminho, "prioridade"=>$prioridade, "link"=>$link, "controle_inicio"=>0, "controle_fim"=>0);
-		}
-		list($listaBanners, $aux_fim) = $this->organiza($listaBanners);
-		$pregadas = 0;
-		$total_pregar = count($listaBanners) > 7 ? 7 :count($listaBanners);
-		while ($pregadas < $total_pregar) {
-			$sorteio = rand(0, $aux_fim);
-			foreach($listaBanners as $ind => $banner) {
-				if ($banner["controle_inicio"]<=$sorteio && $banner["controle_fim"]>=$sorteio) {
-					if ($pregadas == 0) {
-						$img = "<IMG style='margin-top: 170px;' src='fotos/imgs/{$banner['caminho']}' border=0 title='{$banner['titulo']}' alt='{$banner['titulo']}' width='149' height='74'>";
-						if (!empty($banner['link'])) {
-							$retorno .= "<a href='{$banner['link']}' target='_blank' alt='{$banner['titulo']}'>{$img}</a><BR><BR>";
-						}
-						else {
-							$retorno .= "{$img}<BR><BR>";
-						}
-					}
-					else {
-						$img = "<IMG src='fotos/imgs/{$banner['caminho']}' border=0 title='{$banner['titulo']}' alt='{$banner['titulo']}' width='149' height='74'>";
-						if (!empty($banner['link'])) {
-							$retorno .= "<a href='{$banner['link']}' target='_blank' alt='{$banner['titulo']}'>{$img}</a><BR><BR>";
-						}
-						else {
-							$retorno .= "{$img}<BR><BR>";
-						}
-					}
-
-					unset($listaBanners[$ind]);
-					$pregadas++;
-					list ($listaBanners, $aux_fim) = $this->organiza($listaBanners);
-					continue;
-				}
-			}
-		}
-		return $retorno;
 	}
 
 	function Formular()

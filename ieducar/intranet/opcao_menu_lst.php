@@ -45,17 +45,15 @@ class indice extends clsListagem
 		@session_start();
 		$idpes = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet",false );
 
 		$this->addCabecalhos( array( "Preferências", "Valor Atual" ) );
 
-				
+
 		$db = new clsBanco();
 		$tipo_menu = $db->UnicoCampo("SELECT tipo_menu FROM funcionario WHERE ref_cod_pessoa_fj = '$idpes'");
-		$opcao = array("0"=>"Menu Padrão","1"=> "Menu Suspenso");	
+		$opcao = array("0"=>"Menu Padrão","1"=> "Menu Suspenso");
 		$this->addLinhas( array("<a href='opcao_menu_det.php'><img src='imagens/noticia.jpg' border=0>Tipo Menu</a>",$opcao[$tipo_menu]) );
-		
+
 		// Define Largura da Pï¿½gina
 		$this->largura = "100%";
 
@@ -64,7 +62,7 @@ class indice extends clsListagem
          $_SERVER['SERVER_NAME']."/intranet" => "In&iacute;cio",
          ""                                  => "Prefer&ecirc;ncias"
     ));
-    $this->enviaLocalizacao($localizacao->montar());		
+    $this->enviaLocalizacao($localizacao->montar());
 	}
 }
 

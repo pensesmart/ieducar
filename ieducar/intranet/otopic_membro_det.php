@@ -34,7 +34,7 @@ require_once ("include/relatorio.inc.php");
 
 class clsIndex extends clsBase
 {
-	
+
 	function Formular()
 	{
 		$this->SetTitulo( "{$this->_instituicao} i-Pauta - Detalhe de Membro" );
@@ -49,23 +49,22 @@ class indice extends clsDetalhe
 		@session_start();
 		$id_visualiza = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
+
 		$this->titulo = "Detalhe do Membro";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet" ,false);
-		
+
 		//pdf do relatório
 		$objRelatorio = new relatorios("Relatório",80,false,false,"A4","Prefeitura de Itajaí\nCentro Tecnologico de Informação e Modernização Administrativa.\nRua Alberto Werner, 100 - Vila Operária\nCEP. 88304-053 - Itajaí - SC","#FFFFFF","#000000","#FFFFFF","#FFFFFF");
 		$objRelatorio_cor = new relatorios("Relatório",80,false,false,"A4","Prefeitura de Itajaí\nCentro Tecnologico de Informação e Modernização Administrativa.\nRua Alberto Werner, 100 - Vila Operária\nCEP. 88304-053 - Itajaí - SC");
-		
+
 
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
-		
+
 		$obj_moderador = new clsGrupoModerador($cod_membro,$cod_grupo);
 		$detalhe_moderador = $obj_moderador->detalhe();
 		$obj_grupo_pessoa = new clsGrupoPessoa($cod_membro,$cod_grupo);
 		$detalhe_grupo_pessoa = $obj_grupo_pessoa->detalhe();
-		
+
 		if($detalhe_moderador|| $detalhe_grupo_pessoa )
 		{
 			$obj_pessoa = new clsPessoaFisica( $cod_membro );
@@ -91,12 +90,12 @@ class indice extends clsDetalhe
 		  											"numero",
 		  											"complemento",
 		  											"andar" );
-			
+
 			$this->addDetalhe(array("<b><i> Dados Pessoais</i></b>"));
 			//pdf
 			$objRelatorio->novalinha(array("Dados Pessoais"), 0, 16, true,"arial",false,"#FFFFFF",false,"#000000");
 			$objRelatorio_cor->novalinha(array("Dados Pessoais"), 0, 13, true);
-			
+
 			$this->addDetalhe(array("Nome", $detalhe['nome']));
 			//pdf
 			$objRelatorio->novalinha(array("Nome:", $detalhe["nome"]), 15, 13 , false, false, 60,false,"#FFFFFF");
@@ -108,49 +107,49 @@ class indice extends clsDetalhe
 				$objRelatorio->novalinha(array("CPF:", $detalhe["cpf"]), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("CPF:", $detalhe["cpf"]), 15);
 			}
-			
+
 			$sexo = ($detalhe['sexo'] == "M") ? "Masculino" : "Feminino";
 			$this->addDetalhe( array("Sexo", $sexo) );
 			//pdf
 			$objRelatorio->novalinha(array("Sexo:", $sexo), 15, 13 , false, false, 60,false,"#FFFFFF");
 			$objRelatorio_cor->novalinha(array("Sexo:", $sexo), 15);
-			
+
 			$this->addDetalhe(array("E-mail", $detalhe['email']));
 			//pdf
 			$objRelatorio->novalinha(array("E-mail:", $detalhe["email"]), 15, 13 , false, false, 60,false,"#FFFFFF");
 			$objRelatorio_cor->novalinha(array("E-mail:", $detalhe["email"]), 15);
-			
-			if( $detalhe['ddd_1'] && $detalhe['fone_1'] ) 
+
+			if( $detalhe['ddd_1'] && $detalhe['fone_1'] )
 			{
 				$this->addDetalhe(array("Telefone", "({$detalhe['ddd_1']}) {$detalhe['fone_1']}"));
 				//pdf
 				$objRelatorio->novalinha(array("Telefone", "({$detalhe['ddd_1']}) {$detalhe['fone_1']}"), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Telefone", "({$detalhe['ddd_1']}) {$detalhe['fone_1']}"), 15);
 			}
-			
-			if( $detalhe['ddd_2'] && $detalhe['fone_2'] ) 
+
+			if( $detalhe['ddd_2'] && $detalhe['fone_2'] )
 			{
 				$this->addDetalhe(array("Telefone 2", "({$detalhe['ddd_2']}) {$detalhe['fone_2']}"));
 				//pdf
 				$objRelatorio->novalinha(array("Telefone 2", "({$detalhe['ddd_2']}) {$detalhe['fone_2']}"), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Telefone 2", "({$detalhe['ddd_2']}) {$detalhe['fone_2']}"), 15);
 			}
-			
-			if( $detalhe['ddd_mov'] && $detalhe['fone_mov'] ) 
+
+			if( $detalhe['ddd_mov'] && $detalhe['fone_mov'] )
 			{
 				$this->addDetalhe(array("Celular", "({$detalhe['ddd_mov']}) {$detalhe['fone_mov']}"));
 				//pdf
 				$objRelatorio->novalinha(array("Celular", "({$detalhe['ddd_mov']}) {$detalhe['fone_mov']}"), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Celular", "({$detalhe['ddd_mov']}) {$detalhe['fone_mov']}"), 15);
 			}
-			
-			if( $detalhe['idlog'] ) 
+
+			if( $detalhe['idlog'] )
 			{
 				$obj_logradouro = new clsPublicLogradouro( $detalhe['idlog'] );
 				$det_logradouro = $obj_logradouro->detalhe();
 				$logradouro = $det_logradouro['nome'];
 			}
-			else 
+			else
 			{
 				$logradouro = $detalhe['logradouro'];
 			}
@@ -159,22 +158,22 @@ class indice extends clsDetalhe
 			//pdf
 			$objRelatorio->novalinha(array("Endereço", "({$detalhe['idtlog']}) {$logradouro}"), 15, 13 , false, false, 60,false,"#FFFFFF");
 			$objRelatorio_cor->novalinha(array("Endereço", "({$detalhe['idtlog']}) {$logradouro}"), 15);
-			
-			if( $detalhe['cidade'] ) 
+
+			if( $detalhe['cidade'] )
 			{
 				$this->addDetalhe(array("Cidade", "{$detalhe['cidade']}"));
 				//pdf
 				$objRelatorio->novalinha(array("Cidade", $detalhe['cidade']), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Cidade", $detalhe['cidade']), 15);
 			}
-			
-			if( $detalhe['idbai'] ) 
+
+			if( $detalhe['idbai'] )
 			{
 				$obj_bairro = new clsPublicBairro( null, null, $detalhe['idbai'] );
 				$det_bairro = $obj_bairro->detalhe();
 				$bairro = $det_bairro['nome'];
 			}
-			else 
+			else
 			{
 				$bairro = $detalhe['bairro'];
 			}
@@ -183,12 +182,12 @@ class indice extends clsDetalhe
 			//pdf
 			$objRelatorio->novalinha(array("Bairro", $bairro), 15, 13 , false, false, 60,false,"#FFFFFF");
 			$objRelatorio_cor->novalinha(array("Bairro", $bairro), 15);
-			
-			if( $detalhe['sigla_uf'] ) 
+
+			if( $detalhe['sigla_uf'] )
 			{
 				$obj_Uf = new clsPublicUf( $detalhe['sigla_uf'] );
 				$det_Uf = $obj_Uf->detalhe();
-				
+
 				$this->addDetalhe(array("UF", $det_Uf['nome']));
 				//pdf
 				$objRelatorio->novalinha(array("UF", $det_Uf['nome']), 15, 13 , false, false, 60,false,"#FFFFFF");
@@ -200,33 +199,33 @@ class indice extends clsDetalhe
 			//pdf
 			$objRelatorio->novalinha(array("CEP", $detalhe['cep']), 15, 13 , false, false, 60,false,"#FFFFFF");
 			$objRelatorio_cor->novalinha(array("CEP", $detalhe['cep']), 15);
-			
-			if( $detalhe['numero'] ) 
+
+			if( $detalhe['numero'] )
 			{
 				$this->addDetalhe(array("Número", $detalhe['numero']));
 				//pdf
 				$objRelatorio->novalinha(array("Número", $detalhe['numero']), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Número", $detalhe['numero']), 15);
 			}
-			
-		  	if( $detalhe['complemento'] ) 
+
+		  	if( $detalhe['complemento'] )
 			{
 				$this->addDetalhe(array("Complemento", $detalhe['complemento']));
 				//pdf
 				$objRelatorio->novalinha(array("Complemento", $detalhe['complemento']), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Complemento", $detalhe['complemento']), 15);
 			}
-			
-			if( $detalhe['andar'] ) 
+
+			if( $detalhe['andar'] )
 			{
 				$this->addDetalhe(array("Andar", $detalhe['andar']));
 				//pdf
 				$objRelatorio->novalinha(array("Andar", $detalhe['andar']), 15, 13 , false, false, 60,false,"#FFFFFF");
 				$objRelatorio_cor->novalinha(array("Andar", $detalhe['andar']), 15);
 			}
-			
+
 		}
-		else 
+		else
 		{
 			header("Location: otopic_meus_grupos_lst.php");
 		}
@@ -238,10 +237,10 @@ class indice extends clsDetalhe
 			$this->url_editar = "otopic_membros_cad.php?cod_grupo=$cod_grupo&cod_pessoa_fj=$cod_membro";
 		}
 		$this->url_cancelar = "otopic_meus_grupos_det.php?cod_grupo=$cod_grupo";
-		
-		
+
+
 		$this->largura = "100%";
-		
+
 		//pdf - Notas
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
@@ -253,7 +252,7 @@ class indice extends clsDetalhe
 			{
 				$objRelatorio->novalinha(array("Notas"), 0, 16 , true,"arial",false,"#FFFFFF",false,"#000000");
 				$objRelatorio_cor->novalinha(array("Notas"), 0, 13 , true);
-				foreach ($lista as $notas) 
+				foreach ($lista as $notas)
 				{
 					$total = $notas['total'];
 					//pdf
@@ -278,13 +277,12 @@ class Listas extends clsListagem
 		@session_start();
 		$id_visualiza = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
+
 		$this->titulo = "Notas";
-		$this->addBanner(  );
-		
+
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
-		
+
 		$this->addCabecalhos( array( "Notas" ) );
 
 		// Paginador
@@ -297,18 +295,18 @@ class Listas extends clsListagem
 			$lista = $obj->lista($cod_membro);
 			if($lista)
 			{
-				foreach ($lista as $notas) 
+				foreach ($lista as $notas)
 				{
 					$total =$notas['total'];
 					$this->addLinhas(array("<a href='otopic_notas_cad.php?cod_membro=$cod_membro&cod_grupo=$cod_grupo&sequencial={$notas['sequencial']}'>{$notas['nota']}</a>"));
 				}
 			}
-					
+
 			$this->acao = "go(\"otopic_notas_cad.php?cod_membro=$cod_membro&cod_grupo=$cod_grupo\")";
 			$this->nome_acao = "Novo";
-		}	
+		}
 
-		
+
 
 		$this->largura = "100%";
 		$this->addPaginador2( "otopic_membro_det.php?cod_membro=$cod_membro&cod_grupo=$cod_grupo", $total, $_GET, $this->nome, $limite );

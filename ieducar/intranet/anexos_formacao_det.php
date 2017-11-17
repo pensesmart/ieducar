@@ -44,7 +44,6 @@ class indice extends clsDetalhe
 	function Gerar()
 	{
 		$this->titulo = "Detalhe de concurso";
-		$this->addBanner( "/intranet/imagens/nvp_top_intranet.jpg", "/intranet/imagens/nvp_vert_intranet.jpg", "Intranet" );
 
 		$cod_anexos_formacao = @$_GET['cod_anexos_formacao'];
 

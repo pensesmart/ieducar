@@ -104,12 +104,9 @@ class indice extends clsListagem
       $this->$var = ($val === '') ? NULL : $val;
     }
 
-    $this->addBanner('imagens/nvp_top_intranet.jpg', 'imagens/nvp_vert_intranet.jpg',
-      'Intranet');
-
     $lista_busca = array(
       'Projeto',
-      'N&iacute;vel Ensino',
+      'Nível Ensino',
       'Tipo Ensino'
     );
 
@@ -262,7 +259,7 @@ class indice extends clsListagem
       $this->nome_acao = "Novo";
     }
     $this->largura = "100%";
-    
+
     $localizacao = new LocalizacaoSistema();
     $localizacao->entradaCaminhos( array(
          $_SERVER['SERVER_NAME']."/intranet" => "In&iacute;cio",

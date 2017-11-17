@@ -66,7 +66,6 @@ class indice extends clsDetalhe
 		session_write_close();
 
 		$this->titulo = "Software Alteracao - Detalhe";
-		$this->addBanner( "/intranet/imagens/nvp_top_intranet.jpg", "/intranet/imagens/nvp_vert_intranet.jpg", "Intranet" );
 
 		$this->cod_software_alteracao=$_GET["cod_software_alteracao"];
 

@@ -31,7 +31,7 @@ require_once ("include/clsBanco.inc.php");
 
 class clsIndex extends clsBase
 {
-	
+
 	function Formular()
 	{
 		$this->SetTitulo( "{$this->_instituicao} Menu!" );
@@ -44,11 +44,10 @@ class indice2 extends clsListagem
 	function Gerar()
 	{
 		$this->titulo = "Menu da Intranet";
-		$this->addBanner( "", "", "", true );
-		
+
 		$this->addCabecalhos( array( "Nome", "Arquivo") );
-		
-		
+
+
 		$db = new clsBanco();
 		$db->Consulta( "SELECT cod_menu_submenu, nm_submenu, arquivo FROM menu_submenu WHERE cod_sistema=2 ORDER BY nm_submenu" );
 		while ($db->ProximoRegistro())

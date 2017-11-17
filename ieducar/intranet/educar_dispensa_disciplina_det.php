@@ -89,8 +89,6 @@ class indice extends clsDetalhe
     session_write_close();
 
     $this->titulo = 'Dispensa Componente Curricular - Detalhe';
-    $this->addBanner('imagens/nvp_top_intranet.jpg', 'imagens/nvp_vert_intranet.jpg',
-      'Intranet');
 
     $this->ref_cod_disciplina = $_GET['ref_cod_disciplina'];
     $this->ref_cod_matricula  = $_GET['ref_cod_matricula'];

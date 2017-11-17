@@ -33,7 +33,7 @@ require_once ("include/clsBanco.inc.php");
 
 class clsIndex extends clsBase
 {
-	
+
 	function Formular()
 	{
 		$this->SetTitulo( "{$this->_instituicao} i-Pauta - Super Usuários" );
@@ -46,15 +46,14 @@ class indice extends clsDetalhe
 	function Gerar()
 	{
 		$this->titulo = "Detalhe";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet", false);
 
 		$obj = new clsFuncionarioSu();
 		$lista = $obj->lista();
 		$novo = true;
 		if($lista)
-		{	
-			foreach ($lista AS $cod) 
-			{			
+		{
+			foreach ($lista AS $cod)
+			{
 				$novo =false;
 				$cod = $cod['ref_ref_cod_pessoa_fj'];
 				$obj = new clsPessoaFisica($cod);
@@ -62,7 +61,7 @@ class indice extends clsDetalhe
 				$this->addDetalhe(array("Super Usuário", $detalhe['nome']));
 			}
 		}
-		
+
 		if($novo)
 		{
 			header("Location: otopic_su_lst.php");

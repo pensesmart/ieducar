@@ -45,48 +45,47 @@ class indice extends clsListagem
 		@session_start();
 			$id_pessoa = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet",false );
+
 		$this->addCabecalhos( array( "Nome da Imagem","Imagem", "Tipo") );
 
 		// Filtros de Busca
 		$this->campoTexto("imagem","Nome Imagem ","",50,255);
-		//$this->campoTexto("unidade","Unidade","",30,255);		
+		//$this->campoTexto("unidade","Unidade","",30,255);
 		// Paginador
-		  
+
 		$limite = 20;
-		$iniciolimit = ( $_GET["pagina_{$this->nome}"] ) ? $_GET["pagina_{$this->nome}"]*$limite-$limite: 0;		
+		$iniciolimit = ( $_GET["pagina_{$this->nome}"] ) ? $_GET["pagina_{$this->nome}"]*$limite-$limite: 0;
 		$obj_menu = new clsPortalImagem();
 		$obj_menu->setLimite($limite, $iniciolimit );
 		$obj_menu->setOrderby("cod_imagem");
 		$lista_menu = $obj_menu->lista(false,false,false,false, false, false, false, $_GET['imagem']);
 		if($lista_menu)
 		{
-			foreach ($lista_menu as $menu) 
+			foreach ($lista_menu as $menu)
 			{
 				$obj_tipo = new clsPortalImagemTipo();
-				$lista_tipo = $obj_tipo->lista($menu['ref_cod_imagem_tipo'] );				
+				$lista_tipo = $obj_tipo->lista($menu['ref_cod_imagem_tipo'] );
 				if($lista_tipo)
 				{
-					foreach ($lista_tipo as $tipo) 
-					{		
+					foreach ($lista_tipo as $tipo)
+					{
 						$menu['nm_imagem'] = ($menu['nm_imagem'] == "") ? "S/N":$menu['nm_imagem'] ;
 						$this->addLinhas(array("<a href='imagem_det.php?cod_imagem={$menu['cod_imagem']}'  width=16 height=16><img src='imagens/noticia.jpg' border=0> {$menu['nm_imagem']}</a>","<img src='imagens/banco_imagens/{$menu['caminho']}' alt='{$menu['nm_imagem']}' title='{$menu['nm_imagem']}'  width=16 height=16>" ,$tipo['nm_tipo']));
 						$total = $menu['_total'];
 					}
 				}
 			}
-		}		
-		
+		}
+
 		// Paginador
-		$this->addPaginador2( "imagem_lst.php", $total, $_GET, $this->nome, $limite );		
+		$this->addPaginador2( "imagem_lst.php", $total, $_GET, $this->nome, $limite );
 		$this->acao = "go(\"imagem_cad.php\")";
-		$this->nome_acao = "Novo";			
-		
+		$this->nome_acao = "Novo";
+
 		// Define Largura da Página
 		$this->largura = "100%";
 	}
-} 
+}
 
 $pagina = new clsIndex();
 $miolo = new indice();

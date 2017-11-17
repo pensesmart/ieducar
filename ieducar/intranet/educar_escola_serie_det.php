@@ -88,8 +88,6 @@ class indice extends clsDetalhe
     session_write_close();
 
     $this->titulo = 'Escola Eixo - Detalhe';
-    $this->addBanner('imagens/nvp_top_intranet.jpg',
-      'imagens/nvp_vert_intranet.jpg', 'Intranet');
 
     $this->ref_cod_serie = $_GET['ref_cod_serie'];
     $this->ref_cod_escola = $_GET['ref_cod_escola'];

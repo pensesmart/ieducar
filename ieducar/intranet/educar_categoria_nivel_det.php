@@ -42,7 +42,7 @@ class clsIndexBase extends clsBase
   public function Formular() {
     $this->SetTitulo($this->_instituicao . 'Detalhe Categoria N&iacute;vel');
     $this->processoAp = "829";
-		$this->addEstilo('localizacaoSistema');    
+		$this->addEstilo('localizacaoSistema');
   }
 }
 
@@ -71,7 +71,6 @@ class indice extends clsDetalhe
 		session_write_close();
 
 		$this->titulo = "Categoria Nivel - Detalhe";
-		$this->addBanner("imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet");
 
 		$this->cod_categoria_nivel=$_GET["cod_categoria_nivel"];
 
@@ -142,7 +141,7 @@ class indice extends clsDetalhe
          "educar_index.php"                  => "Trilha Jovem Iguassu - Escola",
          ""                                  => "Detalhe da categoria/n&iacute;vel"
     ));
-    $this->enviaLocalizacao($localizacao->montar());		
+    $this->enviaLocalizacao($localizacao->montar());
 	}
 }
 

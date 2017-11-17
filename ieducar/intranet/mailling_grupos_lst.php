@@ -43,7 +43,6 @@ class indice extends clsListagem
 	function Gerar()
 	{
 		$this->titulo = "Grupos ";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet");
 		$this->addCabecalhos( array( "Nome", "Quantidade de Usuários"));
 		$db = new clsBanco();
 		$db->Consulta( "SELECT cod_mailling_grupo,nm_grupo FROM mailling_grupo" );
@@ -56,11 +55,11 @@ class indice extends clsListagem
 			{
 				list($numero_usuarios) = $dba->Tupla();
 			}
-			else 
+			else
 			{
 				$numero_usuarios= 0;
 			}
-			
+
 			$this->addLinhas( array("<img src='imagens/noticia.jpg' border=0>&nbsp;&nbsp;<a href='mailling_grupos_det.php?id_grupo=$cod_grupo'>$nome</a>", $numero_usuarios) );
 		}
 		$this->acao = "go(\"mailling_grupos_cad.php\")";

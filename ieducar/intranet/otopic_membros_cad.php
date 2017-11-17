@@ -114,8 +114,6 @@ class indice extends clsCadastro
 
 	function Gerar()
 	{
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet",false );
-
 		if ( !$this->busca_pessoa )
 		{
 			$parametros = new clsParametrosPesquisas();
@@ -301,7 +299,7 @@ class indice extends clsCadastro
 			}
 		}
 
-		
+
 		$obj = new clsGrupoPessoa($idpes, $this->cod_grupo,$pessoaFj, false, $this->cod_grupo);
 		if($obj->cadastra())
 		{
@@ -317,15 +315,15 @@ class indice extends clsCadastro
 		$pessoaFj = $_SESSION['id_pessoa'];
 		session_write_close();
 
-				
+
 		$obj = new clsGrupoModerador($this->cod_pessoa_fj,$this->cod_grupo);
 		$detalhe =$obj->detalhe();
 		if($detalhe && $detalhe['ativo'] == 1)
 		{
 			header("Location: otopic_meus_grupos_det.php?cod_grupo=$this->cod_grupo");
 		}
-		
-		
+
+
 		$objPessoa = new clsPessoa_( $this->cod_pessoa_fj, $this->p_nm_pessoa, false, $this->http, false, $pessoaFj, date( "Y-m-d H:i:s", time() ), $this->email );
 		$objPessoa->edita();
 
@@ -372,7 +370,7 @@ class indice extends clsCadastro
 				$objEnderecoExterno2->cadastra();
 			}
 		}
-		
+
 		$obj = new clsGrupoPessoa($this->cod_pessoa_fj, $this->cod_grupo);
 		if(!$obj->detalhe())
 		{

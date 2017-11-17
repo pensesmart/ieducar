@@ -65,7 +65,6 @@ class indice extends clsDetalhe
 		session_write_close();
 
 		$this->titulo = "Carometro Turma - Detalhe";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet" );
 
 		$this->ref_cod_turma=$_GET["ref_cod_turma"];
 

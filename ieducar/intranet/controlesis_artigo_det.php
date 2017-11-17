@@ -60,7 +60,6 @@ class indice extends clsDetalhe
 		session_write_close();
 
 		$this->titulo = "Artigo - Detalhe";
-		$this->addBanner( "/intranet/imagens/nvp_top_intranet.jpg", "/intranet/imagens/nvp_vert_intranet.jpg", "Intranet" );
 
 		$this->cod_artigo=$_GET["cod_artigo"];
 

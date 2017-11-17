@@ -44,7 +44,6 @@ class indice extends clsListagem
 	function Gerar()
 	{
 		$this->titulo = "Anexos";
-		$this->addBanner( "/intranet/imagens/nvp_top_intranet.jpg", "/intranet/imagens/nvp_vert_intranet.jpg", "Intranet" );
 
 		$this->addCabecalhos( array( "Nome", "Descrição" ) );
 
@@ -59,7 +58,7 @@ class indice extends clsListagem
 		$total = $dba->UnicoCampo( "SELECT count(0) FROM anexos_formacao" );
 
 		$db->Consulta( "SELECT cod_anexos_formacao, nm_anexo, descricao FROM anexos_formacao ORDER BY data_hora DESC limit $this->limite offset $this->offset " );
-		
+
 		while ($db->ProximoRegistro())
 		{
 			list ( $cod, $nm_concurso, $descricao ) = $db->Tupla();

@@ -48,7 +48,6 @@ class indice extends clsDetalhe
 	function Gerar()
 	{
 		$this->titulo = "Detalhe da Reunião";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet", false);
 
 		@session_start();
 		$id_visualiza = $_SESSION['id_pessoa'];
@@ -269,8 +268,6 @@ class cadastro extends clsCadastro
 
 	function Inicializar()
 	{
-		$this->addBanner( );
-
 		@session_start();
 		$this->id_pessoa = $_SESSION['id_pessoa'];
 		session_write_close();

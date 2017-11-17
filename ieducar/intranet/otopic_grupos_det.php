@@ -33,7 +33,7 @@ require_once ("include/clsBanco.inc.php");
 
 class clsIndex extends clsBase
 {
-	
+
 	function Formular()
 	{
 		$this->SetTitulo( "{$this->_instituicao} i-Pauta - Detalhe do Grupo" );
@@ -46,16 +46,15 @@ class indice extends clsDetalhe
 	function Gerar()
 	{
 		$this->titulo = "Detalhe do Grupo";
-		$this->addBanner( "imagens/nvp_top_intranet.jpg", "imagens/nvp_vert_intranet.jpg", "Intranet", false);
 
 		$cod_grupo = $_GET['cod_grupos'];
-		
+
 		$obj = new clsGrupos($cod_grupo);
 		$detalhe = $obj->detalhe();
-		
+
 		$this->addDetalhe(array("Nome", $detalhe['nm_grupo']));
 		$this->addDetalhe(array("Data de Criação", date("d/m/Y H:i:s", strtotime(substr($detalhe['data_cadastro'],0,19)))  ));
-		
+
 		$obj = new clsGrupoModerador();
 		$lista = $obj->lista(false,$cod_grupo);
 		if($lista)
@@ -69,7 +68,7 @@ class indice extends clsDetalhe
 				$i++;
 			}
 		}
-		
+
 		$obj = new clsGrupoPessoa();
 		$lista = $obj->lista(false,$cod_grupo);
 		if($lista)
@@ -82,13 +81,13 @@ class indice extends clsDetalhe
 				$this->addDetalhe(array("Membro $i", $detalhe['nome']));
 				$i++;
 			}
-		} 
+		}
 
 		$this->url_novo = "otopic_grupos_cad.php";
 		$this->url_editar = "otopic_grupos_cad.php?cod_grupos=$cod_grupo";
 		$this->url_cancelar = "otopic_grupos_lst.php";
 		$this->largura = "100%";
-		
+
 	}
 }
 
@@ -100,13 +99,12 @@ class indice extends clsDetalhe
 		@session_start();
 		$id_visualiza = $_SESSION['id_pessoa'];
 		@session_write_close();
-		
+
 		$this->titulo = "Membros";
-		$this->addBanner(  );
-		
+
 		$cod_membro = $_GET['cod_membro'];
 		$cod_grupo = $_GET['cod_grupo'];
-		
+
 		$this->addCabecalhos( array( "Nome", "e-mail", "Ramal", "Função" ) );
 
 		// Paginador
@@ -115,7 +113,7 @@ class indice extends clsDetalhe
 
 		$obj = new clsGrupoPessoa();
 		$lista = $obj->pessoasGrupo($cod_grupo,"tipo ASC",1,$iniciolimit,$limite);
-		foreach ($lista as $pessoas) 
+		foreach ($lista as $pessoas)
 		{
 			$total = $pessoas['total'];
 			$obj = new clsFuncionario($pessoas['id']);
@@ -123,17 +121,17 @@ class indice extends clsDetalhe
 			$detalhe_pessoa = $detalhe['idpes']->detalhe();
 			$funcao = $pessoas['tipo'] == 1 ? "Moderador" : "Membro";
 			$this->addLinhas( array("<a href='otopic_membro_det.php?cod_membro={$pessoas['id']}&cod_grupo={$cod_grupo}'>{$detalhe_pessoa['nome']}</a>",$detalhe_pessoa['email'],$detalhe['ramal'], $funcao) );
-					
-		}
-					
 
-		
-		
+		}
+
+
+
+
 		$this->acao = "go(\"otopic_membros_cad.php?cod_grupo=$cod_grupo\")";
 		$this->nome_acao = "Novo Membro";
-	
 
-		
+
+
 
 		$this->largura = "100%";
 		$this->addPaginador2( "otopic_membro_det.php?cod_membro=$cod_membro&cod_grupo=$cod_grupo", $total, $_GET, $this->nome, $limite );

@@ -73,9 +73,6 @@ class indice extends clsDetalhe
   {
     $this->titulo = 'Detalhe da Jovem - Processo Seletivo';
 
-    $this->addBanner('imagens/nvp_top_intranet.jpg',
-      'imagens/nvp_vert_intranet.jpg', 'Intranet');
-
     $cod_pessoa = @$_GET['cod_pessoa'];
 
     $objPessoa = new clsPessoaFisica($cod_pessoa);
