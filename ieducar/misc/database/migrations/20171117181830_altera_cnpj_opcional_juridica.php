@@ -34,10 +34,7 @@ class AlteraCnpjOpcionalJuridica extends AbstractMigration
 		$this->execute("DROP VIEW v_pessoa_juridica;");
 		$this->execute("DROP VIEW v_pessoa_fj;");
 
-		$cadastro = $this->table('juridica');
-		$cadastro
-			->changeColumn('cnpj', 'integer', ['limit' => 14, 'null' => true])
-			->update();
+		$this->execute('ALTER TABLE cadastro.juridica ALTER COLUMN cnpj type numeric(14,0)');
 
 		$this->execute("CREATE VIEW v_pessoafj_count AS
 			SELECT cadastro.fisica.ref_cod_sistema, cadastro.fisica.cpf AS id_federal FROM cadastro.fisica UNION ALL SELECT NULL::integer AS ref_cod_sistema, cadastro.juridica.cnpj AS id_federal FROM cadastro.juridica;");
@@ -47,14 +44,11 @@ class AlteraCnpjOpcionalJuridica extends AbstractMigration
 
 		$this->execute("CREATE VIEW v_pessoa_fj AS
 			SELECT p.idpes, p.nome, (SELECT cadastro.fisica.ref_cod_sistema FROM cadastro.fisica WHERE (cadastro.fisica.idpes = p.idpes)) AS ref_cod_sistema,
-			(SELECT cadastro.juridica.fantasia FROM cadastro.juridica WHERE (cadastro.juridica.idpes = p.idpes)) AS fantasia, p.tipo, COALESCE((SELECT cadastro.fisica.cpf FROM cadastro.fisica WHERE (cadastro.fisica.idpes = p.idpes)), (SELECT cadastro.juridica.cnpj FROM cadastro.juridica WHERE (cadastro.juridica.idpes = p.idpes))) AS id_federal FROM pessoa p;");
+			(SELECT cadastro.juridica.fantasia FROM cadastro.juridica WHERE (cadastro.juridica.idpes = p.idpes)) AS fantasia, p.tipo, COALESCE((SELECT cadastro.fisica.cpf FROM cadastro.fisica WHERE (cadastro.fisica.idpes = p.idpes)), (SELECT cadastro.juridica.cnpj FROM cadastro.juridica WHERE (cadastro.juridica.idpes = p.idpes))) AS id_federal FROM cadastro.pessoa p;");
 
 		// Alterando de schema
 		$this->getAdapter()->setOptions(array_replace($this->getAdapter()->getOptions(), ['schema' => 'historico']));
 
-		$historico = $this->table('juridica');
-		$historico
-			->changeColumn('cnpj', 'integer', ['limit' => 14, 'null' => true])
-			->update();
+		$this->execute('ALTER TABLE historico.juridica ALTER COLUMN cnpj type numeric(14,0)');
 	}
 }

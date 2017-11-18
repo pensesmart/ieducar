@@ -115,7 +115,7 @@ class clsPmieducarMatriculaTurma
     $this->_schema = "pmieducar.";
     $this->_tabela = "{$this->_schema}matricula_turma";
 
-    $this->_campos_lista = $this->_todos_campos = "mt.ref_cod_matricula, mt.ref_cod_turma, mt.ref_usuario_exc, mt.ref_usuario_cad, mt.data_cadastro, mt.data_exclusao, mt.ativo, mt.sequencial, mt.data_enturmacao, (SELECT pes.nome FROM cadastro.pessoa pes, pmieducar.aluno alu, pmieducar.matricula mat WHERE pes.idpes = alu.ref_idpes AND mat.ref_cod_aluno = alu.cod_aluno AND mat.cod_matricula = mt.ref_cod_matricula ) AS nome, (SELECT to_ascii(pes.nome) FROM cadastro.pessoa pes, pmieducar.aluno alu, pmieducar.matricula mat WHERE pes.idpes = alu.ref_idpes AND mat.ref_cod_aluno = alu.cod_aluno AND mat.cod_matricula = mt.ref_cod_matricula ) AS nome_ascii";
+    $this->_campos_lista = $this->_todos_campos = "mt.ref_cod_matricula, mt.ref_cod_turma, mt.ref_usuario_exc, mt.ref_usuario_cad, mt.data_cadastro, mt.data_exclusao, mt.ativo, mt.sequencial, mt.data_enturmacao, (SELECT pes.nome FROM cadastro.pessoa pes, pmieducar.aluno alu, pmieducar.matricula mat WHERE pes.idpes = alu.ref_idpes AND mat.ref_cod_aluno = alu.cod_aluno AND mat.cod_matricula = mt.ref_cod_matricula ) AS nome, (SELECT unaccent(pes.nome) FROM cadastro.pessoa pes, pmieducar.aluno alu, pmieducar.matricula mat WHERE pes.idpes = alu.ref_idpes AND mat.ref_cod_aluno = alu.cod_aluno AND mat.cod_matricula = mt.ref_cod_matricula ) AS nome_ascii";
 
     if (is_numeric($ref_usuario_exc)) {
       if (class_exists("clsPmieducarUsuario")) {
@@ -241,7 +241,7 @@ class clsPmieducarMatriculaTurma
 
     if (is_string($data_enturmacao)) {
       $this->data_enturmacao = $data_enturmacao;
-    }    
+    }
   }
 
   /**
@@ -302,8 +302,8 @@ class clsPmieducarMatriculaTurma
       if(is_numeric($this->sequencial_fechamento)){
         $campos .= "{$gruda}sequencial_fechamento";
         $valores .= "{$gruda}'{$this->sequencial_fechamento}'";
-        $gruda = ", ";        
-      }      
+        $gruda = ", ";
+      }
 
       $db->Consulta("INSERT INTO {$this->_tabela} ($campos) VALUES ($valores)");
 
@@ -355,7 +355,7 @@ class clsPmieducarMatriculaTurma
       if (is_string($this->data_enturmacao)) {
         $set .= "{$gruda}data_enturmacao = '{$this->data_enturmacao}'";
         $gruda = ", ";
-      }      
+      }
 
       if ($set) {
         $db->Consulta("UPDATE {$this->_tabela} SET $set WHERE ref_cod_matricula = '{$this->ref_cod_matricula}' AND ref_cod_turma = '{$this->ref_cod_turma}' and sequencial = '$this->sequencial' ");
@@ -385,7 +385,7 @@ class clsPmieducarMatriculaTurma
     $pegar_ano_em_andamento = FALSE, $parar=NULL)
   {
     if ($bool_get_nome_aluno === true) {
-      $nome = " ,pessoa.nome as nome_aluno";            
+      $nome = " ,pessoa.nome as nome_aluno";
     }
     $tab_aluno = ", {$this->_schema}aluno a";
     $where_nm_aluno = " AND a.cod_aluno = m.ref_cod_aluno AND a.ativo=1";
@@ -1073,9 +1073,9 @@ class clsPmieducarMatriculaTurma
   {
     if (is_numeric($this->ref_cod_matricula) && is_numeric($this->ref_cod_turma)) {
       $db = new clsBanco();
-      $max = $db->CampoUnico("SELECT COALESCE(MAX(sequencial),0) + 1 AS MAX FROM {$this->_tabela} WHERE ref_cod_matricula = '{$this->ref_cod_matricula}'"); 
+      $max = $db->CampoUnico("SELECT COALESCE(MAX(sequencial),0) + 1 AS MAX FROM {$this->_tabela} WHERE ref_cod_matricula = '{$this->ref_cod_matricula}'");
 
-      //removido filtro pois tornou-se possivel enturmar uma matricula em mais de uma turma       
+      //removido filtro pois tornou-se possivel enturmar uma matricula em mais de uma turma
       //AND ref_cod_turma = '{$this->ref_cod_turma}'");
 
       return $max;
@@ -1288,5 +1288,5 @@ class clsPmieducarMatriculaTurma
         return 0;
     }else
       return 0;
-  }  
+  }
 }

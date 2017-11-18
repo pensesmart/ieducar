@@ -132,7 +132,7 @@ class miolo1 extends clsListagem
 
     $pre_select = ' SELECT
         c.idlog, c.cep, c.idbai, u.sigla_uf, m.nome, t.idtlog, m.idmun, b.zona_localizacao ';
-        
+
     $select = '
       FROM
         urbano.cep_logradouro_bairro c, public.bairro b, public.logradouro l,
@@ -165,15 +165,15 @@ class miolo1 extends clsListagem
     $paramCount = 1;
 
     foreach ($params as $name => $value) {
-      $select .= " AND $name ILIKE '%'||\$$paramCount||'%'";
+      $select .= " AND $name::varchar ILIKE '%'||\$$paramCount||'%'";
       $paramCount++;
     }
 
     $total  = Portabilis_Utils_Database::selectField(' SELECT COUNT(0) '.$select, array('params' => array_values($params)));
 
-    $select .= sprintf(' LIMIT %s OFFSET %s', $limite, $iniciolimit);    
+    $select .= sprintf(' LIMIT %s OFFSET %s', $limite, $iniciolimit);
 
-    $result = Portabilis_Utils_Database::fetchPreparedQuery($pre_select.$select, array('params' => array_values($params)));   
+    $result = Portabilis_Utils_Database::fetchPreparedQuery($pre_select.$select, array('params' => array_values($params)));
 
     foreach ($result as $record) {
       list($idlog, $cep, $idbai, $uf, $cidade, $tipoLogradouroId, $id_mun, $zona) = $record;

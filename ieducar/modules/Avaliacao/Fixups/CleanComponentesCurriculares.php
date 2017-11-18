@@ -88,8 +88,8 @@ class CleanComponentesCurriculares {
   }
 
   protected static function destroyOldNotasMedias($anoEscolar) {
-    $sql = "delete from modules.nota_componente_curricular_media where nota_aluno_id||componente_curricular_id in (
-              select nccm.nota_aluno_id|| nccm.componente_curricular_id from modules.nota_componente_curricular_media as nccm,
+    $sql = "delete from modules.nota_componente_curricular_media where nota_aluno_id::varchar||componente_curricular_id::varchar in (
+              select nccm.nota_aluno_id::varchar|| nccm.componente_curricular_id::varchar from modules.nota_componente_curricular_media as nccm,
                      modules.nota_aluno as na,
                      pmieducar.matricula as m,
                      pmieducar.matricula_turma as mt
