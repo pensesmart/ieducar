@@ -470,7 +470,7 @@ class clsModulesVeiculo
 
     if (is_string($descricao)) {
       $filtros .= "
-        {$whereAnd} TO_ASCII(LOWER(descricao)) LIKE TO_ASCII(LOWER('%{$descricao}%')) ";
+        {$whereAnd} unaccent(LOWER(descricao)) LIKE unaccent(LOWER('%{$descricao}%')) ";
 
       $whereAnd = ' AND ';
     }      
@@ -487,12 +487,12 @@ class clsModulesVeiculo
 
     if (is_string($nome_motorista)) {
       $whereNomes .= "
-        {$whereAnd} TO_ASCII(LOWER((SELECT
+        {$whereAnd} unaccent(LOWER((SELECT
             nome
           FROM
             modules.motorista m,cadastro.pessoa p
           WHERE
-            ref_cod_motorista = cod_motorista AND p.idpes = m.ref_idpes))) LIKE TO_ASCII(LOWER('%{$nome_motorista}%')) ";
+            ref_cod_motorista = cod_motorista AND p.idpes = m.ref_idpes))) LIKE unaccent(LOWER('%{$nome_motorista}%')) ";
 
       $whereAnd = ' AND ';
     }
@@ -514,7 +514,7 @@ class clsModulesVeiculo
 
     if (is_string($marca)) {
         $filtros .= "
-        {$whereAnd} TO_ASCII(LOWER(marca)) LIKE TO_ASCII(LOWER('%{$marca}%')) ";
+        {$whereAnd} unaccent(LOWER(marca)) LIKE unaccent(LOWER('%{$marca}%')) ";
       $whereAnd = " AND ";
     }       
 

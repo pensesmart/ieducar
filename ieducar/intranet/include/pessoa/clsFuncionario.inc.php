@@ -170,12 +170,12 @@ class clsFuncionario extends clsPessoaFisica
 
 		if( is_string( $str_matricula ) && $str_matricula != '')
 		{
-			$filtros .= "{$whereAnd} to_ascii(f.matricula) LIKE to_ascii('%{$str_matricula}%')";
+			$filtros .= "{$whereAnd} unaccent(f.matricula) LIKE unaccent('%{$str_matricula}%')";
 			$whereAnd = " AND ";
 		}
 		if( is_string( $str_nome ) )
 		{
-			$filtros .= "{$whereAnd} to_ascii(f.nome) LIKE  to_ascii('%{$str_nome}%%')";
+			$filtros .= "{$whereAnd} unaccent(f.nome) LIKE  unaccent('%{$str_nome}%%')";
 			$whereAnd = " AND ";
 			$filtro_pessoa =true;
 		}

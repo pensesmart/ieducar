@@ -311,7 +311,7 @@ class clsPortalSmsProntuario
     }
 
     if (is_string($str_nm_paciente)) {
-      $filtros .= "{$whereAnd} to_ascii(nm_paciente) ILIKE  to_ascii('%{$str_nm_paciente}%')";
+      $filtros .= "{$whereAnd} unaccent(nm_paciente) ILIKE  unaccent('%{$str_nm_paciente}%')";
       $whereAnd = " AND ";
     }
 

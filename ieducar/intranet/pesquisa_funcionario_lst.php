@@ -114,7 +114,7 @@ class indice extends clsListagem
 		if ( $busca == 'S' ) {
 
 			$obj_funcionario = new clsFuncionario();
-			$obj_funcionario->setOrderby("ativo='1' DESC, to_ascii(nome) ASC");
+			$obj_funcionario->setOrderby("ativo='1' DESC, unaccent(nome) ASC");
 			$lst_funcionario = $obj_funcionario->lista( false, $chave_busca, $this->funcionario_ativo, false, false, false, false, $iniciolimit, $limite, false, $com_matricula );
 
 			if ( !$lst_funcionario )
@@ -124,7 +124,7 @@ class indice extends clsListagem
 		}
 		else {
 			$obj_funcionario = new clsFuncionario();
-			$obj_funcionario->setOrderby("ativo='1' DESC, to_ascii(nome) ASC");
+			$obj_funcionario->setOrderby("ativo='1' DESC, unaccent(nome) ASC");
 			$lst_funcionario = $obj_funcionario->lista( false, false, $this->funcionario_ativo, false, false, false, false, $iniciolimit, $limite, false, $com_matricula );
 		}
 		if ( $lst_funcionario ) {

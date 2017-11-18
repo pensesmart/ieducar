@@ -407,9 +407,9 @@ abstract class clsBancoSQL_
       // Altera os LIKE para ILIKE (ignore case)
       $this->strStringSQL = preg_replace("/ LIKE /i", " ILIKE ", $this->strStringSQL);
 
-      $this->strStringSQL = preg_replace("/([a-z_0-9.]+) +ILIKE +'([^']+)'/i", "to_ascii(\\1) ILIKE to_ascii('\\2')", $this->strStringSQL);
+      $this->strStringSQL = preg_replace("/([a-z_0-9.]+) +ILIKE +'([^']+)'/i", "unaccent(\\1) ILIKE unaccent('\\2')", $this->strStringSQL);
 
-      $this->strStringSQL = preg_replace("/fcn_upper_nrm/i", "to_ascii", $this->strStringSQL);
+      $this->strStringSQL = preg_replace("/fcn_upper_nrm/i", "unaccent", $this->strStringSQL);
     }
 
     $temp = explode("'", $this->strStringSQL);

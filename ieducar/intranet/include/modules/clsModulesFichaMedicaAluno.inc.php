@@ -602,7 +602,7 @@ class clsModulesFichaMedicaAluno
     /*
     $whereAnd = " WHERE ";
     if (is_string($altura)) {
-      $filtros .= "{$whereAnd} TO_ASCII(LOWER(altura)) LIKE TO_ASCII(LOWER('%{$altura}%'))";
+      $filtros .= "{$whereAnd} unaccent(LOWER(altura)) LIKE unaccent(LOWER('%{$altura}%'))";
       $whereAnd = " AND ";
     }*/
     $db = new clsBanco();

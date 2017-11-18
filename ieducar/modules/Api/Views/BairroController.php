@@ -50,7 +50,7 @@ class BairroController extends ApiCoreController
   }
   protected function sqlsForStringSearch() {
     $sqls[] = "select idbai as id, nome as name, zona_localizacao from
-                 public.bairro where lower(to_ascii(nome)) like '%'||lower(to_ascii($1))||'%' and idmun = $2 ";
+                 public.bairro where lower(unaccent(nome)) like '%'||lower(unaccent($1))||'%' and idmun = $2 ";
     return $sqls;
   }
   public function Gerar() {

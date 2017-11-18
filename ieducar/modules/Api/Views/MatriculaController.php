@@ -79,7 +79,7 @@ class MatriculaController extends ApiCoreController
             pmieducar.aluno, cadastro.pessoa where aluno.cod_aluno = matricula.ref_cod_aluno and
             pessoa.idpes = aluno.ref_idpes and aluno.ativo = matricula.ativo and
             matricula.ativo = 1 and matricula.aprovado in (1, 2, 3, 4, 7, 8, 9) and
-            lower(to_ascii(pessoa.nome)) like lower(to_ascii($1))||'%' and
+            lower(unaccent(pessoa.nome)) like lower(unaccent($1))||'%' and
             (select case when $2 != 0 then matricula.ref_ref_cod_escola = $2 else 1=1 end) and
             (select case when $3 != 0 then matricula.ano = $3 else 1=1 end) group by aluno.cod_aluno, pessoa.nome limit 15";
   }

@@ -46,8 +46,8 @@ class LogradouroController extends ApiCoreController
   protected function sqlsForStringSearch() {
     $sqls[] = "select distinct idlog as id, nome as name, descricao as tipo_logradouro from
                  public.logradouro l left join urbano.tipo_logradouro tl on (l.idtlog = tl.idtlog) 
-                 where (lower(to_ascii(nome)) like '%'||lower(to_ascii($1))||'%' 
-                 OR lower(to_ascii(descricao))|| ' ' ||lower(to_ascii(nome)) like '%'||lower(to_ascii($1))||'%') 
+                 where (lower(unaccent(nome)) like '%'||lower(unaccent($1))||'%' 
+                 OR lower(unaccent(descricao))|| ' ' ||lower(unaccent(nome)) like '%'||lower(unaccent($1))||'%') 
                  and idmun = $2 ";
     return $sqls;
   }  
