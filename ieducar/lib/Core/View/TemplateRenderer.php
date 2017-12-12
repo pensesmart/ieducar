@@ -31,12 +31,18 @@ class TemplateRenderer
 			'strict_variables' => true,
 		);
 
+		$rootPath = PROJECT_ROOT . '/views';
+
 		$templateDirs = array_merge(
-			array(PROJECT_ROOT . '/views'), // Base directory with all templates
+			array($rootPath), // Base directory with all templates
 			$templateDirs
 		);
 
 		$this->loader = new Twig_Loader_Filesystem($templateDirs);
+
+		$this->loader->addPath($rootPath . '/pages', 'pages');
+		$this->loader->addPath($rootPath . '/partials', 'partials');
+
 		$this->environment = new Twig_Environment($this->loader, $envOptions);
 	}
 

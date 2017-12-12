@@ -1,0 +1,30 @@
+
+{% block tabela_lista %}
+
+		<table id="table_id" class="table table-striped table-bordered" cellspacing="0" width="100%">
+			<thead>
+				<tr>
+					{% for coluna in cabecalho %}
+						<th>{{ coluna }}</th>
+					{% endfor %}
+				</tr>
+			</thead>
+			<tfoot>
+				<tr>
+					{% for coluna in cabecalho %}
+						<th>{{ coluna }}</th>
+					{% endfor %}
+				</tr>
+			</tfoot>
+			<tbody>
+				{% for linha in linhas %}
+					<tr>
+						{% for coluna in linha %}
+							<th>{{ coluna|raw }}</th>
+						{% endfor %}
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+
+{% endblock %}
