@@ -20,8 +20,8 @@ INSERT INTO urbano.cep_logradouro (SELECT 85858560, idlog, NULL, NULL, NULL, NUL
 INSERT INTO urbano.cep_logradouro (SELECT 85854070, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Ágata');
 INSERT INTO urbano.cep_logradouro (SELECT 85856010, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Agenor Marins');
 INSERT INTO urbano.cep_logradouro (SELECT 85863140, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Agostinho Lavado Felipe');
-INSERT INTO urbano.cep_logradouro (SELECT 85855530, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Águamarinha');
-INSERT INTO urbano.cep_logradouro (SELECT 85854240, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Águamarinha');
+INSERT INTO urbano.cep_logradouro (SELECT 85855530, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Água-marinha');
+INSERT INTO urbano.cep_logradouro (SELECT 85854240, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Água-marinha');
 INSERT INTO urbano.cep_logradouro (SELECT 85859580, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'das Águias');
 INSERT INTO urbano.cep_logradouro (SELECT 85857660, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Airton Moreira');
 INSERT INTO urbano.cep_logradouro (SELECT 85859120, idlog, NULL, NULL, NULL, NULL, 'U', 1, '2014-01-14 05:53:32.902819', 'I', NULL, 9 FROM public.logradouro WHERE nome = 'Airton Moreira');
